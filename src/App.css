@@ -1,20 +1,47 @@
+.carousel-control-next-icon{
+  
 
 
+  
+}
+
+.card_btn {
+  background-color: white;
+  color: #79493c;
+   width: 50px;
+  height:50px;
+  padding: 10px;
+  border-radius: 50% ;
+  margin: 7.5px;
+
+  border: 0px solid #ffffff;
+  box-shadow: 1px 3px 5px #888888;
+
+}
+* {box-sizing:border-box}
+
+.card_btn:hover{
+  background-color:#79493c;
+   
+  color: white;
 
 
+}
+.prd-name:hover{
+  color: #F7B0AE;
 
+}
+/* ///////////////////////////////////////////////////////////////////// */
+.containerSlide {
+  width: 650px;
+  margin: auto;
+  padding-top: 200px;
+}
 
+.containerSlide img {
+  height: 500px;
 
-
-
-
-
-
-
-
-
-
-
+}
 
 /* 
 .App {
