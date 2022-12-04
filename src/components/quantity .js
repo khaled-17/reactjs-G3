@@ -34,16 +34,24 @@ const Quantity = () => {
 
 
     return (
-        <section>
-            <form action="">
-                <p style={qty}>
-                    {/* <label for="qty">Quantity:</label> */}
-                    {/* <button style={btn} className="qtyminus" aria-hidden="true">-</button> */}
-                    <input type="number" name="qty" id="qty" min="1" max="10" step="1" value={count} />
-                    <button onClick={increment}  >=+</button>
-                </p>
-            </form>
-        </section>
+
+
+        <div>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setcount(count + 1)}>
+          Click me
+        </button>
+      </div>
+        // <section>
+        //     <form action="">
+        //         <p style={qty}>
+        //             {/* <label for="qty">Quantity:</label> */}
+        //             {/* <button style={btn} className="qtyminus" aria-hidden="true">-</button> */}
+        //             <input type="number" name="qty" id="qty" min="1" max="10" step="1" value={count} />
+        //             <button onClick={increment}  >=+</button>
+        //         </p>
+        //     </form>
+        // </section>
     );
 }
 
