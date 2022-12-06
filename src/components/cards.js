@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Cards = (props) => {
 
@@ -8,7 +9,7 @@ const Cards = (props) => {
         minWidth: '250px',
         // maxWidth:   '380px',
         // width:' 100%',
-        maxWidth: '300px',
+        maxWidth: '230px',
         height: 'auto',
 
 
@@ -39,8 +40,8 @@ const Cards = (props) => {
                 <img className="card-img-top" src={`${props.img || defult.img}`} alt="Card image cap" />
 
                 <div style={Text} className="text-center list-group-item d-flex flex-column justify-content-center ">
-
-                    <p className='prd-name'>{props.name || defult.name}</p>
+ 
+                    <p className='prd-name'> <Link to="/Singleproduct">     {props.name || defult.name}</Link> </p>
                     <strong>{props.prise || defult.prise} EGP </strong>
 
 

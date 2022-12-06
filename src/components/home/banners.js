@@ -1,12 +1,12 @@
 import React from 'react';
-import reportWebVitals from './../reportWebVitals';
-import Button from './button';
+import reportWebVitals from '../../reportWebVitals';
+import Button from '../button';
 
 const Banners = () => {
 
 
- 
-  
+
+
 
 
 

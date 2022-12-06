@@ -1,10 +1,8 @@
+// import { Slider, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { Collapse } from 'react-bootstrap';
 import { AiOutlineDown } from "react-icons/ai";
 import './sidebar.css';
-
-
-
 
 
 const Sidebar = () => {
@@ -13,16 +11,23 @@ const Sidebar = () => {
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
 
+
     const [checked, setChecked] = React.useState(false);
-
     const handleChange = () => {
-      setChecked(!checked);
+        setChecked(!checked);
     };
- 
 
-    return (<  >
 
-        <aside className="filtering-sidebar w-100 container" controller="List" style={{ width: "300px" }}>
+
+    const [value, setValue] = React.useState([0, 100]);
+    const rangeSelector = (event, newValue) => {
+        setValue(newValue);
+        console.log(newValue)
+    };
+
+    return (<>
+
+        <aside className="filtering-sidebar container" controller="List" style={{ width: "300px" }}>
             <div className="filtering__widget">
                 <div data-toggle="collapse" onClick={() => setOpen1(!open1)} aria-controls="example-collapse-text"
                     aria-expanded={open1} href="#catCollapse" role="button" className="filtering__widget-title mb-3 d-flex justify-content-between collapsed">
@@ -120,23 +125,22 @@ const Sidebar = () => {
                 <button type="button" className="clear__filter">Clear</button>
             </div>
             <div className="filtering__widget">
-                <div data-toggle="collapse" href="#priceCollapse" role="button" onClick={() => setOpen3(!open3)} aria-controls="example-collapse-text" aria-expanded={open3}
+                <div data-toggle="collapse" href="#priceCollapse" role="button" onClick={() => setOpen3(!open3)}
+                 aria-controls="example-collapse-text" aria-expanded={open3}
                     className="filtering__widget-title mb-3 d-flex justify-content-between">
                     <h5>Price</h5>
                     <i>{AiOutlineDown}</i>
                 </div>
                 <Collapse in={open3}>
                     <div className="filtering__panel" id="example-collapse-text">
-                         <div fragment="1eeb0e19fa" id="slider-range" className="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                            <div className="ui-slider-range ui-corner-all ui-widget-header" style={{ left: "0%", width: "100%" }}>
+                        <div style={{margin: 'auto',display: 'block', width: "100%"}}>
+                            {/* <Typography id="range-slider" gutterBottom style={{color:"white"}}></Typography> */}
+                            {/* <Slider value={value} onChange={rangeSelector} valueLabelDisplay="auto"/> */}
+                            <div fragment="1eeb0e19fa" className="slider-result">
+                                <span id="minrangeSliderResult">{value[0]} EGP</span> -
+                                <span id="maxrangeSliderResult"> {value[1]} EGP</span>
                             </div>
-                            <span tabIndex="0" className="ui-slider-handle ui-corner-all ui-state-default" style={{ left: "0%" }}></span>
-                            <span tabIndex="0" className="ui-slider-handle ui-corner-all ui-state-default" style={{ left: "100%" }}></span>
                         </div>
-                        <div fragment="1eeb0e19fa" className="slider-result">
-                            <span id="minrangeSliderResult">16 EGP</span> -
-                            <span id="maxrangeSliderResult"> 426 EGP</span>
-                        </div> 
                     </div>
                 </Collapse>
             </div>

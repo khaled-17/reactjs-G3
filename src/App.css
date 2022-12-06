@@ -4,6 +4,35 @@
 
   
 }
+.button-prod{
+  background-color: #79493c;
+  color: #fff;
+ }
+/* .button-prod:hover{
+  background-color:#F6B0AB;
+  color: #FAFCFF;
+} */
+
+
+
+.button-Quantity:hover{
+  font-size: ' 30px';
+
+  background-color:#F6B0AB;
+  color: #FAFCFF;
+}
+
+
+/* //////////////////// */
+.button-prod2{
+  background-color: #F6B0AB;
+  color: #FAFCFF;
+ }
+.button-prod2:hover{
+  background-color:#6F3C2E;
+  color: #FAFCFF;
+}
+
 
 .card_btn {
   background-color: white;

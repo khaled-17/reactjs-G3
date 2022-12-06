@@ -1,6 +1,22 @@
 
 
 
+.css-eg0mwd-MuiSlider-thumb{
+    color: #f7f4f4;
+    width: 15px;
+    height:15px;
+
+}
+
+.css-eg0mwd-MuiSlider-thumb:active{
+color: #0b90b9;
+}
+
+.css-14pt78w-MuiSlider-rail , .css-1gv0vcd-MuiSlider-track{
+    color: lightpink;
+}
+
+
 
 
 .filtering-sidebar {

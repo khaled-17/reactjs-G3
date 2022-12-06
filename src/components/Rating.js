@@ -44,14 +44,14 @@ class Rating extends Component {
         const { stars, rating, hovered, deselectedIcon, selectedIcon } = this.state;
 
         return (
-            <div style={{width: '130px'}} >
+            <div style={{width: '100px'}} >
 
-              <div className="rating border border-primary  " >
+              <div className="rating    " >
 
                 {stars.map(star => {
                     return (
                         <span
-                        style={{cursor: 'pointer', fontSize: '30px', color: "#F6B0AB", boxSizing: 'border-box',  }}
+                        style={{cursor: 'pointer', fontSize: '20px', color: "#F6B0AB", boxSizing: 'border-box',  }}
                         // style={{  }}
                         onClick={() => { this.changeRating(star); }}
                         onMouseEnter={() => { this.hoverRating(star); }}
