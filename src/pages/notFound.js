@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import Footerc from '../components/footerc';
+import Footermain from './../components/footermain';
+import Cards from './../components/cards';
+import Slideshow from './../components/Slideshow';
+import Newproduct from './../components/newproduct';
+import Monthspecials from './../components/monthspecials';
+import Banners from './../components/banners';
 
 class NotFound extends Component {
     render() {
@@ -11,9 +18,9 @@ class NotFound extends Component {
 
         return (
             < >
-                <div className='d-flex justify-content-center '>
+                {/* <div className='d-flex justify-content-center '>
                     <img style={mystyle} src="https://elabdfoods.com/public/Content/images/shapes/Group%202576.jpg" alt="BigCo Inc. logo" />
-                </div>
+                </div> */}
                 {/* <Cards/> */}
                      
                   

@@ -1,11 +1,6 @@
 import React from 'react';
-import { Outlet, Link } from "react-router-dom";
-import { FaCcVisa, FaCcMastercard, FaCashRegister } from 'react-icons/fa';
-import { useTranslation } from 'react-i18next';
-
 
 const Footermain = () => {
-    const { t } = useTranslation();
 
     const icon = {
         color: "white",
@@ -13,11 +8,8 @@ const Footermain = () => {
         // backgroundColor: 'blue',
         padding: "2px",
         border: '1px',
-        borderRadius: ' 20% ',
+        borderRadius: ' 20% '
         // margin: "10px",
-        // width:'100px',
-        fontsize: '600px',
-
     }
 
     const font = {
@@ -56,11 +48,18 @@ const Footermain = () => {
 
 
                     <div >
-                        <FaCcVisa style={icon} className="m-2" />
-                        <FaCcMastercard style={icon} className="m-2" />
-                        <FaCashRegister style={icon} className="m-2" />
 
+                        <svg style={{ margin: "10px" }} xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" className="bi bi-book-half" viewBox="0 0 16 16">
+                            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                        </svg>
 
+                        <svg style={{ margin: "10px" }} xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" className="bi bi-book-half" viewBox="0 0 16 16">
+                            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                        </svg>
+
+                        <svg style={{ margin: "10px" }} xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" className="bi bi-book-half" viewBox="0 0 16 16">
+                            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                        </svg>
                     </div>
 
 
@@ -70,8 +69,8 @@ const Footermain = () => {
                     <ul style={font}>
                         <h6> Our Categories</h6>
 
-                        <li><Link to="/CategoryID">Oriental Sweets</Link></li>
 
+                        <li>Oriental Sweets</li>
                         <li>Western Sweets</li>
                         <li>Nuts and Yameesh</li>
                         <li>Kahk and Biscuits</li>
@@ -87,15 +86,15 @@ const Footermain = () => {
                     <ul style={font}>
                         <h6>About Us</h6>
 
-                        <li><Link to="/AboutUs">{t('home')} About Us</Link></li>
+                        <li>About Us</li>
                         <li>Stores</li>
-                        <li><Link to="/TermsandConditions">Terms and Conditions</Link></li>
+                        <li>Terms and Conditions</li>
                     </ul>
 
                 </div>
 
 
-                <div className="col-md col-sm-12">
+                <div className="col">
                     <h5>Follow Us On</h5>
                     <svg style={{ margin: "10px", color: "#7D3C2E" }} xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">
                         <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />

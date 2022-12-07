@@ -6,7 +6,17 @@
 
 import React from 'react';
 
- 
+// const Carousel = () => {
+
+//     return (
+//         <div>
+//             nnnnn
+//         </div>
+//     );
+// }
+
+// export default Carousel;
+
 
 import { Carousel, Stack, Button } from "react-bootstrap";
 import Cards from './cards';

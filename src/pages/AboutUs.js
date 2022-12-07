@@ -1,18 +1,11 @@
 import React from 'react';
 import Footerc from '../components/footerc';
 import Footermain from './../components/footermain';
-import { Trans, useTranslation } from 'react-i18next';
-
 
 const AboutUs = () => {
-    const { t } = useTranslation();
     return (
 
         <>
-            {/* <h1><T keyName="hello_world">Hello world!</T></h1> */}
-            <p>
-                <Trans t={t}>this-is-page2</Trans>
-            </p>
 
             <div className="container">
                 <p>The journey of El Abd Patisserie began in 1974 when the first branch was opened in downtown on Talaat Harb Street. That’s when we started writing the history of El Abd and carving a big name in the production of Eastern and Western sweets as well as bakery. Later, in 1996, another branch was opened on 26th July Street in downtown.</p>

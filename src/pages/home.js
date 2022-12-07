@@ -1,32 +1,26 @@
 import React from 'react';
-import Slideshow from '../components/home/Slideshow';
-import Newproduct from '../components/home/newproduct';
+import Slideshow from './../components/Slideshow';
+import Newproduct from './../components/newproduct';
 import Monthspecials from './../components/monthspecials';
-import Banners from '../components/home/banners';
-import Carou from './../components/carou';
+import Banners from './../components/banners';
+import Carousels from './../components/Carousel';
 import Footermain from './../components/footermain';
 import Footerc from './../components/footerc';
-import Header from './../components/header/header';
-import Filter from './../components/Filter';
-import Carousels from './../components/Carousel';
- 
+
 const Home = () => {
     return (
         <div>
-            <Header />
             <Slideshow />
             <Newproduct />
 
             {/* <Monthspecials /> */}
-            <Filter />
             <Carousels />
-            <Carou/>
 
 
             <Banners />
-            {/* <Carousels /> */}
-            <Footermain />
-            <Footerc />
+            <Carousels />
+            <Footermain/>
+            <Footerc/>
         </div>
     );
 }

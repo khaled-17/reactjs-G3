@@ -1,3 +1,4 @@
+
 .carousel-container {
     width: 100%;
     display: flex;
@@ -34,18 +35,6 @@
     flex-grow: 1;
 }
 
-.carousel-content.show-2 > * {
-    width: 50%;
-}
-
-.carousel-content.show-3 > * {
-    width: calc(100% / 3);
-}
-
-.carousel-content.show-4 > * {
-    width: calc(100% / 4);
-}
-
 .left-arrow, .right-arrow {
     position: absolute;
     z-index: 1;
@@ -65,9 +54,14 @@
 .right-arrow {
     right: 24px;
 }
+.carousel-content.show-2 > * {
+    width: 50%;
+}
 
-@media (hover: none) and (pointer: coarse) {
-    .left-arrow, .right-arrow {
-        display: none;
-    }
+.carousel-content.show-3 > * {
+    width: calc(100% / 3);
+}
+
+.carousel-content.show-4 > * {
+    width: calc(100% / 4);
 }
