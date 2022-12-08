@@ -3,14 +3,14 @@ import Button from './button';
 
 const Newproduct = () => {
     const img = {
-        // height: '450px'
+        height: '450px'
     }
 
 
 
 
     return (
-        <div className='container-md p-3'>
+        <div className='container p-3'>
             <div className='row'>
 
                 <div className='col-lg-5 col-md-12'>
