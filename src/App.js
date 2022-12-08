@@ -12,7 +12,7 @@ import Singleproduct from './pages/singleproduct';
 function App() {
   return (
     <>
-    <Singleproduct/>
+    <Home/>
  
      
     </>
