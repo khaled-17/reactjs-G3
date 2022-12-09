@@ -14,6 +14,7 @@ const Banners = () => {
     position: 'absolute', /* becomes a layer */
     left: '30%', /* relative to its parent wrapper */
     top: '60%', /* relative to its parent wrapper */
+    // top: '60%', /* relative to its parent wrapper */
 
     // transform: 'translate(-50%, -50%)',
     // msTransform:' translate(-50%, -50%)',
