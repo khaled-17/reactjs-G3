@@ -20,7 +20,7 @@ const Home = () => {
             {/* <Monthspecials /> */}
             <Filter />
             <Carousels />
-            <Carou/>
+            {/* <Carou/> */}
 
 
             <Banners />
