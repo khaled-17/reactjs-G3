@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
@@ -7,79 +9,101 @@ import Footermain from './../components/footermain';
 
 
 const CategoryID = () => {
+
+    const [loading, setLoading] = useState(false);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const loadPost = async () => {
+
+            // Till the data is fetch using API 
+            // the Loading page will show.
+            setLoading(true);
+
+            // Await make wait until that 
+            // promise settles and return its result
+            const response = await axios.get(
+                "https://jsonplaceholder.typicode.com/posts/");
+
+            // After fetching data stored it in posts state.
+            setPosts(response.data);
+
+            // Closed the loading page
+            setLoading(false);
+        }
+
+        // Call the function
+        loadPost();
+    }, []);
+
+
     return (
 
         <>
-            <Header/>
-            <div className="containekr  text-center">
+            <Header />
+            <div className="container-fluid  text-center">
                 <div className="row">
-                    <div className='col-3 d-none d-lg-block' style={{ height: '500px' }}>
+                    <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>
 
 
-                        <Sidebar/>
+                        <Sidebar />
 
                     </div>
 
                     {/* ///////////////////////////////////////////// */}
 
-                    <div className=" col-lg-9  ">
+                    <div className=" col-lg-9   ">
 
 
-                        <div className="container ">
-                            <div className="row">
-                                <div className="col m-2 text-start">
-                                    <h6 >Showing 21 Of 68</h6>
-                                </div>
-                                <div className="col text-center ">
 
-                                    <button type="button" className=" d-lg-none   btn btn-sm btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" ><svg xmlns="http://wwww3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-funnel-fill" viewBox="0 0 16 16">
-                                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
-                                    </svg> Filter</button>
+                        <div className="row">
 
-                                </div>
-
-
-                                <div className="col  text-end d-flex align-content-center">
-                                    <h6 className='m-2 '>Sort BY </h6>
-                                    <select className="form-select-sm btn-sm border-0" style={{ height: '41px' }}>
-                                        <option selected="">New Arrivals</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-
-                                </div>
+                            <div className="col m-2 text-start">
+                                <h6 >Showing 21 Of 68</h6>
                             </div>
+                            <div className="col text-center ">
+
+                                <button type="button" className=" d-lg-none   btn btn-sm btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" ><svg xmlns="http://wwww3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-funnel-fill" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+                                </svg> Filter</button>
+
+                            </div>
+                            <div className="col  text-end d-flex align-content-center">
+                                <h6 className='m-2 '>Sort BY </h6>
+                                <select className="form-select-sm btn-sm border-0" style={{ height: '41px' }}>
+                                    <option selected="">New Arrivals</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+
+                            </div>
+
+
+
+
+
+                        <div className=" d-flex flex-wrap justify-content-center" >
+
+                            {loading ? (
+                                <h4>Loading...</h4>) :
+                                (posts.map((item) =>
+                                    // Presently we only fetch 
+                                    // title from the API 
+                                    <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
+                                        {/* {item.title} */}
+                                        <Cards name="title" />
+                                    </div>
+                                )
+                                )
+                            }
                         </div>
-                        <div className="d-flex flex-wrap justify-content-center">
-
-                           
-
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-
-
-
                         </div>
-
-
-
 
                     </div>
 
 
 
-                    {/* col-md-4 */}
-                    {/* col-md-4 */}
 
 
 

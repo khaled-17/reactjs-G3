@@ -25,9 +25,10 @@ const Sidebar = () => {
         console.log(newValue)
     };
 
-    return (<>
+    return (
+    <>
 
-        <aside className="filtering-sidebar container" controller="List" style={{ width: "300px" }}>
+        <aside className="filtering-sidebar container w-100" controller="List" style={{ width: "300px" }}>
             <div className="filtering__widget">
                 <div data-toggle="collapse" onClick={() => setOpen1(!open1)} aria-controls="example-collapse-text"
                     aria-expanded={open1} href="#catCollapse" role="button" className="filtering__widget-title mb-3 d-flex justify-content-between collapsed">
