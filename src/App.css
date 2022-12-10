@@ -37,11 +37,11 @@
 .card_btn {
   background-color: white;
   color: #79493c;
-   width: 50px;
-  height:50px;
-  padding: 10px;
+   width: 40px;
+  height:40px;
+  padding: 2px;
   border-radius: 50% ;
-  margin: 7.5px;
+  margin: 6.5px;
 
   border: 0px solid #ffffff;
   box-shadow: 1px 3px 5px #888888;

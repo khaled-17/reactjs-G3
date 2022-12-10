@@ -28,16 +28,20 @@ const Cards = (props) => {
 
     const defult = {
         name: "Coodkies Elabd chocolate 6pcs",
+        // img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
         img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
         prise: "45"
     }
 
 
     return (
-        <div className="card" style={{ width: '99%', height: '23rem' }} >
+        <div className="card" style={{ width: '99%', height: '16rem' }}  >
 
             <ul className="list-group list-group-flush">
-                <img className="card-img-top" src={`${props.img || defult.img}`} alt="Card image cap" />
+                <div style={{height:"140px"}} >
+                    
+                <img  className="  imgcarda card-img-top" src={`${props.img || defult.img}`} alt="Card image cap" />
+                </div>
 
                 <div style={Text} className="text-center list-group-item d-flex flex-column justify-content-center ">
  
