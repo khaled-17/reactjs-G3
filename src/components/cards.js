@@ -35,7 +35,7 @@ const Cards = (props) => {
 
 
     return (
-        <div className="card" style={{ width: '99%', height: '16rem' }}  >
+        <div className="card h-100 w-100 " style={{ width: '99%', height: '16rem' }}  >
 
             <ul className="list-group list-group-flush">
                 <div style={{height:"140px"}} >

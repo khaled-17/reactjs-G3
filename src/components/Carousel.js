@@ -44,7 +44,7 @@ export default function Carousels() {
                             <Stack direction="horizontal" className="h-10 justify-content-center align-items-center" gap={2}>
 
 
-                                <div style={{ width: "22rem" }}>
+                                <div className='border border-success' style={{ width: "22rem" }}>
                                     <Cards name={`${review._id}`} />
 
                                 </div>
