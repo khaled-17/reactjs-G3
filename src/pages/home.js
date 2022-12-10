@@ -18,9 +18,9 @@ const Home = () => {
             <Newproduct />
 
             {/* <Monthspecials /> */}
-            <Filter />
+            {/* <Filter /> */}
             <Carousels />
-            <Carou/>
+            {/* <Carou/> */}
 
 
             <Banners />

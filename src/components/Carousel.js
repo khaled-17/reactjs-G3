@@ -1,12 +1,5 @@
-
-
-
-
-
-
-import React from 'react';
-
- 
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
 import { Carousel, Stack, Button } from "react-bootstrap";
 import Cards from './cards';
@@ -19,6 +12,36 @@ export default function Carousels() {
     // if (isLoading) {
     //   return <Loading></Loading>;
     // }
+    ////////////////////////////////////
+    const [loading, setLoading] = useState(false);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const loadPost = async () => {
+
+            // Till the data is fetch using API 
+            // the Loading page will show.
+            setLoading(true);
+
+            // Await make wait until that 
+            // promise settles and return its result
+            const response = await axios.get(
+                "https://jsonplaceholder.typicode.com/posts/");
+
+            // After fetching data stored it in posts state.
+            setPosts(response.data);
+
+            // Closed the loading page
+            setLoading(false);
+        }
+
+        // Call the function
+        loadPost();
+    }, []);
+
+
+
+
     const reviews = [
         { _id: 1, text: "abc" },
         { _id: 2, text: "def" },
@@ -32,36 +55,40 @@ export default function Carousels() {
     ];
 
     return (
-        <div>
+        <div className='w-100  ' >
             {/* <h1 className=" my-5">
         User Reviews ({reviews.length})
       </h1> */}
-            <div className="bg-dark  my-5">
-                <Carousel  style={{ height: 400 }}>
+            <div className=" h-100 my-1 ">
+                <Carousel className='' style={{ height: 345 }}>
                     {reviews.map((review, index) => (
-                        <Carousel.Item  style={{ height: 500 }}>
+                        <Carousel.Item  >
 
                             <Stack direction="horizontal" className="h-10 justify-content-center align-items-center" gap={2}>
 
 
-                                <div style={{ width: "22rem" }}>
-                                    <Cards name={`${review._id}`} />
+                                {loading ? (
+                                    <h4>Loading...</h4>) :
+                                    (posts.map((item) =>
+                                        // Presently we only fetch 
+                                        // title from the API 
+                                        <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem",height: 'auto'   }} >
+                                            {/* {item.title} */}
+                                            {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
+                                                <Cards name={`${review._id}`} />
 
-                                </div>
-                                <div style={{ width: "22rem" }}>
-                                    <Cards name={`${review.text}`} />
-
-
-                                </div>
-                                <div style={{ width: "22rem" }}>
-                                    <Cards name={`${review.text}`} />
-
-                                </div>
-                                <div style={{ width: "22rem" }}>
-                                    <Cards name={`${review.text}`} />
+                                            {/* </div> */}
 
 
-                                </div>
+                                        </div>
+                                    )
+                                    )
+                                }
+
+
+
+
+
 
 
 
