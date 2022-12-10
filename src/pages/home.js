@@ -9,11 +9,13 @@ import Footerc from './../components/footerc';
 import Header from './../components/header/header';
 import Filter from './../components/Filter';
 import Carousels from './../components/Carousel';
+import Sidebar from './../components/sidebar/sidebar';
  
 const Home = () => {
     return (
         <div>
             <Header />
+            
             <Slideshow />
             <Newproduct />
 
@@ -31,6 +33,8 @@ const Home = () => {
 
             <Footermain />
             <Footerc />
+            <Sidebar />
+
         </div>
     );
 }
