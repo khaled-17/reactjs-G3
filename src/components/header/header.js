@@ -116,7 +116,7 @@ const Header = () => {
             <Nav.Link href={url} className="navbar-brand" onClick={handleShow}>
               <i style={{ color: "#6f3c2e", fontSize: "20px" ,marginRight:"0"}}><FaSearch /></i>
             </Nav.Link>
-            <Modal show={show} onHide={handleClose} id="modal" style={{marginRight:"0"}} >
+            <Modal show={show} onHide={handleClose} id="modal" >
               {/* <Modal.Header closeButton id="modalheader"></Modal.Header> */}
               <Modal.Body id="modalbody" >
                 <Form.Control id="modalinput" type="search" aria-label="Example text with button addon"

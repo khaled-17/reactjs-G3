@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
-
+ 
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
 import Footerc from '../components/footerc';
 import Footermain from './../components/footermain';
 
+import axios from 'axios';
 
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
-
     useEffect(() => {
         const loadPost = async () => {
 
@@ -35,7 +34,6 @@ const CategoryID = () => {
         // Call the function
         loadPost();
     }, []);
-
 
     return (
 
