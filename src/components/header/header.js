@@ -121,7 +121,6 @@ const Header = () => {
               <i style={{ color: "#6f3c2e", fontSize: "20px" }}><FaSearch /></i>
             </Nav.Link>
             <Modal show={show} onHide={handleClose} id="modal" >
-              {/* <Modal.Header closeButton id="modalheader"></Modal.Header> */}
               <Modal.Body id="modalbody" >
                 <Form.Control id="modalinput" type="search" aria-label="Example text with button addon"
                   aria-describedby="basic-addon1" placeholder=" search" autoFocus />
