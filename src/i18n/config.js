@@ -8,7 +8,7 @@ i18n.use(initReactI18next).init({
     en: {
       translations: require('./locales/en/translations.json')
     },
-    es: {
+    ar: {
       translations: require('./locales/ar/translations.json')
     }
   },
@@ -16,6 +16,6 @@ i18n.use(initReactI18next).init({
   defaultNS: 'translations'
 });
 
-i18n.languages = ['en', 'es'];
+i18n.languages = ['en', 'ar'];
 
 export default i18n;

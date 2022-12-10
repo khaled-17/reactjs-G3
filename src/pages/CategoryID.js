@@ -40,7 +40,7 @@ const CategoryID = () => {
     return (
 
         <>
-            <Header />
+            <Header/>
             <div className="container-fluid  text-center">
                 <div className="row">
                     <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>

@@ -16,16 +16,12 @@ const Home = () => {
             <Header />
             <Slideshow />
             <Newproduct />
-
-            {/* <Monthspecials /> */}
-            {/* <Filter /> */}
+ 
             <Carousels />
-            {/* <Carou/> */}
-
+ 
 
             <Banners />
-            {/* <Carousels /> */}
-            <h2 className='m-4 col-12 d-flex justify-content-center'>Best Seller</h2>
+             <h2 className='m-4 col-12 d-flex justify-content-center'>Best Seller</h2>
 
             <Carousels />
 

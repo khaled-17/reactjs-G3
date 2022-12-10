@@ -77,6 +77,7 @@ const Footermain = () => {
                         <Link  style={font} to="/CategoryID"><li>Oriental Sweets</li></Link>
 
                         <li>Western Sweets</li>
+                        
                         <li>Nuts and Yameesh</li>
                         <li>Kahk and Biscuits</li>
                         <li>Beverages</li>
@@ -91,7 +92,7 @@ const Footermain = () => {
                     <ul style={font}>
                         <h6>About Us</h6>
 
-                        <li><Link style={font} to="/AboutUs">{t('home')} About Us</Link></li>
+                        <li><Link style={font} to="/AboutUs">{t('AboutUs')} </Link></li>
                         <li>Stores</li>
                         <li><Link style={font} to="/TermsandConditions">Terms and Conditions</Link></li>
                     </ul>
