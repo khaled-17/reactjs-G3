@@ -25,6 +25,10 @@ const Home = () => {
 
             <Banners />
             {/* <Carousels /> */}
+            <h2 className='m-4 col-12 d-flex justify-content-center'>Best Seller</h2>
+
+            <Carousels />
+
             <Footermain />
             <Footerc />
         </div>

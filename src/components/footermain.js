@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 import { FaCcVisa, FaCcMastercard, FaCashRegister } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import './btn.css';
 
 
 const Footermain = () => {
@@ -26,6 +27,9 @@ const Footermain = () => {
         listStyleType: 'none',
         margin: "1px",
         padding: 0,
+        textDecoration: 'none',
+        display: 'inline-block',
+    
 
 
 
@@ -33,7 +37,7 @@ const Footermain = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container pt-5">
             <div className="row">
                 <div className="col-md col-sm-12" >
                     <ul style={font}>
@@ -66,11 +70,11 @@ const Footermain = () => {
 
                 </div>
 
-                <div className="col">
+                <div className="col ">
                     <ul style={font}>
                         <h6> Our Categories</h6>
 
-                        <li><Link to="/CategoryID">Oriental Sweets</Link></li>
+                        <Link  style={font} to="/CategoryID"><li>Oriental Sweets</li></Link>
 
                         <li>Western Sweets</li>
                         <li>Nuts and Yameesh</li>
@@ -87,9 +91,9 @@ const Footermain = () => {
                     <ul style={font}>
                         <h6>About Us</h6>
 
-                        <li><Link to="/AboutUs">{t('home')} About Us</Link></li>
+                        <li><Link style={font} to="/AboutUs">{t('home')} About Us</Link></li>
                         <li>Stores</li>
-                        <li><Link to="/TermsandConditions">Terms and Conditions</Link></li>
+                        <li><Link style={font} to="/TermsandConditions">Terms and Conditions</Link></li>
                     </ul>
 
                 </div>

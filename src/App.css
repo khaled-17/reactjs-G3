@@ -12,7 +12,11 @@
   background-color:#F6B0AB;
   color: #FAFCFF;
 } */
-
+h2{
+  color:#6f3c2e;
+  font-family: Cairo,sans-serif;
+    background-color: #fff;
+}
 
 
 .button-Quantity:hover{
@@ -106,3 +110,4 @@
     transform: rotate(360deg);
   }
 } */
+
