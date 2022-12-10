@@ -6,6 +6,7 @@ import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
 import Footerc from '../components/footerc';
 import Footermain from './../components/footermain';
+import Loader from '../components/loader/loader';
 
 
 const CategoryID = () => {
@@ -86,7 +87,7 @@ const CategoryID = () => {
                         <div className=" d-flex flex-wrap justify-content-center" >
 
                             {loading ? (
-                                <h4>Loading...</h4>) :
+                                <Loader/> ) :
                                 (posts.map((item) =>
                                     // Presently we only fetch 
                                     // title from the API 
