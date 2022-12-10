@@ -104,7 +104,6 @@ const Cards = (props) => {
 
 
 
-
         // {/* <div className="card" style={mystyle}>
         //   <div className="card-body">
         //     <h5 className="card-title">name product</h5>
@@ -171,5 +170,4 @@ export default Cards;
 
 
 </ul>
-</div> 
-*/}
+</div> */}
