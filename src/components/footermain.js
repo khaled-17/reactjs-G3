@@ -95,7 +95,7 @@ const Footermain = () => {
                         <li>Stores</li>
                         <li><Link style={font} to="/TermsandConditions">Terms and Conditions</Link></li>
                     </ul>
-
+{/* و */}
                 </div>
 
 
