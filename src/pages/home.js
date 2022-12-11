@@ -9,11 +9,13 @@ import Footerc from './../components/footerc';
 import Header from './../components/header/header';
 import Filter from './../components/Filter';
 import Carousels from './../components/Carousel';
+import Hederlang from './../components/hederlang';
 import Sidebar from './../components/sidebar/sidebar';
  
 const Home = () => {
     return (
-        <div>
+        <>
+            <Hederlang/>
             <Header />
             
             <Slideshow />
@@ -23,15 +25,14 @@ const Home = () => {
  
 
             <Banners />
-             <h2 className='m-4 col-12 d-flex justify-content-center'>Best Seller</h2>
+            <h2 className=' w-100 d-flex justify-content-center'>Best Seller</h2>
 
             <Carousels />
 
             <Footermain />
             <Footerc />
-            <Sidebar />
-
-        </div>
+ 
+        </>
     );
 }
 
