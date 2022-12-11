@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-import { Carousel, Stack, Button } from "react-bootstrap";
+import { Carousel, Stack } from "react-bootstrap";
 import Cards from './cards';
 
 export default function Carousels() {

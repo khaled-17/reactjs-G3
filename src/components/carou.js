@@ -1,3 +1,4 @@
+import React  from 'react';
 
 import Car from './car';
 import Cards from './cards';
