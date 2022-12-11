@@ -60,6 +60,9 @@ const Cards = (props) => {
                      <strong>{props.prise || defult.prise} EGP </strong>
 
 
+
+
+
                  </div>
 
                  <li className="list-group-item d-flex justify-content-center">
