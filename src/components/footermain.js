@@ -58,14 +58,10 @@ const Footermain = () => {
                         
                         <h6>{t("Payment Methods")}</h6>
                     </ul>
-
-
                     <div >
                         <FaCcVisa style={icon} className="m-2" />
                         <FaCcMastercard style={icon} className="m-2" />
                         <FaCashRegister style={icon} className="m-2" />
-
-
                     </div>
 
 
@@ -94,7 +90,9 @@ const Footermain = () => {
                         <h6>{t('AboutUs')}</h6>
 
                         <li><Link style={font} to="/AboutUs">{t('AboutUs')} </Link></li>
+                       
                         <li>{t('Stores')}</li>
+                        
                         <li><Link style={font} to="/TermsandConditions">{t('TermsandConditions')}</Link></li>
                     </ul>
 {/* و */}
