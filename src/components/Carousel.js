@@ -56,6 +56,7 @@ export default function Carousels() {
 
     return (
         <div className='w-100  ' >
+
             {/* <h1 className=" my-5">
         User Reviews ({reviews.length})
       </h1> */}
@@ -72,10 +73,10 @@ export default function Carousels() {
                                     (posts.map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
-                                        <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem",height: 'auto'   }} >
+                                        <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
-                                                <Cards name={`${review._id}`} />
+                                            <Cards name={`${review._id}`} />
 
                                             {/* </div> */}
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from './../components/Rating';
 import Footermain from './../components/footermain';
+import Carousels from './../components/Carousel';
 
 import Footerc from './../components/footerc';
 
@@ -119,6 +120,13 @@ const Singleproduct = () => {
                 Categories: Kahk and Biscuits, Petits-fours
 
             </div>
+            <h2 className='m-4 col-12 d-flex justify-content-center'>You may be interested in</h2>
+
+            <Carousels/>
+            <h2 className='m-4 col-12 d-flex justify-content-center'>Who Viewed This Viewed That</h2>
+
+            <Carousels/>
+
             <Footermain />
             <Footerc />
 

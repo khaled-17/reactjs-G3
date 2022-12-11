@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
-import { FaCcVisa, FaCcMastercard, FaCashRegister } from 'react-icons/fa';
+import { FaCcVisa, FaCcMastercard, FaCashRegister, FaYelp } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import './btn.css';
 
@@ -41,7 +41,7 @@ const Footermain = () => {
             <div className="row">
                 <div className="col-md col-sm-12" >
                     <ul style={font}>
-                        <h5>El Abd Patisserie</h5>
+                        <h5>{t("El Abd Patisserie")}</h5>
                         <li  > <svg style={icon} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                         </svg>  16437</li>
@@ -54,8 +54,9 @@ const Footermain = () => {
                         </div>
 
 
-                        <li  >Working hours from 9 AM to 12 AM, 7 days per week</li>
-                        <h6>Payment Methods</h6>
+                        <li  >"{t("Working hours")}" </li>
+                        
+                        <h6>{t("Payment Methods")}</h6>
                     </ul>
 
 
@@ -72,7 +73,7 @@ const Footermain = () => {
 
                 <div className="col ">
                     <ul style={font}>
-                        <h6> Our Categories</h6>
+                        <h6> {t('Our Categories')}</h6>
 
                         <Link  style={font} to="/CategoryID"><li>Oriental Sweets</li></Link>
 
@@ -90,11 +91,11 @@ const Footermain = () => {
                 <div className="col">
 
                     <ul style={font}>
-                        <h6>About Us</h6>
+                        <h6>{t('AboutUs')}</h6>
 
                         <li><Link style={font} to="/AboutUs">{t('AboutUs')} </Link></li>
-                        <li>Stores</li>
-                        <li><Link style={font} to="/TermsandConditions">Terms and Conditions</Link></li>
+                        <li>{t('Stores')}</li>
+                        <li><Link style={font} to="/TermsandConditions">{t('TermsandConditions')}</Link></li>
                     </ul>
 {/* و */}
                 </div>

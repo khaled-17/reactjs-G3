@@ -27,10 +27,7 @@ const Footerc = () => {
 
 
             </div>
-            <div className='footer'>
-                <button onClick={changeLanguage} value='en'>English</button>
-                <button onClick={changeLanguage} value='es'>--ar</button>
-            </div>
+         
 
         </>
     );
