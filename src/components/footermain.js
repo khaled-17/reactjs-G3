@@ -66,11 +66,9 @@ const Footermain = () => {
 
 
                     </div>
-
-
                 </div>
 
-                <div className="col ">
+                <div className="col">
                     <ul style={font}>
                         <h6> Our Categories</h6>
 

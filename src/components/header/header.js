@@ -55,7 +55,7 @@ const Header = () => {
   }
 
 
-  const url = "#"
+  const url = "/CategoryID"
 
   return (<>
 
@@ -73,44 +73,44 @@ const Header = () => {
           <Nav className="mx-auto flex-wrap">
 
             <NavDropdown id="navbarScrollingDropdown" show={drop1}
-              onMouseEnter={showDropdown1} onMouseLeave={hideDropdown1} title=" Wesrern Sweets" menuVariant="light">
+              onMouseEnter={showDropdown1} onMouseLeave={hideDropdown1} title={t(' Wesrern Sweets')} menuVariant="light">
               <div style={{ width: "500px" }}>
-                <NavDropdown.Item id="item" href="#action/3.1">Gateaux</NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.2">Cakes </NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.3">Ice Cream Cake</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Gateaux')}</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Cakes')} </NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Ice Cream Cake')}</NavDropdown.Item>
               </div>
             </NavDropdown>
 
-            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">Oriental Sweets</Nav.Link>
-            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">Bakery</Nav.Link>
+            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">{t('Oriental Sweets')}</Nav.Link>
+            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">{t('Bakery')}</Nav.Link>
 
             <NavDropdown id="navbarScrollingDropdown" show={drop2}
-              onMouseEnter={showDropdown2} onMouseLeave={hideDropdown2} title=" Nuts And Yameesh " menuVariant="light">
+              onMouseEnter={showDropdown2} onMouseLeave={hideDropdown2} title= {t('Nuts And Yameesh')}  menuVariant="light">
               <div style={{ width: "500px" }}>
-                <NavDropdown.Item id="item" href="#action/3.1">Nuts</NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.2">Yameesh </NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Nuts')}</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Yameesh')} </NavDropdown.Item>
               </div>
             </NavDropdown>
 
             <NavDropdown id="navbarScrollingDropdown" show={drop3}
-              onMouseEnter={showDropdown3} onMouseLeave={hideDropdown3} title=" Kahk And Biscuits " menuVariant="light">
-              <div style={{ width: "500px" }}>
-                <NavDropdown.Item id="item" href="#action/3.1">Biscuits</NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.2">Kahk </NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.3">Ghorayeba</NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.4">Petits-fours</NavDropdown.Item>
+              onMouseEnter={showDropdown3} onMouseLeave={hideDropdown3} title={t('Kahk And Biscuits')} menuVariant="light">
+              <div style={{ width: "500px" }}>  
+                <NavDropdown.Item id="item" href={url}>{t('Biscuits')}</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Kahk')} </NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Ghorayeba')}</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Petits-fours')}</NavDropdown.Item>
               </div>
             </NavDropdown>
 
             <NavDropdown id="navbarScrollingDropdown" show={drop4}
-              onMouseEnter={showDropdown4} onMouseLeave={hideDropdown4} title=" Beverages  " menuVariant="light">
+              onMouseEnter={showDropdown4} onMouseLeave={hideDropdown4} title= {t('Beverages')} menuVariant="light">
               <div style={{ width: "500px" }}>
-                <NavDropdown.Item id="item" href="#action/3.1">Hot Drinks</NavDropdown.Item>
-                <NavDropdown.Item id="item" href="#action/3.2">COLD Drinks </NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Hot Drinks')}</NavDropdown.Item>
+                <NavDropdown.Item id="item" href={url}>{t('Cold Drinks')} </NavDropdown.Item>
               </div>
             </NavDropdown>
 
-            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">Halawet El Moluled</Nav.Link>
+            <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">{t('Halawet El Moluled')}</Nav.Link>
           </Nav>
 
         </Navbar.Collapse>
