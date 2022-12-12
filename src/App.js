@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import './App.css';
+import { useTranslation } from 'react-i18next';
 
 import Home from './pages/home';
 import NotFound from './pages/notFound';
@@ -14,12 +14,18 @@ import AboutUs from './pages/AboutUs';
 
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  document.body.dir = i18n.dir();
+
+  
+  // console.log(isrtl);
   return (
     <>
       <BrowserRouter>
 
-        {/* <Singleproduct /> */}
-        <div dir='ltr'>
+        {/* <Singleproduct />  dir={(items=="en")?'ltr':'rtl'}*/}
+        <div >
 
           <Routes>
             <Route path="/" element={<Home />} />
