@@ -3,16 +3,19 @@ import { useTranslation } from 'react-i18next';
  
 const Hederlang = () => {
     const { t } = useTranslation();
+    const { i18n } = useTranslation();
+    let enflag = "https://elabdfoods.com/public/Content/images/usa.png"
+    let arflag = "https://elabdfoods.com/public/Content/images/egypt.png"
+
+
 
     const [items, setItems] = useState('en');
 
-
-    // useEffect(() => {
-    // }, [items]);
-
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('items'));
-        if (!items) {
+        const item = JSON.parse(localStorage.getItem('items'));
+        i18n.changeLanguage(item);
+
+        if (!item) {
             localStorage.setItem('items', JSON.stringify('en'));
         }
     }, []);
@@ -20,10 +23,6 @@ const Hederlang = () => {
 
 
 
-    const { i18n } = useTranslation();
-
-    let enflag = "https://elabdfoods.com/public/Content/images/usa.png"
-    let arflag = "https://elabdfoods.com/public/Content/images/egypt.png"
 
     function changeLanguage(e) {
         //  i18n.changeLanguage(e.target.value);
@@ -48,7 +47,7 @@ const Hederlang = () => {
                     {t('Call Us')} :16437
                 </div>
                 <div className='pb-1  style={{backgroundColor:"#f6b0ab"}}'>
-                    <button style={{ backgroundColor: "#f6b0ab" }} className=' border border-0 p-0 ' onClick={changeLanguage} value='ar'><img src={i18n.language === "en" ? enflag : arflag} /></button>
+                    <button style={{ backgroundColor: "#f6b0ab" }} className=' border border-0 p-0 ' onClick={changeLanguage} value='ar'><img src={i18n.language === "en" ?  arflag: enflag} /></button>
                 </div>
 
             </div>
