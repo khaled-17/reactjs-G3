@@ -1,6 +1,6 @@
 import React from 'react';
-import Footermain from './../components/footermain';
-import Footerc from './../components/footerc';
+import Footermain from './../components/footer/footermain';
+import Footerc from './../components/footer/footerc';
 
 const TermsandConditions = () => {
 

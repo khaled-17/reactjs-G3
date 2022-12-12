@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
-import Footerc from '../components/footerc';
+import Footerc from '../components/footer/footerc';
 import Footermain from '../components/footer/footermain';
 import Loader from '../components/loader/loader';
 

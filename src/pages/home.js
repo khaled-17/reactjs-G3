@@ -5,7 +5,7 @@ import Monthspecials from './../components/monthspecials';
 import Banners from '../components/home/banners';
 import Carou from './../components/carou';
 import Footermain from '../components/footer/footermain';
-import Footerc from './../components/footerc';
+import Footerc from './../components/footer/footerc';
 import Header from './../components/header/header';
 import Filter from './../components/Filter';
 import Carousels from './../components/Carousel';
