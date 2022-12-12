@@ -11,8 +11,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 // import { display } from "@mui/system";
-import { Link } from 'react-router-dom';
-
+ 
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
@@ -61,14 +60,12 @@ const Header = () => {
 
   return (<>
 
-    <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top ">
+    <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top " style={{ height: "110px", top: "0" }}>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Brand href={url}>
-        <Link to="/"> 
-          <img style={{ width: "100px", height: "100px", top: "0" }} loading="lazy" src={img1} alt="logo" />
-        </Link>
+          <img style={{ width: "90px", height: "90px", top: "0" }} loading="lazy" src={img1} alt="logo" />
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
 
@@ -117,33 +114,32 @@ const Header = () => {
 
         </Navbar.Collapse>
 
-        <ul class="list-unstyled header-actions d-flex mb-0">
+        <ul className="list-unstyled header-actions d-flex mb-0">
           <li>
             <Nav.Link href={url} className="navbar-brand" onClick={handleShow}>
-              <i style={{ color: "#6f3c2e", fontSize: "20px" }}><FaSearch /></i>
+              <i style={{ color: "#6f3c2e", fontSize: "20px" ,marginRight:"0"}}><FaSearch /></i>
             </Nav.Link>
             <Modal show={show} onHide={handleClose} id="modal" >
+              {/* <Modal.Header closeButton id="modalheader"></Modal.Header> */}
               <Modal.Body id="modalbody" >
                 <Form.Control id="modalinput" type="search" aria-label="Example text with button addon"
-                  aria-describedby="basic-addon1" placeholder=" search" autoFocus />
+                  aria-describedby="basic-addon1" placeholder=" Search for....." autoFocus />
                 <Button variant="outline-secondary" id="button-addon1">
                   <i style={{ color: "#6f3c2e", fontSize: "20px" }}><FaSearch /></i>
                 </Button>
-
               </Modal.Body>
             </Modal>
 
           </li>
           <li>
             <Nav.Link href={url} >
-              <i style={{ color: "#6f3c2e", fontSize: "20px" }} ><FaUserAlt /></i>
+              <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
 
           </li>
           <li>
             <Nav.Link href={url} >
-              <i style={{ color: "#6f3c2e", fontSize: "23px" }}>
-                <FaShoppingBasket />
+              <i style={{ color: "#6f3c2e", fontSize: "23px" }}><FaShoppingBasket />
                 <span className="badge rounded-pill" style={{
                   backgroundColor: "#f6b0ab", fontSize: "15px", padding: "1px 5px",
                   verticalAlign: "super", opacity: "1", fontWeight: "100"
@@ -152,7 +148,7 @@ const Header = () => {
             </Nav.Link>
 
           </li>
-          <li class="d-flex">
+          <li className="d-flex">
             <Nav.Link href={url}>
               <i style={{ color: "#6f3c2e", fontSize: "25px" }} ><MdLocationPin /></i>
             </Nav.Link>
@@ -160,13 +156,6 @@ const Header = () => {
         </ul>
       </Container>
     </Navbar>
-
-
-
-
-
-
-
   </>
   )
 }

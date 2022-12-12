@@ -4,34 +4,35 @@ import Newproduct from '../components/home/newproduct';
 import Monthspecials from './../components/monthspecials';
 import Banners from '../components/home/banners';
 import Carou from './../components/carou';
-import Footermain from './../components/footermain';
-import Footerc from './../components/footerc';
+import Footermain from '../components/footer/footermain';
+import Footerc from './../components/footer/footerc';
 import Header from './../components/header/header';
 import Filter from './../components/Filter';
 import Carousels from './../components/Carousel';
- 
+import Hederlang from './../components/hederlang';
+import Sidebar from './../components/sidebar/sidebar';
+
 const Home = () => {
     return (
-        <div>
+        <>
+            <Hederlang />
             <Header />
+
             <Slideshow />
             <Newproduct />
 
-            {/* <Monthspecials /> */}
-            {/* <Filter /> */}
             <Carousels />
-            {/* <Carou/> */}
 
 
             <Banners />
-            {/* <Carousels /> */}
-            <h2 className='m-4 col-12 d-flex justify-content-center'>Best Seller</h2>
+            <h2 className=' w-100 d-flex justify-content-center'>Best Seller</h2>
 
             <Carousels />
 
             <Footermain />
             <Footerc />
-        </div>
+
+        </>
     );
 }
 

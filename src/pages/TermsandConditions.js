@@ -1,6 +1,6 @@
 import React from 'react';
-import Footermain from './../components/footermain';
-import Footerc from './../components/footerc';
+import Footermain from './../components/footer/footermain';
+import Footerc from './../components/footer/footerc';
 
 const TermsandConditions = () => {
 
@@ -16,6 +16,8 @@ const TermsandConditions = () => {
     }
     return (
         <>
+         {/* <Hederlang/>
+            <Header /> */}
             <div style={font} className="container">
                 <p>أولاً : سياسة الخصوصية</p>
                 <p>يمكنك التأكد من أمان وسرية بياناتك الشخصية التي تقدمها لموقع "العبد فودز" حيث نضمن سريتها التامة تجاه أي طرف آخر فيما عدا الجهات الحكومية إذا لزم الأمر.

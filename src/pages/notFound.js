@@ -11,6 +11,8 @@ class NotFound extends Component {
 
         return (
             < >
+             {/* <Hederlang/> */}
+            {/* <Header /> */}
                 <div className='d-flex justify-content-center '>
                     <img style={mystyle} src="https://elabdfoods.com/public/Content/images/shapes/Group%202576.jpg" alt="BigCo Inc. logo" />
                 </div>

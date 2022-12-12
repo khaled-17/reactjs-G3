@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
 
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
-import Footerc from '../components/footerc';
-import Footermain from './../components/footermain';
+import Footerc from '../components/footer/footerc';
+import Footermain from '../components/footer/footermain';
 import Loader from '../components/loader/loader';
 
+import axios from 'axios';
 
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
-
     useEffect(() => {
         const loadPost = async () => {
 
@@ -36,7 +35,6 @@ const CategoryID = () => {
         // Call the function
         loadPost();
     }, []);
-
 
     return (
 
@@ -84,21 +82,21 @@ const CategoryID = () => {
 
 
 
-                        <div className=" d-flex flex-wrap justify-content-center" >
+                            <div className=" d-flex flex-wrap justify-content-center" >
 
-                            {loading ? (
-                                <Loader/> ) :
-                                (posts.map((item) =>
-                                    // Presently we only fetch 
-                                    // title from the API 
-                                    <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
-                                        {/* {item.title} */}
-                                        <Cards name="title" />
-                                    </div>
-                                )
-                                )
-                            }
-                        </div>
+                                {loading ? (
+                                    <Loader />) :
+                                    (posts.map((item) =>
+                                        // Presently we only fetch 
+                                        // title from the API 
+                                        <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
+                                            {/* {item.title} */}
+                                            <Cards />
+                                        </div>
+                                    )
+                                    )
+                                }
+                            </div>
                         </div>
 
                     </div>
