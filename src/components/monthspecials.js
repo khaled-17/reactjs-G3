@@ -8,10 +8,10 @@ const Monthspecials = () => {
             {/* <div > */}
             <h1 className='col-12 d-flex justify-content-center'>اختيارنا لهذا الشهر</h1>
 
-            <Cards name='prodect '  />
-            <Cards name='prodect '  />
-            <Cards name='prodect '  />
-            <Cards name='prodect '  />
+            <Cards/>
+            <Cards/>
+            <Cards/>
+            <Cards/>
 
 
         </div>

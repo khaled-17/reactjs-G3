@@ -1,8 +1,9 @@
 import React from 'react';
-import Footerc from '../components/footerc';
-import Footermain from './../components/footermain';
+import Footerc from '../components/footer/footerc';
+import Footermain from './../components/footer/footermain';
 import { useTranslation } from 'react-i18next';
 import Hederlang from './../components/hederlang';
+import Header from '.././components/header/header';
 import { Trans, withTranslation } from 'react-i18next';
 
 
@@ -13,6 +14,7 @@ const AboutUs = () => {
 
         <>
         <Hederlang/>
+        <Header/>
             {/* <h1><T keyName="hello_world">Hello world!</T></h1> */}
             <p>
 

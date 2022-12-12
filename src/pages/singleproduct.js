@@ -1,9 +1,9 @@
 import React from 'react';
 import Rating from './../components/Rating';
-import Footermain from './../components/footermain';
+import Footermain from './../components/footer/footermain';
 import Carousels from './../components/Carousel';
 
-import Footerc from './../components/footerc';
+import Footerc from './../components/footer/footerc';
 
 import { Button } from 'react-bootstrap';
 import Quantity from './../components/quantity ';
