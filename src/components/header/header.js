@@ -13,9 +13,11 @@ import Modal from 'react-bootstrap/Modal';
 // import { display } from "@mui/system";
 import { Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
 
+  const { t } = useTranslation();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
