@@ -19,6 +19,7 @@ function App() {
   document.body.dir = i18n.dir();
 
   
+  
   // console.log(isrtl);
   return (
     <>
