@@ -3,7 +3,6 @@ import elabdlogo from'./Elabd-Logo.png'
 import {FaUser} from 'react-icons/fa'
 // import './zone.scss'
 import { useState } from "react";
-import {Link} from 'react-router-dom'
 
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
@@ -81,11 +80,11 @@ console.log(branches)
     <div></div>
 
     <nav className="navbar zone-nav fixed-top ">
-    <div className="container">
+    <div className="container     ">
   
-      <Link className="navbar-brand" to="/Home">
+      <a className="navbar-brand" href="#">
         <img className=" img-fluid "  src={elabdlogo} alt="Elabd Logo"/>
-        </Link>
+        </a>
       {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
 
       <FaUser/> */}
@@ -98,13 +97,14 @@ console.log(branches)
   <div class="col dropdown-center ">
     <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " id="multiCollapseExample1">
       <div class=" card-body p-2">
-        <Link to="/login" className="btn dropdown-item icon-btn">login</Link>
+        <button className="btn dropdown-item icon-btn">login</button>
         <span ><p className="or-span">or</p></span>
-        <Link to="/Registration" className="btn dropdown-item icon-btn">create Account</Link>
+        <button className="btn dropdown-item icon-btn">create Account</button>
 
       </div>
     </div>
   </div>
+  
 </div>
       </a>
   
@@ -157,7 +157,7 @@ console.log(branches)
   </select>
 </div> */}
   <div class="col-2 ">
-    <Link to="/Home" type="submit" className="btn Gobtn ">Go</Link>
+    <button type="submit" className="btn Gobtn ">Go</button>
   </div>
 </form>
 </div>
