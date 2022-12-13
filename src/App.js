@@ -12,12 +12,6 @@ import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
 import AboutUs from './pages/AboutUs';
 
-// Mahmoud's pages import
-import Zone from './pages/zone/Zone-page'
-import Login from './pages/login/Login'
-import Registration from './pages/Registration/Registration'
-import Cart from './pages/cart/Cart'
-
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -35,19 +29,12 @@ function App() {
         <div >
 
           <Routes>
-          <Route path="/" element={<Zone />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/Registration" element={<Registration />} />
-          <Route path="/Cart" element={<Cart />} />
-
-
-
-            <Route path="/Home" element={<Home />} />
-            <Route path="/*" element={<NotFound />} />
-            <Route path="/CategoryID" element={<CategoryID />} />
-            <Route path="/TermsandConditions" element={<TermsandConditions />} />
-            <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/Singleproduct" element={<Singleproduct />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/*" element={<NotFound/>} />
+            <Route path="/CategoryID" element={<CategoryID/>} />
+            <Route path="/TermsandConditions" element={<TermsandConditions/>} />
+            <Route path="/AboutUs" element={<AboutUs/>} />
+            <Route path="/Singleproduct" element={<Singleproduct/>} />
           </Routes>
         </div>
 
