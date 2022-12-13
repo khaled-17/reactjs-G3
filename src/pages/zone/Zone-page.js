@@ -93,11 +93,11 @@ console.log(branches)
 <a className=" btn  nav-icon border border-0" type="button" data-bs-toggle="dropdown"  data-bs-display="static"  role="button" aria-expanded="false"  href="#multiCollapseExample1" aria-controls="multiCollapseExample1"> 
       <FaUser/>
 
-<div class="row">
-  <div class="col dropdown-center ">
-    <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " id="multiCollapseExample1">
-      <div class=" card-body p-2">
-        <Link to="/login" className="btn dropdown-item icon-btn">login</Link>
+<div className="row">
+  <div className="col dropdown-center ">
+    <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " id="multiCollapseExample1">
+      <div className=" card-body p-2">
+        <Link to="/Login" className="btn dropdown-item icon-btn">login</Link>
         <span ><p className="or-span">or</p></span>
         <Link to="/Registration" className="btn dropdown-item icon-btn">create Account</Link>
 
@@ -131,13 +131,13 @@ console.log(branches)
 
 <h3 className="search-title " >Select your Zone to start enjoying our Delivery service</h3>
 
-<form class="row  align-items-center ">
+<form className="row  align-items-center ">
   
-  <div class="col-10  search-bar">
-    <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+  <div className="col-10  search-bar">
+    <label className="visually-hidden" htmlFor="inlineFormSelectPref">Preference</label>
     
-    <select  class="form-select "   data-live-search="true"   id="inlineFormSelectPref">
-      <input type="search" tabindex="0" autocorrect="off" autocapitalize="none" spellcheck="false"  role="searchbox" aria-autocomplete='list' autocomplete="off"  />
+    <select  className="form-select "   data-live-search="true"   id="inlineFormSelectPref">
+      {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
        {/* <input type="search" class="selectpicker"  /> */}
       <option selected disabled>search for Zone</option>
       {branches.map((item)=>{return <option value="" role="listbox" >{item.branch}</option>})}
@@ -155,7 +155,7 @@ console.log(branches)
     <option value="4">Four</option>
   </select>
 </div> */}
-  <div class="col-2 ">
+  <div className="col-2 ">
     <Link to="/Home" type="submit" className="btn Gobtn ">Go</Link>
   </div>
 </form>
@@ -165,13 +165,13 @@ console.log(branches)
 
 
 
-<footer class=" ">
+<footer className=" ">
     <hr/>
-  <div class="container">
-    <div class="row">
-    <div class="col-12 footer__copyrights-content ">
-        <p class="my-2">© 2022 ELAbd Patisserie- All Rights Reserved</p>
-         <p class="my-2">Powered By <a href="https://linktsp.com/" className="color-heading">Link TSP</a>
+  <div className="container">
+    <div className="row">
+    <div className="col-12 footer__copyrights-content ">
+        <p className="my-2">© 2022 ELAbd Patisserie- All Rights Reserved</p>
+         <p className="my-2">Powered By <a href="https://linktsp.com/" className="color-heading">Link TSP</a>
          </p>
          </div>
     </div>
