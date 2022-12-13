@@ -1,12 +1,16 @@
 // import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+<<<<<<< Updated upstream
 import React, { Component } from 'react';
 
 // import './App.css';
 
+=======
+import React from "react";
+// import './App.css';
+>>>>>>> Stashed changes
 import Home from './pages/home';
 import NotFound from './pages/notFound';
-
 import CategoryID from './pages/CategoryID';
 import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
