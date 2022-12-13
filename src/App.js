@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 import Home from './pages/home';
 import NotFound from './pages/notFound';
-
 import CategoryID from './pages/CategoryID';
 import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
