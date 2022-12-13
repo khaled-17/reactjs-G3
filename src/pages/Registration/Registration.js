@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Registration.scss";
+// import "./Registration.scss";
 
 import { useState } from "react";
 
