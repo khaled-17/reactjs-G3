@@ -17,7 +17,7 @@ function App() {
 
   document.body.dir = i18n.dir();
 
-  
+
   
   // console.log(isrtl);
   return (
@@ -28,12 +28,12 @@ function App() {
         <div >
 
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/*" element={<NotFound />} />
-            <Route path="/CategoryID" element={<CategoryID />} />
-            <Route path="/TermsandConditions" element={<TermsandConditions />} />
-            <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/Singleproduct" element={<Singleproduct />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/*" element={<NotFound/>} />
+            <Route path="/CategoryID" element={<CategoryID/>} />
+            <Route path="/TermsandConditions" element={<TermsandConditions/>} />
+            <Route path="/AboutUs" element={<AboutUs/>} />
+            <Route path="/Singleproduct" element={<Singleproduct/>} />
           </Routes>
         </div>
 
