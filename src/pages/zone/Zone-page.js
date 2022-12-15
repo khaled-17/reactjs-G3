@@ -1,13 +1,12 @@
-import elabdlogo from'./Elabd-Logo.png'
-import {FaUser} from 'react-icons/fa'
-import './zone.scss'
+import elabdlogo from "./Elabd-Logo.png";
+import { FaUser } from "react-icons/fa";
+import "./zone.scss";
 import { useState } from "react";
-import {Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
-const Zone= () =>{
-  const branches=[
+const Zone = () => {
+  const branches = [
     {
       id: 1,
 
@@ -68,50 +67,75 @@ const Zone= () =>{
       branch: "Hadayek Alahram",
     },
   ];
-// const branchname= branches.map((branch)=>(
-    
-//     <option>{branch.branch}</option>
-// ))
-console.log(branches)
+  // const branchname= branches.map((branch)=>(
 
-    return(
+  //     <option>{branch.branch}</option>
+  // ))
+  console.log(branches);
 
-    <> 
-    <div></div>
+  return (
+    <>
+      <div></div>
 
-    <nav className="navbar zone-nav fixed-top ">
-    <div className="container">
-  
-      <Link className="navbar-brand" to="/Home">
-        <img className=" img-fluid "  src={elabdlogo} alt="Elabd Logo"/>
-        </Link>
-      {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
+      <nav className="navbar zone-nav fixed-top ">
+        <div className="container">
+          <Link className="navbar-brand" to="/Home">
+            <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
+          </Link>
+          {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
 
       <FaUser/> */}
-       {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+          {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-<a className=" btn  nav-icon border border-0" type="button" data-bs-toggle="dropdown"  data-bs-display="static"  role="button" aria-expanded="false"  href="#multiCollapseExample1" aria-controls="multiCollapseExample1"> 
+          {/* <a className=" btn  nav-icon border border-0" type="button" data-bs-toggle="dropdown"  data-bs-display="static"  role="button" aria-expanded="false"  aria-controls="multiCollapseExample1"> 
       <FaUser/>
 
 <div className="row">
   <div className="col dropdown-center ">
-    <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " id="multiCollapseExample1">
+    <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " >
       <div className=" card-body p-2">
-        <Link to="/Login" className="btn dropdown-item icon-btn">login</Link>
+  
+        <Link  to="/Login" className="btn dropdown-item icon-btn">login</Link>
+      
         <span ><p className="or-span">or</p></span>
-        <Link to="/Registration" className="btn dropdown-item icon-btn">create Account</Link>
+        <button to="/Registration" className="btn dropdown-item icon-btn">create Account</button>
 
       </div>
     </div>
   </div>
 </div>
-      </a>
-  
-  
-    </div>
-  </nav>
+      </a> */}
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="/Login">
+                  Action
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-  {/* <div class="btn-group">
+      {/* <div class="btn-group">
   <a className=" btn dropdown-toggle  nav-icon " type="button" data-bs-toggle="dropdown"  data-bs-display="static"  aria-expanded="false" >
       <FaUser/>
 
@@ -124,29 +148,42 @@ console.log(branches)
   </a>
 </div> */}
 
+      {/* Search part */}
 
- {/* Search part */}
+      <div className="container search col-12">
+        <h3 className="search-title ">
+          Select your Zone to start enjoying our Delivery service
+        </h3>
 
-<div className="container search col-12">
+        <form className="row  align-items-center ">
+          <div className="col-10  search-bar">
+            <label className="visually-hidden" htmlFor="inlineFormSelectPref">
+              Preference
+            </label>
 
-<h3 className="search-title " >Select your Zone to start enjoying our Delivery service</h3>
-
-<form className="row  align-items-center ">
-  
-  <div className="col-10  search-bar">
-    <label className="visually-hidden" htmlFor="inlineFormSelectPref">Preference</label>
-    
-    <select  className="form-select "   data-live-search="true"   id="inlineFormSelectPref">
-      {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
-       {/* <input type="search" class="selectpicker"  /> */}
-      <option selected disabled>search for Zone</option>
-      {branches.map((item)=>{return <option value="" role="listbox" >{item.branch}</option>})}
-      {/* <option value="2" role="listbox">Two</option>
+            <select
+              className="form-select "
+              data-live-search="true"
+              id="inlineFormSelectPref"
+            >
+              {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
+              {/* <input type="search" class="selectpicker"  /> */}
+              <option selected disabled>
+                search for Zone
+              </option>
+              {branches.map((item, idx) => {
+                return (
+                  <option key={idx} value="" role="listbox">
+                    {item.branch}
+                  </option>
+                );
+              })}
+              {/* <option value="2" role="listbox">Two</option>
       <option value="3">Three</option> */}
-    </select>
-  </div>
+            </select>
+          </div>
 
-{/*   
+          {/*   
   <div class="container mt-5">
   <select class="selectpicker" multiple aria-label="Default select example" data-live-search="true">
     <option value="1">One</option>
@@ -155,35 +192,36 @@ console.log(branches)
     <option value="4">Four</option>
   </select>
 </div> */}
-  <div className="col-2 ">
-    <Link to="/Home" type="submit" className="btn Gobtn ">Go</Link>
-  </div>
-</form>
-</div>
+          <div className="col-2 ">
+            <Link to="/Home" type="submit" className="btn Gobtn ">
+              Go
+            </Link>
+          </div>
+        </form>
+      </div>
 
-{/* ////////End of search part//////// */}
+      {/* ////////End of search part//////// */}
 
+      <footer className=" ">
+        <hr />
+        <div className="container">
+          <div className="row">
+            <div className="col-12 footer__copyrights-content ">
+              <p className="my-2">
+                © 2022 ELAbd Patisserie- All Rights Reserved
+              </p>
+              <p className="my-2">
+                Powered By{" "}
+                <a href="https://linktsp.com/" className="color-heading">
+                  Link TSP
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+};
 
-
-<footer className=" ">
-    <hr/>
-  <div className="container">
-    <div className="row">
-    <div className="col-12 footer__copyrights-content ">
-        <p className="my-2">© 2022 ELAbd Patisserie- All Rights Reserved</p>
-         <p className="my-2">Powered By <a href="https://linktsp.com/" className="color-heading">Link TSP</a>
-         </p>
-         </div>
-    </div>
-
-  </div>
-</footer>
-
-
-
-  </>
-    )
-
-}
-
-export  default Zone
+export default Zone;
