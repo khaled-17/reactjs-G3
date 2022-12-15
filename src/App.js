@@ -10,6 +10,11 @@ import CategoryID from './pages/CategoryID';
 import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
 import AboutUs from './pages/AboutUs';
+// Mahmoud's pages import
+import Zone from './pages/zone/Zone-page'
+import Login from './pages/login/Login'
+import Registration from './pages/Registration/Registration'
+import Cart from './pages/cart/Cart'
 
 
 function App() {
@@ -28,14 +33,14 @@ function App() {
         <div >
 
           <Routes>
-          {/* <Route path="/" element={<Zone />} /> */}
-          {/* <Route path="/Login" element={<Login />} /> */}
-          {/* <Route path="/Registration" element={<Registration />} />
-          <Route path="/Cart" element={<Cart />} /> */}
+          {/* <Route path="/" element={<Zone />} />
+          <Route path="/Login" element={<Login />} />
+            <Route path="/Registration" element={<Registration />} /> 
+           <Route path="/Cart" element={<Cart />} /> 
+ */}
 
 
-
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/CategoryID" element={<CategoryID />} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />

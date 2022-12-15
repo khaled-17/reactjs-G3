@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
  import {FaUser} from 'react-icons/fa'
  import { useState } from "react";
-import elabdlogo from "./Elabd-Logo.png";
- import "./zone.scss";
+// import elabdlogo from "./Elabd-Logo.png";
+//  import "./zone.scss";
 import { Link } from "react-router-dom";
 
 
@@ -83,7 +83,7 @@ const Zone = () => {
       <nav className="navbar zone-nav fixed-top ">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
-            <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
+            {/* <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" /> */}
           </Link>
           {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
 
