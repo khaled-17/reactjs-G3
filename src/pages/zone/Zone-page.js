@@ -1,8 +1,9 @@
 import elabdlogo from "./Elabd-Logo.png";
 import { FaUser } from "react-icons/fa";
 import "./zone.scss";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+
+
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {

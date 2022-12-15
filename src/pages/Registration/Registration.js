@@ -1,6 +1,7 @@
 import "./Registration.scss";
-import { useState } from "react";
+import React, { useState } from 'react';
 
+ 
 const Registration = () => {
   
   function generateArray(start,end){         
