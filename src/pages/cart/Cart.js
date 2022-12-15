@@ -12,6 +12,7 @@ const Cart = ()=> {
   const setCount = countStateArray[1];
   
   // const increase = () => {
+    /** */
   //   setCount(prevCount => prevCount + 1)
   //   setCount(prevCount => prevCount + 1)    
   // };
