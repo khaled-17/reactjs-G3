@@ -28,10 +28,10 @@ function App() {
         <div >
 
           <Routes>
-          <Route path="/" element={<Zone />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Registration" element={<Registration />} />
-          <Route path="/Cart" element={<Cart />} />
+          {/* <Route path="/" element={<Zone />} /> */}
+          {/* <Route path="/Login" element={<Login />} /> */}
+          {/* <Route path="/Registration" element={<Registration />} />
+          <Route path="/Cart" element={<Cart />} /> */}
 
 
 
