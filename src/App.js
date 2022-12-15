@@ -28,12 +28,19 @@ function App() {
         <div >
 
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/*" element={<NotFound/>} />
-            <Route path="/CategoryID" element={<CategoryID/>} />
-            <Route path="/TermsandConditions" element={<TermsandConditions/>} />
-            <Route path="/AboutUs" element={<AboutUs/>} />
-            <Route path="/Singleproduct" element={<Singleproduct/>} />
+          <Route path="/" element={<Zone />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Registration" element={<Registration />} />
+          <Route path="/Cart" element={<Cart />} />
+
+
+
+            <Route path="/Home" element={<Home />} />
+            <Route path="/*" element={<NotFound />} />
+            <Route path="/CategoryID" element={<CategoryID />} />
+            <Route path="/TermsandConditions" element={<TermsandConditions />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/Singleproduct" element={<Singleproduct />} />
           </Routes>
         </div>
 

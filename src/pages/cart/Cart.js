@@ -1,8 +1,10 @@
 // import './cart.scss'
 import React, { Component } from 'react';
+import './cart.scss'
+
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlus ,BsFileMinus} from 'react-icons/bs';
-import {useState} from 'react';
+import React, { useState } from 'react';
 
 const Cart = ()=> {
     
