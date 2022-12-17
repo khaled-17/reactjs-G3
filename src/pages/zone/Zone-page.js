@@ -3,8 +3,6 @@ import { FaUser } from "react-icons/fa";
 import "./zone.scss";
 import { Link } from "react-router-dom";
 
-
-
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {
   const branches = [
@@ -88,25 +86,42 @@ const Zone = () => {
       <FaUser/> */}
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-          {/* <a className=" btn  nav-icon border border-0" type="button" data-bs-toggle="dropdown"  data-bs-display="static"  role="button" aria-expanded="false"  aria-controls="multiCollapseExample1"> 
-      <FaUser/>
 
-<div className="row">
-  <div className="col dropdown-center ">
-    <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " >
-      <div className=" card-body p-2">
-  
-        <Link  to="/Login" className="btn dropdown-item icon-btn">login</Link>
-      
-        <span ><p className="or-span">or</p></span>
-        <button to="/Registration" className="btn dropdown-item icon-btn">create Account</button>
+          <button
+            className=" btn  nav-icon border border-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            data-bs-display="static"
+            role="button"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample1"
+          >
+            <FaUser />
 
-      </div>
-    </div>
-  </div>
-</div>
-      </a> */}
-          <div class="dropdown">
+            <div className="row">
+              <div className="col dropdown-center ">
+                <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 ">
+                  <div className=" card-body p-2">
+                    <Link to="/Login" className="btn dropdown-item icon-btn">
+                      login
+                    </Link>
+
+                    <span>
+                      <p className="or-span">or</p>
+                    </span>
+                    <Link
+                      to="/Registration"
+                      className="btn dropdown-item icon-btn"
+                    >
+                      create Account
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          {/* <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
@@ -132,7 +147,7 @@ const Zone = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
 
