@@ -59,14 +59,14 @@ const Quantity = () => {
     <section class=' d-flex flex-row align-items-center'>
     {/* // <section> */}
            
-          <button onClick={increment} className="buttonQuantity" aria-controls="q_number_t" id="increase_t" aria-label="increase quantity">+</button>
+          <button   onClick={increment} className="buttonQuantity" aria-controls="q_number_t" id="increase_t" aria-label="increase quantity">+</button>
           
           <input className="inputQuantity" type="text" id="q_number_t" value={count} 
                  data-increase="increase_t" data-decrease="decrease_t"
                  aria-live="assertive" aria-relevant="additions" 
                  aria-atomic="true" aria-label="quantity"/>
           
-          <button onClick={decrement} className="buttonQuantity" aria-controls="q_number_t" id="decrease_t" aria-label="decrease quantity">-</button>
+          <button  disabled={count==0 ? true : false}onClick={decrement} className="buttonQuantity" aria-controls="q_number_t" id="decrease_t" aria-label="decrease quantity">-</button>
           
          
 

@@ -139,8 +139,16 @@ h2{
 }
 .inputQuantity:focus,
 .buttonQuantity:hover
- {
+{
   background-color: #F6B0AB;
   border: solid 2px #F6B0AB;
   color: #000;
 }/* .buttonQuantity:focus */
+
+.buttonQuantity:disabled {
+  
+  background-color: #6C757D;
+  border: solid 2px #6C757D;
+
+
+}
