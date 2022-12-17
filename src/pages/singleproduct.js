@@ -62,7 +62,7 @@ const Singleproduct = () => {
                         <div className="d-flex flex-row">
                             <Rating />
                             <span className=" mx-2">|</span>
-                            {/* <AddReview /> */}
+                            <AddReview/>
 
 
 
