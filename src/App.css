@@ -4,14 +4,11 @@
 
   
 }
-.button-prod{
-  background-color: #79493c;
-  color: #fff;
- }
-/* .button-prod:hover{
-  background-color:#F6B0AB;
-  color: #FAFCFF;
-} */
+
+
+
+
+
 h2{
   color:#6f3c2e;
   font-family: Cairo,sans-serif;
@@ -22,6 +19,14 @@ h2{
 .button-Quantity:hover{
   font-size: ' 30px';
 
+  background-color:#F6B0AB;
+  color: #FAFCFF;
+}
+.button-prod{
+  background-color: #79493c;
+  color: #fff;
+ }
+.button-prod:hover{
   background-color:#F6B0AB;
   color: #FAFCFF;
 }
