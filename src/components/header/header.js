@@ -11,7 +11,8 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 // import { display } from "@mui/system";
- 
+import { Link } from 'react-router-dom';
+
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
@@ -86,6 +87,7 @@ const Header = () => {
             <NavDropdown id="navbarScrollingDropdown" show={drop2}
               onMouseEnter={showDropdown2} onMouseLeave={hideDropdown2} title= {t('Nuts And Yameesh')}  menuVariant="light">
               <div style={{ width: "500px" }}>
+
                 <NavDropdown.Item id="item" href={url}>{t('Nuts')}</NavDropdown.Item>
                 <NavDropdown.Item id="item" href={url}>{t('Yameesh')} </NavDropdown.Item>
               </div>
@@ -133,8 +135,9 @@ const Header = () => {
           </li>
           <li>
             <Nav.Link href={url} >
-              <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
-            </Nav.Link>
+              <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><Link to="/Profile"><FaUserAlt/></Link> </i>
+            </Nav.Link>               
+
 
           </li>
           <li>

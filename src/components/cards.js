@@ -36,9 +36,6 @@ const Cards = (props) => {
 
     return (
 
-
-
-
         <div class="card  d-flex justify-content-center" style={{ maxWidth: "15rem" }}>
            
            
