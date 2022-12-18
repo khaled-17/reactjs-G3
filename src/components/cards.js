@@ -36,26 +36,20 @@ const Cards = (props) => {
 
     return (
 
-        <div class="card  d-flex justify-content-center" style={{ maxWidth: "15rem" }}>
+        <div class="card  d-flex justify-content-center" style={{ maxWidth: "17rem" }}>
            
-           
-           
-           
-           
-           
-            <div class="card-body w-100 p-0">
-                <img class="card-img-top" src={`${props.img || defult.img}`} alt="Card image cap" />
+            <div class="card-body p-0 d-flex justify-content-center">
+                <img style={{ maxHeight: "10rem",width: 'auto' }} class="card-img-top " src={`${props.img || defult.img}`} alt="Card image cap" />
             </div>
 
 
-            <div class="card-body d-flex flex-column p-0">
+            <div class=" d-flex flex-column p-0">
                 <h5 class="card-title"><Link to="/Singleproduct"> {props.name || defult.name}</Link> </h5>
                 <h5 class="card-title"><strong>{props.prise || defult.prise} EGP </strong></h5>
                 <p class="card-text"></p>
-                </div>
+            </div>
 
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-                <div className="d-flex justify-content-center p-0">
+                <div className="d-flex justify-content-center p-1">
 
 
                     <button className="card_btn">
@@ -86,3 +80,4 @@ const Cards = (props) => {
 }
 
 export default Cards;
+                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
