@@ -2,9 +2,13 @@ import elabdlogo from "./Elabd-Logo.png";
 import { FaUser } from "react-icons/fa";
 import "./zone.scss";
 import { Link } from "react-router-dom";
+import { Trans, withTranslation,useTranslation } from 'react-i18next';
+import Hederlang from '../../components/hederlang'
+
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {
+  const { t } = useTranslation();
   const branches = [
     {
       id: 1,
@@ -74,9 +78,11 @@ const Zone = () => {
 
   return (
     <>
+          <Hederlang/>
+
       <div></div>
 
-      <nav className="navbar zone-nav fixed-top ">
+      <nav className="navbar zone-nav fixed-top mt-3">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
             <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
@@ -103,7 +109,7 @@ const Zone = () => {
                 <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 ">
                   <div className=" card-body p-2">
                     <Link to="/Login" className="btn dropdown-item icon-btn">
-                      login
+                       {t('login')}
                     </Link>
 
                     <span>
@@ -168,7 +174,7 @@ const Zone = () => {
 
       <div className="container search col-12">
         <h3 className="search-title ">
-          Select your Zone to start enjoying our Delivery service
+          {t(' Select your Zone to start enjoying our Delivery service')}
         </h3>
 
         <form className="row  align-items-center ">
@@ -210,7 +216,7 @@ const Zone = () => {
 </div> */}
           <div className="col-2 ">
             <Link to="/Home" type="submit" className="btn Gobtn ">
-              Go
+            {t('Go')}
             </Link>
           </div>
         </form>

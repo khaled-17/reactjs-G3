@@ -3,6 +3,13 @@ import './cart.scss'
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlus ,BsFileMinus} from 'react-icons/bs';
 import React, { useState } from 'react';
+import Hederlang from '../../components/hederlang'
+import Header from '../../components/header/header'
+import Footer from '../../components/footer/footermain'
+
+
+
+
 
 const Cart = ()=> {
     
@@ -34,8 +41,9 @@ const Cart = ()=> {
   
   return (
     <>
-    <h1>Cart</h1>
-    <section>
+    <Hederlang/>
+    <Header/>
+        <section>
         <div className="container ">
             <div className="row">
                 <div className="col-12 d-flex flex-wrap">
@@ -125,6 +133,7 @@ const Cart = ()=> {
             </div>
         </div>
     </section>
+    <Footer/>
     </>
   )
 }

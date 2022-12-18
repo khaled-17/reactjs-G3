@@ -39,7 +39,7 @@ const Hederlang = () => {
 
 
     return (
-        <div style={{ backgroundColor: "#f6b0ab" }} >
+        <div style={{ backgroundColor: "#f6b0ab" }}  >
 
             <div className="d-flex justify-content-between container">
 

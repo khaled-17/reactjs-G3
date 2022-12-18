@@ -1,5 +1,9 @@
 import "./Registration.scss";
 import React, { useState } from 'react';
+import Hederlang from '../../components/hederlang'
+import Header from '../../components/header/header'
+import Footer from '../../components/footer/footermain'
+
 
  
 const Registration = () => {
@@ -30,6 +34,9 @@ const Registration = () => {
 
   return (
     <>
+    <Hederlang/>
+    <Header/>
+
    
       <div className="Registration px-5 pt-5 ">
         <div className="container d-flex justify-content-center align-items-center">
@@ -201,6 +208,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
