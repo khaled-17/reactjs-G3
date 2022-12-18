@@ -50,6 +50,8 @@ const Cards = (props) => {
                 <img class="card-img-top" src={`${props.img || defult.img}`} alt="Card image cap" />
             </div>
 
+
+
             <div class="card-body d-flex flex-column p-0">
                 <h5 class="card-title"><Link to="/Singleproduct"> {props.name || defult.name}</Link> </h5>
                 <h5 class="card-title"><strong>{props.prise || defult.prise} EGP </strong></h5>
