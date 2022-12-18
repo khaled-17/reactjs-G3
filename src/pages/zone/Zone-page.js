@@ -191,7 +191,7 @@ const Zone = () => {
               {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
               {/* <input type="search" class="selectpicker"  /> */}
               <option selected disabled>
-                search for Zone
+               {t(' search for Zone')}
               </option>
               {branches.map((item, idx) => {
                 return (
@@ -230,10 +230,10 @@ const Zone = () => {
           <div className="row">
             <div className="col-12 footer__copyrights-content ">
               <p className="my-2">
-                © 2022 ELAbd Patisserie- All Rights Reserved
+               {t('© 2022 ELAbd Patisserie- All Rights Reserved')}
               </p>
               <p className="my-2">
-                Powered By{" "}
+                {t('Powered By') }
                 <a href="https://linktsp.com/" className="color-heading">
                   Link TSP
                 </a>
