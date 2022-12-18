@@ -61,11 +61,11 @@ export default function Carousels() {
         User Reviews ({reviews.length})
       </h1> */}
             <div className=" h-100 my-1 ">
-                <Carousel className='' style={{ height: 345 }}>
+                <Carousel className='' style={{ height: '345rem' }}>
                     {reviews.map((review, index) => (
                         <Carousel.Item  >
 
-                            <Stack direction="horizontal" className="h-10 justify-content-center align-items-center" gap={2}>
+                            <Stack direction="horizontal" className=" justify-content-center align-items-center" gap={2}>
 
 
                                 {loading ? (
@@ -73,7 +73,7 @@ export default function Carousels() {
                                     (posts.map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
-                                        <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
+                                        <div className='h-100 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
                                             <Cards/>

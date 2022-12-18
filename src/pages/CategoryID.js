@@ -118,7 +118,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards  img={item.Image} prise={item.Price} />
+                                            <Cards name={item.Price}  img={item.Image} prise={item.Price} />
                                         </div>
                                     )
                                     )
