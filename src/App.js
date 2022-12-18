@@ -15,6 +15,7 @@ import Zone from './pages/zone/Zone-page'
 import Login from './pages/login/Login'
 import Registration from './pages/Registration/Registration'
 import Cart from './pages/cart/Cart'
+import Profile from './pages/Profile'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/CategoryID" element={<CategoryID />} />
+            <Route path="/Profile" element={<Profile/>} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Singleproduct" element={<Singleproduct />} />

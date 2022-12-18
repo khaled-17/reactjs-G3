@@ -10,6 +10,8 @@ import { Button, Container, Dropdown, NavDropdown } from "react-bootstrap";
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { Outlet, Link } from "react-router-dom";
+
 // import { display } from "@mui/system";
  
 import { useTranslation } from 'react-i18next';
@@ -133,7 +135,8 @@ const Header = () => {
           </li>
           <li>
             <Nav.Link href={url} >
-              <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
+            <Link  to="/Profile"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i></Link>
+
             </Nav.Link>
 
           </li>
