@@ -37,14 +37,7 @@ function App() {
           <Route path="/Zone" element={<Zone />} />
           <Route path="/Login" element={<Login />} />
             <Route path="/Registration" element={<Registration />} /> 
-         
-
-          <Route path="/Cart" element={<Cart />} /> 
-
-
-
-
-
+            <Route path="/Cart" element={<Cart />} /> 
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/CategoryID" element={<CategoryID />} />

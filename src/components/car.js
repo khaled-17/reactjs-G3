@@ -53,6 +53,7 @@ const Car = (props) => {
     }
 
     return (
+        
         <div className="carousel-container">
             <div className="carousel-wrapper">
                 {/* You can alwas change the content of the button to other things */}
