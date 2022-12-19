@@ -18,8 +18,8 @@ const Quantity = () => {
   const span = {
     width: '100%',
     textAlign: ' center',
-    fontSize: ' 30px',
-    fontWeight: ' 500',
+    // fontSize: ' 30px',
+    // fontWeight: ' 500',
     cursor: ' pointer',
     userSelect: ' none',
   }
@@ -56,7 +56,28 @@ const Quantity = () => {
 
 
   return (
-    <section class='d-flex flex-row align-items-center'>
+    <section class=' d-flex flex-row align-items-center'>
+    {/* // <section> */}
+           
+          <button   onClick={increment} className="buttonQuantity" aria-controls="q_number_t" id="increase_t" aria-label="increase quantity">+</button>
+          
+          <input className="inputQuantity" type="text" id="q_number_t" value={count} 
+                 data-increase="increase_t" data-decrease="decrease_t"
+                 aria-live="assertive" aria-relevant="additions" 
+                 aria-atomic="true" aria-label="quantity"/>
+          
+          <button  disabled={count==0 ? true : false}onClick={decrement} className="buttonQuantity" aria-controls="q_number_t" id="decrease_t" aria-label="decrease quantity">-</button>
+          
+         
+
+
+
+
+
+
+
+
+
       {/* <p style={{height:'10px'}}>
                     <label>Quantity:</label>
                     <button  style={btn} onClick={decrement} ><AiOutlineMinus/>	</button>
@@ -64,14 +85,13 @@ const Quantity = () => {
                     <button    onClick={increment}  ><AiOutlinePlus/></button>
                     
                   </p> */}
-      <p class="m-1">Quantity </p>
+      {/* <p class="m-1">Quantity </p>
       <div class="wrapper " style={btn}>
-        <span onClick={decrement} style={span} class="minus">-</span>
-        {/* <span style={span ,num} class="num">{count}</span> */}
-        <input style={span, num} type="number" value={count} />
-
-        <span onClick={increment} style={span} class="button-Quantity">+</span>
-      </div>
+        <button onClick={decrement} style={span} class="button-Quantity" >-</button>
+         <input style={span, num} type="number" value={count} />
+ 
+        <button onClick={increment} style={span} class="button-Quantity">+</button>
+      </div> */}
 
     </section>
   );

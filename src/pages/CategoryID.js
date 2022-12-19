@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
- 
+import axios from "axios";
+
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
@@ -7,34 +8,60 @@ import Footerc from '../components/footer/footerc';
 import Footermain from '../components/footer/footermain';
 import Loader from '../components/loader/loader';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
-    useEffect(() => {
-        const loadPost = async () => {
+    // useEffect(() => {
+    //     const loadPost = async () => {
 
-            // Till the data is fetch using API 
-            // the Loading page will show.
-            setLoading(true);
+    //         // Till the data is fetch using API 
+    //         // the Loading page will show.
+    //         setLoading(true);
 
-            // Await make wait until that 
-            // promise settles and return its result
-            const response = await axios.get(
-                "https://jsonplaceholder.typicode.com/posts/");
+    //         // Await make wait until that 
+    //         // promise settles and return its result
+    //         const response = await axios.get(
+    //             "https://jsonplaceholder.typicode.com/posts/");
 
-            // After fetching data stored it in posts state.
-            setPosts(response.data);
+    //         // After fetching data stored it in posts state.
+    //         setPosts(response.data);
 
-            // Closed the loading page
-            setLoading(false);
-        }
+    //         // Closed the loading page
+    //         setLoading(false);
+    //     }
 
-        // Call the function
-        loadPost();
-    }, []);
+    //     // Call the function
+    //     loadPost();
+    // }, []);
+
+
+// Make a request for a user with a given ID
+axios.get('http://localhost:5200/api/elabdfoods/Product')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+                setPosts(response.data);
+
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+
+
+
+
+
+
+
+
 
     return (
 
@@ -90,8 +117,8 @@ const CategoryID = () => {
                                         // Presently we only fetch 
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
-                                            {/* {item.title} */}
-                                            <Cards />
+                                            {/* {item.Price} */}
+                                            <Cards  img={item.Image} prise={item.Price} />
                                         </div>
                                     )
                                     )

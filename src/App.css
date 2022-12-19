@@ -4,14 +4,11 @@
 
   
 }
-.button-prod{
-  background-color: #79493c;
-  color: #fff;
- }
-/* .button-prod:hover{
-  background-color:#F6B0AB;
-  color: #FAFCFF;
-} */
+
+
+
+
+
 h2{
   color:#6f3c2e;
   font-family: Cairo,sans-serif;
@@ -20,8 +17,16 @@ h2{
 
 
 .button-Quantity:hover{
-  font-size: ' 30px';
+  /* font-size: ' 30px'; */
 
+  background-color:#F6B0AB;
+  color: #FAFCFF;
+}
+.button-prod{
+  background-color: #79493c;
+  color: #fff;
+ }
+.button-prod:hover{
   background-color:#F6B0AB;
   color: #FAFCFF;
 }
@@ -110,4 +115,40 @@ h2{
     transform: rotate(360deg);
   }
 } */
+.inputQuantity {
+  border: solid 2px;
+  color: #777;
+  height: 2rem;
+  padding: 0.5rem;
+  width: 4rem;
+}
+.inputQuantity[type=number]::-webkit-inner-spin-button,
+.inputQuantity[type=number]::-moz-inner-spin-button {
+  -webkit-appearance: none;
+}
+.buttonQuantity {
+  background-color: #6F3C2E;
+  border: solid 2px #6F3C2E;
+  color: #fff;
+  cursor: pointer;
+  height: 2rem;
+  line-height: 2;
+  margin: 2px;
+  padding: 0;
+  width: 2rem;
+}
+.inputQuantity:focus,
+.buttonQuantity:hover
+{
+  background-color: #F6B0AB;
+  border: solid 2px #F6B0AB;
+  color: #000;
+}/* .buttonQuantity:focus */
 
+.buttonQuantity:disabled {
+  
+  background-color: #6C757D;
+  border: solid 2px #6C757D;
+
+
+}

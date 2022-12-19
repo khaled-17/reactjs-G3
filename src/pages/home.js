@@ -27,7 +27,7 @@ const Home = () => {
             <Banners />
             <h2 className=' w-100 d-flex justify-content-center'>Best Seller</h2>
 
-            <Carousels />
+            <Carousels/>
 
             <Footermain />
             <Footerc />
