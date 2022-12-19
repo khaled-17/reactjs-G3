@@ -112,13 +112,13 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                             <div className=" d-flex flex-wrap justify-content-center" >
 
                                 {loading ? (
-                                    <Loader />) :
+                                    <h1>fff</h1>) :
                                     (posts.map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards  img={item.Image} prise={item.Price} />
+                                            <Cards  img={item.Image} prise={item.Price}  />
                                         </div>
                                     )
                                     )

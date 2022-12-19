@@ -16,28 +16,22 @@ export default function Carousels() {
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        const loadPost = async () => {
+// Make a request for a user with a given ID
+axios.get('http://localhost:5200/api/elabdfoods/Product')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+                setPosts(response.data);
 
-            // Till the data is fetch using API 
-            // the Loading page will show.
-            setLoading(true);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
 
-            // Await make wait until that 
-            // promise settles and return its result
-            const response = await axios.get(
-                "https://jsonplaceholder.typicode.com/posts/");
-
-            // After fetching data stored it in posts state.
-            setPosts(response.data);
-
-            // Closed the loading page
-            setLoading(false);
-        }
-
-        // Call the function
-        loadPost();
-    }, []);
 
 
 
@@ -46,12 +40,12 @@ export default function Carousels() {
         { _id: 1, text: "abc" },
         { _id: 2, text: "def" },
         { _id: 3, text: "ghi" },
-        // { _id: 4, text: "jkl" },
-        // { _id: 5, text: "mno" },
-        // { _id: 6, text: "pqr" },
-        // { _id: 7, text: "stu" },
-        // { _id: 8, text: "vwx" },
-        // { _id: 9, text: "yza" }
+        { _id: 4, text: "jkl" },
+        { _id: 5, text: "mno" },
+        { _id: 6, text: "pqr" },
+        { _id: 7, text: "stu" },
+        { _id: 8, text: "vwx" },
+        { _id: 9, text: "yza" }
     ];
 
     return (
@@ -76,7 +70,7 @@ export default function Carousels() {
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
-                                            <Cards/>
+                                            <Cards img={item.Image}/>
 
                                             {/* </div> */}
 

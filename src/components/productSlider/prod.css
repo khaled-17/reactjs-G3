@@ -180,11 +180,11 @@ img{
 }
 
 @media screen and (min-width: 992px){
-    .card{
+    /* .card{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5rem;
-    }
+    } */
     .card-wrapper{
         height: 100vh;
         display: flex;
