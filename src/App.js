@@ -11,12 +11,7 @@ import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
 import AboutUs from './pages/AboutUs';
 import Profile from './pages/Profile';
-// Mahmoud's pages import
-import Zone from './pages/zone/Zone-page'
-import Login from './pages/login/Login'
-import Registration from './pages/Registration/Registration'
-import Cart from './pages/cart/Cart'
-
+ 
 
 function App() {
   const { t, i18n } = useTranslation();
