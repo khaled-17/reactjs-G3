@@ -11,11 +11,6 @@ import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
 import AboutUs from './pages/AboutUs';
 import Profile from './pages/Profile';
-// Mahmoud's pages import
-import Zone from './pages/zone/Zone-page'
-import Login from './pages/login/Login'
-import Registration from './pages/Registration/Registration'
-import Cart from './pages/cart/Cart'
 
 
 function App() {
@@ -34,14 +29,7 @@ function App() {
         <div >
 
           <Routes>
-          {/* <Route path="/" element={<Zone />} />
-          <Route path="/Login" element={<Login />} />
-            <Route path="/Registration" element={<Registration />} /> 
-          */}
-
-          {/* <Route path="/Cart" element={<Cart />} />  */}
-
-
+         
 
 
 
