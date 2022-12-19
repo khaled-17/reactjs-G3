@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
- import {FaUser} from 'react-icons/fa'
- import { useState } from "react";
-// import elabdlogo from "./Elabd-Logo.png";
-//  import "./zone.scss";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
 
+
+import elabdlogo from "./Elabd-Logo.png";
+import { FaUser } from "react-icons/fa";
+import "./zone.scss";
+import { Link } from "react-router-dom";
+import { Trans, withTranslation,useTranslation } from 'react-i18next';
+import Hederlang from '../../components/hederlang'
 
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {
+  const { t } = useTranslation();
   const branches = [
     {
       id: 1,
@@ -78,38 +81,56 @@ const Zone = () => {
 
   return (
     <>
+          <Hederlang/>
+
       <div></div>
 
-      <nav className="navbar zone-nav fixed-top ">
+      <nav className="navbar zone-nav fixed-top mt-3">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
-            {/* <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" /> */}
+            <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
           </Link>
           {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
 
       <FaUser/> */}
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-          {/* <a className=" btn  nav-icon border border-0" type="button" data-bs-toggle="dropdown"  data-bs-display="static"  role="button" aria-expanded="false"  aria-controls="multiCollapseExample1"> 
-      <FaUser/>
 
-<div className="row">
-  <div className="col dropdown-center ">
-    <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 " >
-      <div className=" card-body p-2">
-  
-        <Link  to="/Login" className="btn dropdown-item icon-btn">login</Link>
-      
-        <span ><p className="or-span">or</p></span>
-        <button to="/Registration" className="btn dropdown-item icon-btn">create Account</button>
+          <button
+            className=" btn  nav-icon border border-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            data-bs-display="static"
+            role="button"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample1"
+          >
+            <FaUser />
 
-      </div>
-    </div>
-  </div>
-  
-</div>
-      </a> */}
-          <div class="dropdown">
+            <div className="row">
+              <div className="col dropdown-center ">
+                <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 ">
+                  <div className=" card-body p-2">
+                    <Link to="/Login" className="btn dropdown-item icon-btn">
+                       {t('login')}
+                    </Link>
+
+                    <span>
+                      <p className="or-span">or</p>
+                    </span>
+                    <Link
+                      to="/Registration"
+                      className="btn dropdown-item icon-btn"
+                    >
+                      create Account
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          {/* <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
@@ -135,7 +156,7 @@ const Zone = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
 
@@ -156,7 +177,7 @@ const Zone = () => {
 
       <div className="container search col-12">
         <h3 className="search-title ">
-          Select your Zone to start enjoying our Delivery service
+          {t(' Select your Zone to start enjoying our Delivery service')}
         </h3>
 
         <form className="row  align-items-center ">
@@ -173,7 +194,7 @@ const Zone = () => {
               {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
               {/* <input type="search" class="selectpicker"  /> */}
               <option selected disabled>
-                search for Zone
+               {t(' search for Zone')}
               </option>
               {branches.map((item, idx) => {
                 return (
@@ -198,7 +219,7 @@ const Zone = () => {
 </div> */}
           <div className="col-2 ">
             <Link to="/Home" type="submit" className="btn Gobtn ">
-              Go
+            {t('Go')}
             </Link>
           </div>
         </form>
@@ -212,10 +233,10 @@ const Zone = () => {
           <div className="row">
             <div className="col-12 footer__copyrights-content ">
               <p className="my-2">
-                © 2022 ELAbd Patisserie- All Rights Reserved
+               {t('© 2022 ELAbd Patisserie- All Rights Reserved')}
               </p>
               <p className="my-2">
-                Powered By{" "}
+                {t('Powered By') }
                 <a href="https://linktsp.com/" className="color-heading">
                   Link TSP
                 </a>
