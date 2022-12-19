@@ -1,4 +1,4 @@
-import { Slider, Typography } from '@mui/material';
+// import { Slider, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { Collapse } from 'react-bootstrap';
 import { AiOutlineDown } from "react-icons/ai";
@@ -103,8 +103,9 @@ const Sidebar = () => {
     }
 
     return (<>
+    <h1>dddddd</h1>
 
-        <aside className="filtering-sidebar container" controller="List" style={{ width: "300px" }}>
+        {/* <aside className="filtering-sidebar container" controller="List" style={{ width: "300px" }}>
             <div className="filtering__widget">
                 <div data-toggle="collapse" onClick={() => setOpen1(!open1)} aria-controls="example-collapse-text"
                     aria-expanded={open1} href="#catCollapse" role="button" className="filtering__widget-title mb-3 d-flex justify-content-between collapsed">
@@ -228,7 +229,7 @@ const Sidebar = () => {
         </aside>
 
 
-
+ */}
 
 
 
