@@ -1,8 +1,5 @@
-.carousel-control-next-icon{
-  
-
-
-  
+body {
+  font-family: Cairo,sans-serif;
 }
 
 
@@ -70,6 +67,18 @@ h2{
   color:#79493c;
   font-size: .9rem;
   white-space: nowrap;
+   display: block;
+   overflow-x: hidden;
+
+
+}
+.card-prise{
+  color:#79493c;
+  font-family: Cairo,sans-serif;
+  /* font-size:20px; */
+  margin-bottom:30px
+  
+
 }
 .propsName:hover{
   color: #F7B0AE;

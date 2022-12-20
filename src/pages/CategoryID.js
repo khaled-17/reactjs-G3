@@ -9,6 +9,7 @@ import Footermain from '../components/footer/footermain';
 import Loader from '../components/loader/loader';
 
 // import axios from 'axios';
+import Hederlang from './../components/hederlang';
 
 const CategoryID = () => {
 
@@ -68,8 +69,10 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
     return (
 
         <>
+            <Hederlang/>
             <Header />
-            <div className="container  text-center">
+            
+            <div className="container-xl  text-center">
                 <div className="row">
                     <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>
 
@@ -87,7 +90,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                         <div className="row">
 
                             <div className="col m-2 text-start">
-                                <h6 >Showing 21 Of 68</h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing 21 Of 68</h6>
                             </div>
                             <div className="col text-center ">
 
@@ -97,7 +100,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
 
                             </div>
                             <div className="col  text-end d-flex align-content-center">
-                                <h6 className='m-2 '>Sort BY </h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}} className='m-2 '>Sort BY </h6>
                                 <select className="form-select-sm btn-sm border-0" style={{ height: '41px' }}>
                                     <option selected="">New Arrivals</option>
                                     <option value="1">One</option>
@@ -150,7 +153,8 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                     </div>
                     <div className="offcanvas-body ">
                         <div>
-                            <idebar />
+                        <Sidebar />
+
                         </div>
                         <div className="dropdown mt-3">
 

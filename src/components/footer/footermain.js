@@ -37,8 +37,8 @@ const Footermain = () => {
     }
 
     return (
-        <div className="container pt-5">
-            <div className="row">
+        <div style={{backgroundColor:'#FAF5F2'}} className="container- pt-5">
+            <div className="row m-2">
                 <div className="col-md col-sm-12" >
                     <ul style={font}>
                         <h5>{t("El Abd Patisserie")}</h5>
