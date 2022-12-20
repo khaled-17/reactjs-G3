@@ -6,12 +6,11 @@ import { useTranslation } from 'react-i18next';
 
 import Home from './pages/home';
 import NotFound from './pages/notFound';
-
 import CategoryID from './pages/CategoryID';
 import TermsandConditions from './pages/TermsandConditions';
 import Singleproduct from './pages/singleproduct';
 import AboutUs from './pages/AboutUs';
-
+import Profile from './pages/Profile';
 // Mahmoud's pages import
 import Zone from './pages/zone/Zone-page'
 import Login from './pages/login/Login'
@@ -24,6 +23,7 @@ function App() {
 
   document.body.dir = i18n.dir();
 
+
   
   // console.log(isrtl);
   return (
@@ -34,18 +34,16 @@ function App() {
         <div >
 
           <Routes>
-          <Route path="/" element={<Zone />} />
+          <Route path="/Zone" element={<Zone />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Registration" element={<Registration />} />
-          <Route path="/Cart" element={<Cart />} />
-
-
-
-            <Route path="/Home" element={<Home />} />
+            <Route path="/Registration" element={<Registration />} /> 
+            <Route path="/Cart" element={<Cart />} /> 
+            <Route path="/" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/CategoryID" element={<CategoryID />} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/Profile" element={<Profile />} />
             <Route path="/Singleproduct" element={<Singleproduct />} />
           </Routes>
         </div>

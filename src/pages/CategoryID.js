@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
- 
+import axios from "axios";
+
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
@@ -7,40 +8,71 @@ import Footerc from '../components/footer/footerc';
 import Footermain from '../components/footer/footermain';
 import Loader from '../components/loader/loader';
 
-import axios from 'axios';
+// import axios from 'axios';
+import Hederlang from './../components/hederlang';
 
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
+    // useEffect(() => {
+    //     const loadPost = async () => {
+
+    //         // Till the data is fetch using API 
+    //         // the Loading page will show.
+    //         setLoading(true);
+
+    //         // Await make wait until that 
+    //         // promise settles and return its result
+    //         const response = await axios.get(
+    //             "https://jsonplaceholder.typicode.com/posts/");
+
+    //         // After fetching data stored it in posts state.
+    //         setPosts(response.data);
+
+    //         // Closed the loading page
+    //         setLoading(false);
+    //     }
+
+    //     // Call the function
+    //     loadPost();
+    // }, []);
+
+
     useEffect(() => {
-        const loadPost = async () => {
+// Make a request for a user with a given ID
+axios.get('http://localhost:5200/api/elabdfoods/Product')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+                setPosts(response.data);
 
-            // Till the data is fetch using API 
-            // the Loading page will show.
-            setLoading(true);
-
-            // Await make wait until that 
-            // promise settles and return its result
-            const response = await axios.get(
-                "https://jsonplaceholder.typicode.com/posts/");
-
-            // After fetching data stored it in posts state.
-            setPosts(response.data);
-
-            // Closed the loading page
-            setLoading(false);
-        }
-
-        // Call the function
-        loadPost();
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
     }, []);
+
+
+
+
+
+
+
+
+
 
     return (
 
         <>
+            <Hederlang/>
             <Header />
-            <div className="container-fluid  text-center">
+            
+            <div className="container-xl  text-center">
                 <div className="row">
                     <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>
 
@@ -58,7 +90,7 @@ const CategoryID = () => {
                         <div className="row">
 
                             <div className="col m-2 text-start">
-                                <h6 >Showing 21 Of 68</h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing 21 Of 68</h6>
                             </div>
                             <div className="col text-center ">
 
@@ -68,7 +100,7 @@ const CategoryID = () => {
 
                             </div>
                             <div className="col  text-end d-flex align-content-center">
-                                <h6 className='m-2 '>Sort BY </h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}} className='m-2 '>Sort BY </h6>
                                 <select className="form-select-sm btn-sm border-0" style={{ height: '41px' }}>
                                     <option selected="">New Arrivals</option>
                                     <option value="1">One</option>
@@ -85,13 +117,13 @@ const CategoryID = () => {
                             <div className=" d-flex flex-wrap justify-content-center" >
 
                                 {loading ? (
-                                    <Loader />) :
+                                    <h1>hhhhh</h1>) :
                                     (posts.map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
-                                            {/* {item.title} */}
-                                            <Cards />
+                                            {/* {item.Price} */}
+                                            <Cards name={item.EnName} img={item.Image} prise={item.Price}  />
                                         </div>
                                     )
                                     )
@@ -121,7 +153,8 @@ const CategoryID = () => {
                     </div>
                     <div className="offcanvas-body ">
                         <div>
-                            <idebar />
+                        <Sidebar />
+
                         </div>
                         <div className="dropdown mt-3">
 

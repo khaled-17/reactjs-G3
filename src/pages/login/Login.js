@@ -1,5 +1,5 @@
-import './login.scss'
-import elabdlogo from'../../images/Elabd-Logo.png'
+// import './login.scss'
+// import elabdlogo from'../../images/Elabd-Logo.png'
 import {FaUser,FaFacebookSquare,FaUnlockAlt,FaTwitterSquare} from 'react-icons/fa'
 import {HiMail} from 'react-icons/hi'
 
@@ -80,7 +80,7 @@ return(
         <form className='col-7 text-center rounded ' onSubmit={(e) => submitForm(e)}>
           <div>
           <a className="navbar-brand login-icon " href="#">
-        <img className=" img-fluid "  src={elabdlogo} alt="Elabd Logo"/>
+        {/* <img className=" img-fluid "  src={elabdlogo} alt="Elabd Logo"/> */}
         </a>
 
         <div class="input-group mb-3">

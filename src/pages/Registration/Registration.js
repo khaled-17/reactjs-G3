@@ -1,4 +1,4 @@
-import "./Registration.scss";
+// import "./Registration.scss";
 import React, { useState } from 'react';
 import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
