@@ -98,12 +98,12 @@ const Zone = () => {
 
           <button
             className=" btn  nav-icon border border-0"
-            type="button"
+            // type="button"
+            // role="button"
             data-bs-toggle="dropdown"
-            data-bs-display="static"
-            role="button"
-            aria-expanded="false"
-            aria-controls="multiCollapseExample1"
+            // data-bs-display="static"
+            // aria-expanded="false"
+            // aria-controls="multiCollapseExample1"
           >
             <FaUser />
 

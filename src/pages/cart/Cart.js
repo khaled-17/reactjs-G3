@@ -35,16 +35,21 @@ const Cart = ()=> {
   
   // working decrease
   const decrease = () => setCount(prevCount => {
-    if (prevCount <= 0) return 0;
+    if (prevCount <= 1) return 1;
     return prevCount - 1;
   })
  const price= 17;
 
   const total= count * price;
+
+//   const deleteHandler = (e,clickedIdx)=>{
+//     const deleteOberation =state.filter((el,idx)=>idx!==clickedIdx)
+//       console.log(deleteOberation)
+// }
   return (
     <>
     <Hederlang/>
-    {/* <Header/> */}
+    <Header/>
         <section>
         <div className="container mt-5">
             <div className="row">
@@ -93,6 +98,8 @@ const Cart = ()=> {
                             </div>
                         </div>
                     </div>
+
+                    
 
 
 

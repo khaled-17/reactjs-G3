@@ -146,10 +146,11 @@ const Registration = () => {
                       <div className="custom-control mx-3 custom-radio custom-control-inline ">
                         <input
                           type="radio"
+                        
                           className="custom-control-input mx-2"
                           value="2"
                           id="customRadioInline2"
-                          name="customRadioInline2"
+                          name="customRadioInline1"
                         />
                         <label
                           className="custom-control-label"
