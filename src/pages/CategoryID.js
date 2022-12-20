@@ -38,6 +38,7 @@ const CategoryID = () => {
     // }, []);
 
 
+    useEffect(() => {
 // Make a request for a user with a given ID
 axios.get('http://localhost:5200/api/elabdfoods/Product')
   .then(function (response) {
@@ -53,6 +54,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
   .finally(function () {
     // always executed
   });
+    }, []);
 
 
 
@@ -67,7 +69,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
 
         <>
             <Header />
-            <div className="container-fluid  text-center">
+            <div className="container  text-center">
                 <div className="row">
                     <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>
 
@@ -118,7 +120,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards  img={item.Image} prise={item.Price}  />
+                                            <Cards name={item.EnName} img={item.Image} prise={item.Price}  />
                                         </div>
                                     )
                                     )

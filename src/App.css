@@ -65,10 +65,19 @@ h2{
 
 
 }
-.prd-name:hover{
+
+.propsName{
+  color:#79493c;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+.propsName:hover{
   color: #F7B0AE;
 
 }
+
+
+
 /* ///////////////////////////////////////////////////////////////////// */
 .containerSlide {
   width: 650px;
