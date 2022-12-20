@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 import elabdlogo from "./Elabd-Logo.png";
 import { FaUser } from "react-icons/fa";
-import "./zone.scss";
+// import "./zone.scss";
 import { Link } from "react-router-dom";
 import { Trans, withTranslation,useTranslation } from 'react-i18next';
 import Hederlang from '../../components/hederlang'

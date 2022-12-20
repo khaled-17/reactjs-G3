@@ -1,4 +1,4 @@
-import './cart.scss'
+// import './cart.scss'
 
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlus ,BsFileMinus} from 'react-icons/bs';
