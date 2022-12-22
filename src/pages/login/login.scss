@@ -8,6 +8,7 @@ $main-color:#f6b0ab;
     img{
                 width:12%;
                 // padding-bottom: %;
+                
             }
         }
         .login-btn{
@@ -99,7 +100,7 @@ $main-color:#f6b0ab;
        }
 
        .facebook-icon,.twitter-icon{
-        $secondary-color:#6f3c2e;
+       color: $secondary-color;
         font-size: 2rem;
         cursor: pointer;
     }

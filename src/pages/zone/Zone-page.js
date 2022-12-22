@@ -192,7 +192,7 @@ const Zone = () => {
             </label>
 
             <select
-              className="form-select  "
+              className="form-select "
               data-live-search="true"
               id="inlineFormSelectPref"
             >
