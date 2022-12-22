@@ -97,7 +97,7 @@ const Login = () => {
                 {/* <label for="floatingInputGroup1">Email</label> */}
               </div>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group ">
               <span class="input-group-text iput-icon border border-0 ">
                 <HiMail />
               </span>
@@ -113,7 +113,7 @@ const Login = () => {
             </div>
             <div className="text-danger text-left ">{errors.email}</div>
 
-            <div class="input-group ">
+            <div class="input-group mt-3 ">
               <span class="input-group-text iput-icon border border-0 ">
                 <FaUnlockAlt />
               </span>
@@ -126,9 +126,9 @@ const Login = () => {
                 name="password"
                 onChange={(e) => update(e)}
               />
-
-              <div className="text-danger">{errors.password}</div>
             </div>
+                          <div className="text-danger">{errors.password}</div>
+
             {/* <input className='mt-2 m-2' type={'checkbox'}  onChange={ (e)=> showpass(e)} />   */}
             {/* <label htmlFor="password"> show password </label> */}
 
