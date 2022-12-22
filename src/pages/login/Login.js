@@ -1,4 +1,7 @@
-// import './login.scss'
+
+
+import './login.scss'
+
 // import elabdlogo from'../../images/Elabd-Logo.png'
 import {FaUser,FaFacebookSquare,FaUnlockAlt,FaTwitterSquare} from 'react-icons/fa'
 import {HiMail} from 'react-icons/hi'
@@ -72,6 +75,7 @@ function update(e){
 //         setpasstype("password")
 //     }
 // }
+
 
 return(
     <>
