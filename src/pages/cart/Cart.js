@@ -1,11 +1,13 @@
-// import './cart.scss'
+import './cart.scss'
 
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlusFill ,BsFileMinusFill} from 'react-icons/bs';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
+import axios from "axios";
+
 
 
 
@@ -46,6 +48,20 @@ const Cart = ()=> {
 //     const deleteOberation =state.filter((el,idx)=>idx!==clickedIdx)
 //       console.log(deleteOberation)
 // }
+
+
+const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => {
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  
   return (
     <>
     <Hederlang/>

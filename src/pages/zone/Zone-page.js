@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 import elabdlogo from "./Elabd-Logo.png";
 import { FaUser } from "react-icons/fa";
-// import "./zone.scss";
+import "./zone.scss";
 import { Link } from "react-router-dom";
 import { Trans, withTranslation,useTranslation } from 'react-i18next';
 import Hederlang from '../../components/hederlang'
@@ -108,7 +108,7 @@ const Zone = () => {
             <FaUser />
 
             <div className="row">
-              <div className="col dropdown-center ">
+              <div className="col dropdown-center  ">
                 <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 ">
                   <div className=" card-body p-2">
                     <Link to="/Login" className="btn dropdown-item icon-btn">
@@ -130,33 +130,38 @@ const Zone = () => {
             </div>
           </button>
 
-          {/* <div class="dropdown">
+          <div class="dropdown drop  dropdown-center  ">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              class="btn dropdown  dropdown-center border border-0 nav-icon "
               type="button"
+              role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown button
+            <FaUser />
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75">
+            
               <li>
-                <a class="dropdown-item" href="/Login">
-                  Action
-                </a>
+              <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
+                       {t('login')}
+                    </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
+              <span>
+                      <p className="or-span">or</p>
+                    </span>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
+              <Link
+                   to="/Registration"
+                      className="btn dropdown-item icon-btn mx-2 "
+                    >
+                      create Account
+                    </Link>
               </li>
             </ul>
-          </div> */}
+          </div>
         </div>
       </nav>
 
@@ -187,7 +192,7 @@ const Zone = () => {
             </label>
 
             <select
-              className="form-select "
+              className="form-select  "
               data-live-search="true"
               id="inlineFormSelectPref"
             >
