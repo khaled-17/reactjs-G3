@@ -10,56 +10,29 @@ import Loader from '../components/loader/loader';
 
 // import axios from 'axios';
 import Hederlang from './../components/hederlang';
+import axiosInstance from './../axios config/axiosInstance';
 
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
-    // useEffect(() => {
-    //     const loadPost = async () => {
-
-    //         // Till the data is fetch using API 
-    //         // the Loading page will show.
-    //         setLoading(true);
-
-    //         // Await make wait until that 
-    //         // promise settles and return its result
-    //         const response = await axios.get(
-    //             "https://jsonplaceholder.typicode.com/posts/");
-
-    //         // After fetching data stored it in posts state.
-    //         setPosts(response.data);
-
-    //         // Closed the loading page
-    //         setLoading(false);
-    //     }
-
-    //     // Call the function
-    //     loadPost();
-    // }, []);
+  
 
 
     useEffect(() => {
-// Make a request for a user with a given ID
-axios.get('http://localhost:5200/api/elabdfoods/Product')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-                setPosts(response.data);
+        axiosInstance.get("/Product",{params:{CatID:5}})
+        .then((res) => {
+            console.log(res.data);
+            // console.log("res.data");
+                
+            setPosts(res.data)
 
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
-    }, []);
+        }).catch((err) => {
+            console.log(err);
+        })
+        // axios.post("url","data",{params:{},headers:{}})
 
-
-
-
+    }, [])
 
 
 
@@ -123,7 +96,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards name={item.EnName} img={item.Image} prise={item.Price}  />
+                                            <Cards name={item.EnName} img={item.Image.url} prise={item.Price}  />
                                         </div>
                                     )
                                     )
