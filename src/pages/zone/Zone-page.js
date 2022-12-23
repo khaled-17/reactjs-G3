@@ -87,7 +87,7 @@ const Zone = () => {
 
       <nav className="navbar zone-nav fixed-top mt-3">
         <div className="container">
-          <Link className="navbar-brand" to="/Home">
+          <Link className="navbar-brand" to="/Login">
             <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
           </Link>
           {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
@@ -96,7 +96,7 @@ const Zone = () => {
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
 
-          <button
+          <div
             className=" btn  nav-icon border border-0"
             // type="button"
             // role="button"
@@ -128,7 +128,7 @@ const Zone = () => {
                 </div>
               </div>
             </div>
-          </button>
+          </div>
 
           <div class="dropdown drop  dropdown-center  ">
             <button
