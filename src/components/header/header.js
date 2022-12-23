@@ -23,9 +23,6 @@ const Header = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
-
   const [drop1, setDrop1] = useState(false);
   const showDropdown1 = (e) => {
     setDrop1(!drop1);
@@ -55,7 +52,6 @@ const Header = () => {
   const hideDropdown4 = e => {
     setDrop4(false);
   }
-
 
   const url = "/CategoryID"
 
@@ -113,9 +109,7 @@ const Header = () => {
 
             <Nav.Link href={url} className="nav-link" id="navbarScrollingDropdown">{t('Halawet El Moluled')}</Nav.Link>
           </Nav>
-
         </Navbar.Collapse>
-
         <ul className="list-unstyled header-actions d-flex mb-0">
           <li>
             <Nav.Link href={url} className="navbar-brand" onClick={handleShow}>
@@ -131,14 +125,11 @@ const Header = () => {
                 </Button>
               </Modal.Body>
             </Modal>
-
           </li>
           <li>
             <Nav.Link href={url} >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><Link to="/Profile"><FaUserAlt/></Link> </i>
             </Nav.Link>               
-
-
           </li>
           <li>
             <Nav.Link href={url} >
