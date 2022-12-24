@@ -49,18 +49,45 @@ const Cart = ()=> {
 //       console.log(deleteOberation)
 // }
 
+useEffect(() => {
+
+    axios.get("/Product",{params:{CatID:5}})
+
+    .then((res) => {
+
+        console.log(res.data);
+
+        // console.log("res.data");
+
+           
+
+        setPosts(res.data)
+
+
+
+    }).catch((err) => {
+
+        console.log(err);
+
+    })
+
+    // axios.post("url","data",{params:{},headers:{}})
+
+
+
+}, [])
 
 const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => {
-        setPosts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+//   useEffect(() => {
+//     axios
+//       .get("https://jsonplaceholder.typicode.com/posts")
+//       .then((res) => {
+//         setPosts(res.data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }, []);
   
   return (
     <>

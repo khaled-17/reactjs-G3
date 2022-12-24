@@ -1,5 +1,6 @@
 import "./login.scss";
 import elabdlogo from "../../images/Elabd-Logo.png";
+import axios from "axios";
 import {
   FaUser,
   FaFacebookSquare,
@@ -23,8 +24,62 @@ const Login = () => {
     email: null,
     password: null,
   });
+
+
+
+  /////////////// login
+
+  const [data, setData] = useState({
+    
+      "Email":"unique@mail.com",
+      "Password":"123456 "
+      
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+
+
+
+
+
   const submitForm = (e) => {
     e.preventDefault();
+
+
+    const userData = {
+      Email: data.Email,
+      Password: data.password
+    };
+console.log(JSON.stringify(userData))
+    axios
+      .post("http://localhost:5200/api/elabdfoods/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+
+
+
+
+
+
+
     for (var item in loginform) {
       console.log(item);
 
@@ -81,7 +136,7 @@ const Login = () => {
     <>
       <div className="container login-container d-flex justify-content-center  align-items-center justify-content-center ">
         <form
-          className="col-7 text-center rounded "
+          className="col-7 text-center rounded mb-5 mt-5 "
           onSubmit={(e) => submitForm(e)}
         >
           <div>
@@ -102,13 +157,15 @@ const Login = () => {
                 <HiMail />
               </span>
               <input
-                type="email"
+                type="Email"
                 className="form-control input border border-0"
-                id="email"
+                id="Email"
                 placeholder="Email"
-                value={loginform.email}
-                name="email"
-                onChange={(e) => update(e)}
+                // value={loginform.email}
+                name="Email"
+                // onChange={(e) => update(e)}
+                value={data.Email}
+            onChange={handleChange}
               />
             </div>
             <div className="text-danger text-left ">{errors.email}</div>
@@ -119,12 +176,17 @@ const Login = () => {
               </span>
 
               <input
-                type={passtype}
+                // type={passtype}
                 className="form-control  input border border-0 "
                 id="password"
                 placeholder="password"
-                name="password"
-                onChange={(e) => update(e)}
+                // name="password"
+                // onChange={(e) => update(e)}
+
+                type="password"
+            name="password"
+            value={data.password}
+            onChange={handleChange}
               />
             </div>
                           <div className="text-danger">{errors.password}</div>
@@ -142,6 +204,7 @@ const Login = () => {
             type="submit"
             className="btn login-btn "
             disabled={errors.email && errors.password == null ? true : false}
+            onClick={submitForm}
           >
             {" "}
             Login{" "}

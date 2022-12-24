@@ -78,6 +78,8 @@ const Zone = () => {
   //     <option>{branch.branch}</option>
   // ))
   console.log(branches);
+  const [toggle, settoggel]=useState('none !important')
+  
 
   return (
     <>
@@ -95,7 +97,7 @@ const Zone = () => {
       <FaUser/> */}
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-
+{/* 
           <div
             className=" btn  nav-icon border border-0"
             // type="button"
@@ -128,19 +130,26 @@ const Zone = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="dropdown drop  dropdown-center  ">
+
+
+          <div class="dropdown drop  dropdown-center  "
+           type="button"
+          role="button"
+          aria-expanded="false"
+          //  data-bs-toggle="dropdown"
+          aria-controls="multiCollapseExample1"
+          onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
+
+>
             <button
               class="btn dropdown  dropdown-center border border-0 nav-icon "
-              type="button"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+           
             >
             <FaUser />
             </button>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75">
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75" style={{display:toggle}}>
             
               <li>
               <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
