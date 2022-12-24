@@ -14,9 +14,9 @@ const Cards = (props) => {
         img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
         prise: "45"
     }
+
+
 const tokenFromLocal=localStorage.getItem("myAccessToken")
-
-
     function addToFav(_id) {
         const userData = {
             ProductID: _id,
