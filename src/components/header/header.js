@@ -12,8 +12,10 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation();
 
 
   const [show, setShow] = useState(false);
@@ -35,15 +37,15 @@ const Header = () => {
         // handle success
         let showdrop = drop1.map((isdrop, index) => {
           return (isdrop = false);
-      }); 
-      let isDropOpen = showdrop.slice();
-      if (subCategories.length > 0) {
-      isDropOpen[i] = true;
-      }else{
-        isDropOpen[i] = false;
-      }
-      setDrop1(isDropOpen)
-      console.log(isDropOpen);
+        });
+        let isDropOpen = showdrop.slice();
+        if (subCategories.length > 0) {
+          isDropOpen[i] = true;
+        } else {
+          isDropOpen[i] = false;
+        }
+        setDrop1(isDropOpen)
+        console.log(isDropOpen);
         console.log(response.data.SubCategorieID);
         setsubCategorie(response.data.SubCategorieID);
       })
@@ -59,13 +61,13 @@ const Header = () => {
     //   //  e.style.display === "block"
     // }
   }
-  const hideDropdown1  = (i) => {
-  //   let showdrop = drop1.map((isdrop, index) => {
-  //     return (isdrop = false);
-  // }); 
-  // let isDropOpen = showdrop.slice();
-  // isDropOpen[i] = false;
-  // setDrop1(isDropOpen)
+  const hideDropdown1 = (i) => {
+    //   let showdrop = drop1.map((isdrop, index) => {
+    //     return (isdrop = false);
+    // }); 
+    // let isDropOpen = showdrop.slice();
+    // isDropOpen[i] = false;
+    // setDrop1(isDropOpen)
   }
 
   const searchData = (vlu) => {
@@ -85,8 +87,15 @@ const Header = () => {
       });
   }
 
+   const [localvlu, setlocalvlu] = useState([]);
+
   useEffect(() => {
-    // Make a request for a user with a given ID             
+
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+      setlocalvlu(localvlu);
+    }
+
     axios.get('http://localhost:3002/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
@@ -117,7 +126,7 @@ const Header = () => {
             {categories.map((categorie, index) => {
               return (
                 <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
-                  onMouseEnter={e => showDropdown1(e.target, categorie._id,index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
+                  onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
                   <div style={{ width: "500px" }} >
                     {subCategories.map((subCategorie, index) => {
                       return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
@@ -146,19 +155,19 @@ const Header = () => {
             </Modal>
           </li>
           <li>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Login" >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
           </li>
           <li style={{ marginRight: "0px" }}>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Cart" >
               <i style={{ color: "#6f3c2e", fontSize: "23px" }}>
                 <FaShoppingBasket />
               </i>
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Cart" >
               <span className="badge rounded-pill" style={{
                 backgroundColor: "#f6b0ab", fontSize: "15px", padding: "1px 5px",
                 opacity: "1", fontWeight: "100"
