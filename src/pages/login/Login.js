@@ -54,7 +54,7 @@ const Login = () => {
       
     }, []);
     
-    localStorage.setItem('my-AccessToken', AccessToken);
+    localStorage.setItem('myAccessToken', AccessToken);
   
 
   const submitForm = (e) => {

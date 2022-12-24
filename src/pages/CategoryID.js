@@ -96,7 +96,7 @@ const CategoryID = () => {
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards name={item.EnName} img={item.Image.url} prise={item.Price}  />
+                                            <Cards _id ={item._id} name={item.EnName} img={item.Image.url} prise={item.Price}  />
                                         </div>
                                     )
                                     )

@@ -70,7 +70,7 @@ axios.get('http://localhost:5200/api/elabdfoods/Product')
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
-                                            <Cards img={item.Image}/>
+                                            <Cards img={item.Image.url}/>
 
                                             {/* </div> */}
 
