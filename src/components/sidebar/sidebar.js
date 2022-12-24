@@ -16,18 +16,35 @@ const Sidebar = () => {
     const [open3, setOpen3] = useState(false);
 
     const [checked, setChecked] = React.useState(false);
-    const [checked1, setChecked1] = React.useState(false);
-    const [checked4, setChecked4] = React.useState(false);
+    const [checked1, setChecked1] = React.useState([]);
+    const [checked4, setChecked4] = React.useState([]);
 
     const handleChange = () => {
         setChecked(!checked);
         setChecked1(!checked1);
     };
-    const handleChange1 = () => {
-        setChecked1(!checked1);
+    const handleChange1 = (i) => {
+        //setChecked1(!checked1);
+    
+        let checkbox = checked1.map((ischecked, index) => {
+            return (ischecked = false);
+        }); 
+        let isDone = checkbox.slice();
+        isDone[i] = true;
+        setChecked1(isDone)
+        console.log(isDone);
     };
-    const handleChange4 = () => {
-        setChecked4(!checked4);
+    const handleChange4 = (i) => {
+        // setChecked4(!checked4);
+        
+         let checkbox = checked4.map((ischecked, index) => {
+            return (ischecked = false);
+        }); 
+        let isDone = checkbox.slice();
+        isDone[i] = true;
+        setChecked4(isDone)
+        console.log(isDone);
+
     };
     const [value, setValue] = React.useState([0, 100]);
     const rangeSelector = (event, newValue) => {
@@ -72,7 +89,7 @@ const Sidebar = () => {
     
      useEffect(() => {
         // Make a request for a user with a given ID               //`/${params.id}?`
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
+        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -85,7 +102,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
+        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data.CatEnSize);
@@ -98,7 +115,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
+        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data.SubCategorieID);
@@ -136,7 +153,7 @@ const Sidebar = () => {
                                         </div>
                                         {subcategories.map((subcategorie, index) => {
                                             return (
-                                                <div className="form-group custom-control custom-checkbox" onChange={handleChange1} style={{ marginLeft: "10px" }}>
+                                                <div className="form-group custom-control custom-checkbox" onChange={(e)=>handleChange1(index)} style={{ marginLeft: "10px" }}>
                                                     <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1} className="custom-control-input"/>
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.EnsubCatName}</label>
                                                 </div>
@@ -164,7 +181,7 @@ const Sidebar = () => {
                                 {CatEnSizes.map((CatEnSize, index) => {
                                     return (
                                         <div className="form-group custom-control custom-checkbox" key={index}>
-                                            <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4} onChange={handleChange4} />
+                                            <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4} onChange={(e)=>handleChange4(index)} />
                                             <label htmlFor="chkSize130" className="custom-control-label">{CatEnSize}</label>
                                         </div>
                                     )
