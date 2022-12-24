@@ -8,7 +8,7 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -47,7 +47,15 @@ const Login = () => {
 
 
 
+  const [AccessToken, setAccessToken] = useState('')
 
+ 
+    useEffect(() => {
+      
+    }, []);
+    
+    localStorage.setItem('my-AccessToken', AccessToken);
+  
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -57,11 +65,12 @@ const Login = () => {
       Email: data.Email,
       Password: data.password
     };
-console.log(JSON.stringify(userData))
+// console.log(JSON.stringify(userData))
     axios
       .post("http://localhost:5200/api/elabdfoods/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
       .then((response) => {
-        console.log(response);
+        setAccessToken(response.data.AccessToken)
+        console.log(response.data.AccessToken);
       })
       .catch((error) => {
         if (error.response) {
