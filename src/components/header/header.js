@@ -124,6 +124,7 @@ const Header = () => {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "15px" }}>
             {categories.map((categorie, index) => {
+              
               return (
                 <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
                   onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
