@@ -7,6 +7,9 @@ import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
 import axios from "axios";
+import axiosInstance from '../../axios config/axiosInstance';
+import CartCard from './CartCard';
+import { useParams } from 'react-router';
 
 
 
@@ -44,50 +47,46 @@ const Cart = ()=> {
 
   const total= count * price;
 
-//   const deleteHandler = (e,clickedIdx)=>{
-//     const deleteOberation =state.filter((el,idx)=>idx!==clickedIdx)
-//       console.log(deleteOberation)
-// }
+  const deleteHandler = (e,clickedIdx)=>{
+    const deleteOberation =posts.filter((el,idx)=>idx!==clickedIdx)
+      console.log(deleteOberation)
+}
 
+const [posts, setPosts] = useState([]);
+  
+
+// const params= useParams() 
+// 63a38430a814f8dfd154d065
+
+
+// ${params.id}?
 useEffect(() => {
-
-    axios.get("/Product",{params:{CatID:5}})
-
+    axiosInstance.get("/Product/63a38430a814f8dfd154d065")
     .then((res) => {
-
         console.log(res.data);
-
         // console.log("res.data");
-
-           
-
+            
         setPosts(res.data)
 
-
-
     }).catch((err) => {
-
         console.log(err);
-
     })
-
     // axios.post("url","data",{params:{},headers:{}})
-
-
 
 }, [])
 
-const [posts, setPosts] = useState([]);
-//   useEffect(() => {
-//     axios
-//       .get("https://jsonplaceholder.typicode.com/posts")
-//       .then((res) => {
-//         setPosts(res.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }, []);
+
+// const [posts, setPosts] = useState([]);
+// //   useEffect(() => {
+// //     axios
+// //       .get("https://jsonplaceholder.typicode.com/posts")
+// //       .then((res) => {
+// //         setPosts(res.data);
+// //       })
+// //       .catch((err) => {
+// //         console.log(err);
+// //       });
+// //   }, []);
   
   return (
     <>
@@ -103,20 +102,24 @@ const [posts, setPosts] = useState([]);
                                 <div className="d-flex flex-wrap align-items-center  ">
                                     <div className=" mx-4 col-4 ">
                                         <a>
-                                            <img src="" alt="img" className="img-fluid "/> 
+                                            <img src={posts.Image} alt="img" className="img-fluid "/> 
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div className="order-details-items mx-5 col-4 ">
                                 <a>
-                                    <h6 className="order-title">Chocolate Sponge Gâteau</h6>
+                                    <h6 className="order-title">{posts.EnName}</h6>
                                 </a>
                                 <p className="mb-3 order-price ">
                                     price:
-                                    <span className="mx-2">17 EGP</span>
+                                    <span className="mx-2">{posts.Price}</span>
 
                                 </p>
+
+
+
+
                                 <p className="order-details-Quantity">Quantity:</p>
                                 <div className="product-single-price">
                                     <div className="quantity-input ">
@@ -125,23 +128,25 @@ const [posts, setPosts] = useState([]);
                                         </button >
                                         <p className="d-inline ">
                                         <span className="span-count">{count}</span>
-                                        </p>
-                                        {/* <input type="number"   className="quan-input"/> */}
-                                        <button className="increase-quan border border-0" onClick={increase}>
+                                        </p> 
+                                         <button className="increase-quan border border-0" onClick={increase}>
                                             <BsFilePlusFill/>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <div className="delete-cart d-flex justify-content-end col ">
-                                <a>
+                                <a onClick={deleteHandler}>
                                     
                                     <i  ><RiDeleteBin6Line/></i>
                                 </a>
                             </div>
                         </div>
+               
+
                     </div>
 
+               
                     
 
 
