@@ -47,8 +47,7 @@ const Login = () => {
 
 
 
-
-
+  const [AccessToken, setAccessToken] = useState('')
   const submitForm = (e) => {
     e.preventDefault();
 
@@ -57,11 +56,12 @@ const Login = () => {
       Email: data.Email,
       Password: data.password
     };
-console.log(JSON.stringify(userData))
+// console.log(JSON.stringify(userData))
     axios
       .post("http://localhost:5200/api/elabdfoods/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
       .then((response) => {
-        console.log(response);
+        setAccessToken(response.data.AccessToken)
+        console.log(response.data.AccessToken);
       })
       .catch((error) => {
         if (error.response) {
