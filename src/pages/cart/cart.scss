@@ -77,8 +77,8 @@ $main-color:#f6b0ab;
 }
 .span-count{
     background-color:white;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
     // padding-bottom: 1%;
     
     box-shadow:1px  1px 1px #8d8c8c8d;
@@ -109,4 +109,5 @@ $main-color:#f6b0ab;
     // margin-left: 34%;
     color:$main-color;
     font-size:120%;
+    cursor: pointer;
 }

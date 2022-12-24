@@ -78,6 +78,8 @@ const Zone = () => {
   //     <option>{branch.branch}</option>
   // ))
   console.log(branches);
+  const [toggle, settoggel]=useState('none !important')
+  
 
   return (
     <>
@@ -87,7 +89,7 @@ const Zone = () => {
 
       <nav className="navbar zone-nav fixed-top mt-3">
         <div className="container">
-          <Link className="navbar-brand" to="/Home">
+          <Link className="navbar-brand" to="/Login">
             <img className=" img-fluid " src={elabdlogo} alt="Elabd Logo" />
           </Link>
           {/* <a className="navbar-brand nav-icon" href="multiCollapseExample1">
@@ -95,20 +97,20 @@ const Zone = () => {
       <FaUser/> */}
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-
-          <button
+{/* 
+          <div
             className=" btn  nav-icon border border-0"
-            type="button"
+            // type="button"
+            // role="button"
             data-bs-toggle="dropdown"
-            data-bs-display="static"
-            role="button"
-            aria-expanded="false"
-            aria-controls="multiCollapseExample1"
+            // data-bs-display="static"
+            // aria-expanded="false"
+            // aria-controls="multiCollapseExample1"
           >
             <FaUser />
 
             <div className="row">
-              <div className="col dropdown-center ">
+              <div className="col dropdown-center  ">
                 <div className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  mt-3 ">
                   <div className=" card-body p-2">
                     <Link to="/Login" className="btn dropdown-item icon-btn">
@@ -128,35 +130,47 @@ const Zone = () => {
                 </div>
               </div>
             </div>
-          </button>
+          </div> */}
 
-          {/* <div class="dropdown">
+
+
+          <div class="dropdown drop  dropdown-center  "
+           type="button"
+          role="button"
+          aria-expanded="false"
+          //  data-bs-toggle="dropdown"
+          aria-controls="multiCollapseExample1"
+          onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
+
+>
             <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              class="btn dropdown  dropdown-center border border-0 nav-icon "
+           
             >
-              Dropdown button
+            <FaUser />
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75" style={{display:toggle}}>
+            
               <li>
-                <a class="dropdown-item" href="/Login">
-                  Action
-                </a>
+              <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
+                       {t('login')}
+                    </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
+              <span>
+                      <p className="or-span">or</p>
+                    </span>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
+              <Link
+                   to="/Registration"
+                      className="btn dropdown-item icon-btn mx-2 "
+                    >
+                      create Account
+                    </Link>
               </li>
             </ul>
-          </div> */}
+          </div>
         </div>
       </nav>
 

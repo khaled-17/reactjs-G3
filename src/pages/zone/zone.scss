@@ -19,6 +19,7 @@ body{
             .icon-btn{
                 background-color:$main-color;
                 text-align: center;
+               width: 100%;
                
             }
             .icon-btn:hover{
@@ -152,3 +153,6 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
         padding-bottom:50% ;
 
     }}
+    .drop{
+        color:$main-color;
+    }

@@ -1,11 +1,13 @@
-// import './cart.scss'
+import './cart.scss'
 
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlusFill ,BsFileMinusFill} from 'react-icons/bs';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
+import axios from "axios";
+
 
 
 
@@ -35,16 +37,62 @@ const Cart = ()=> {
   
   // working decrease
   const decrease = () => setCount(prevCount => {
-    if (prevCount <= 0) return 0;
+    if (prevCount <= 1) return 1;
     return prevCount - 1;
   })
  const price= 17;
 
   const total= count * price;
+
+//   const deleteHandler = (e,clickedIdx)=>{
+//     const deleteOberation =state.filter((el,idx)=>idx!==clickedIdx)
+//       console.log(deleteOberation)
+// }
+
+useEffect(() => {
+
+    axios.get("/Product",{params:{CatID:5}})
+
+    .then((res) => {
+
+        console.log(res.data);
+
+        // console.log("res.data");
+
+           
+
+        setPosts(res.data)
+
+
+
+    }).catch((err) => {
+
+        console.log(err);
+
+    })
+
+    // axios.post("url","data",{params:{},headers:{}})
+
+
+
+}, [])
+
+const [posts, setPosts] = useState([]);
+//   useEffect(() => {
+//     axios
+//       .get("https://jsonplaceholder.typicode.com/posts")
+//       .then((res) => {
+//         setPosts(res.data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }, []);
+  
   return (
     <>
     <Hederlang/>
-    {/* <Header/> */}
+    <Header/>
         <section>
         <div className="container mt-5">
             <div className="row">
@@ -93,6 +141,8 @@ const Cart = ()=> {
                             </div>
                         </div>
                     </div>
+
+                    
 
 
 
