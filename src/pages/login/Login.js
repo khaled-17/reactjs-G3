@@ -8,7 +8,7 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -48,6 +48,15 @@ const Login = () => {
 
 
   const [AccessToken, setAccessToken] = useState('')
+
+ 
+    useEffect(() => {
+      
+    }, []);
+    
+    localStorage.setItem('my-AccessToken', AccessToken);
+  
+
   const submitForm = (e) => {
     e.preventDefault();
 
