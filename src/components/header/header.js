@@ -12,6 +12,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useSelector } from 'react-redux';
+import axiosInstance from './../../axios config/axiosInstance';
 
 const Header = () => {
 
@@ -30,7 +31,7 @@ const Header = () => {
   const [subCategories, setsubCategorie] = useState([]);
 
   const showDropdown1 = (e, id, i) => {
-    axios.get(`http://localhost:3002/api/elabdfoods/Categorie/${id}`)
+    axiosInstance.get(`/Categorie/${id}`)
       .then(function (response) {
         // handle success
         let showdrop = drop1.map((isdrop, index) => {
@@ -70,7 +71,7 @@ const Header = () => {
 
   const searchData = (vlu) => {
     console.log(vlu);
-    axios.get(`http://localhost:3002/api/elabdfoods/Product?EnName=${vlu}`)
+    axiosInstance.get(`/Product?EnName=${vlu}`)
       .then(function (response) {
         // handle success
         console.log(response.data);
@@ -87,7 +88,7 @@ const Header = () => {
 
   useEffect(() => {
     // Make a request for a user with a given ID             
-    axios.get('http://localhost:3002/api/elabdfoods/Categorie')
+    axiosInstance.get('/Categorie')
       .then(function (response) {
         // handle success
         console.log(response.data);
