@@ -60,20 +60,29 @@ const [posts, setPosts] = useState([]);
 
 
 // ${params.id}?
+const tokenFromLocal=localStorage.getItem("myAccessToken")
 useEffect(() => {
-    axiosInstance.get("/Product/63a38430a814f8dfd154d065")
-    .then((res) => {
-        console.log(res.data);
-        // console.log("res.data");
-            
-        setPosts(res.data)
+axios({  
+// Endpoint to send files
+url: "http://localhost:5200/api/elabdfoods/Cart",
+method: "GET",
+headers: {
+  // Add any auth token here
+  token:`token ${tokenFromLocal}`  
+  },
+// Attaching the form data
+// data: formData,
+})
+// Handle the response from backend here
+.then((res) => {
+    // console.log(res.data);
+    setPosts(res.data);
+})
+// Catch errors if any
+.catch((err) => { });
+},[ ])
 
-    }).catch((err) => {
-        console.log(err);
-    })
-    // axios.post("url","data",{params:{},headers:{}})
-
-}, [])
+console.log(posts);
 
 
 // const [posts, setPosts] = useState([]);
@@ -93,27 +102,33 @@ useEffect(() => {
     <Hederlang/>
     <Header/>
         <section>
+  
+
+
         <div className="container mt-5">
             <div className="row">
                 <div className="col-12 d-flex flex-wrap">
+
+
+                {posts.map((item) =>
                     <div className="col-md-8 col-sm-12 mb-md-0 mb-3">
                         <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-5 bg-body rounded ">
                             <div className="order-details-img  ">
                                 <div className="d-flex flex-wrap align-items-center  ">
                                     <div className=" mx-4 col-4 ">
                                         <a>
-                                            <img src={posts.Image} alt="img" className="img-fluid "/> 
+                                            <img src={item.ProductID.Image.url} alt="img" className="img-fluid "/> 
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div className="order-details-items mx-5 col-4 ">
                                 <a>
-                                    <h6 className="order-title">{posts.EnName}</h6>
+                                    <h6 className="order-title">{item.ProductID.EnName}</h6>
                                 </a>
                                 <p className="mb-3 order-price ">
                                     price:
-                                    <span className="mx-2">{posts.Price}</span>
+                                    <span className="mx-2">{item.ProductID.Price}</span>
 
                                 </p>
 
@@ -142,9 +157,8 @@ useEffect(() => {
                                 </a>
                             </div>
                         </div>
-               
-
-                    </div>
+                                   </div>
+)}
 
                
                     
