@@ -8,7 +8,7 @@ import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
 import axios from "axios";
 import axiosInstance from '../../axios config/axiosInstance';
-import CartCard from './CartCard';
+// import CartCard from './CartCard';
 import { useParams } from 'react-router';
 
 

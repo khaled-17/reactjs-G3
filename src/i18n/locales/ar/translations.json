@@ -44,8 +44,12 @@
   "Powered By":"بواسطة",
   "© 2022 ELAbd Patisserie- All Rights Reserved":"© 2022 حلواني العبد - جميع الحقوق محفوظة  ",
   "Follow Us On":"تابعنا",
-  "EGP":"ج.م"
-
+  "EGP":"ج.م",
+"login":"تسجيل الدخول",
+"create Account":"إنشاء حساب",
+"Select your Zone to start enjoying our Delivery service":"حدد منطقتك لبدء الاستمتاع بخدماتنا التى نقدمها",
+"search for Zone":"ابحث عن المنطقة",
+"Go":"سجل"
 
   
 }

@@ -1,6 +1,8 @@
 import "./login.scss";
 import elabdlogo from "../../images/Elabd-Logo.png";
 import axios from "axios";
+import { Trans, withTranslation,useTranslation } from 'react-i18next';
+
 import {
   FaUser,
   FaFacebookSquare,
@@ -12,6 +14,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const { t } = useTranslation();
+
   const validEmail = new RegExp(
     "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
   );
@@ -31,8 +35,8 @@ const Login = () => {
 
   const [data, setData] = useState({
     
-      "Email":"unique@mail.com",
-      "Password":"123456 "
+      "Email":"",
+      "Password":""
       
   });
 
@@ -42,6 +46,32 @@ const Login = () => {
       ...data,
       [e.target.name]: value
     });
+
+    if (e.target.name === "Email") {
+      setData({
+        ...data,
+        Email: e.target.value,
+      });
+      seterrors({
+        ...errors,
+        email:
+          validEmail.test(e.target.value) === false
+            ? "please write a vaild email !"
+            : null,
+      });
+    } else if (e.target.name === "password") {
+      setData({
+        ...data,
+        password: e.target.value,
+      });
+      seterrors({
+        ...errors,
+        password:
+          e.target.value.length < 8
+            ? "password should have more than 8 charctricts"
+            : null,
+      });
+    }
   };
 
 
@@ -80,14 +110,14 @@ console.log(JSON.stringify(userData))
 
 
 
-    for (var item in loginform) {
+    for (var item in data) {
       console.log(item);
 
-      if (loginform[item] === "") {
+      if (data[item] === "") {
         seterrors({
           ...errors,
-          email: loginform.email === "" ? "this field is required" : null,
-          password: loginform.password === "" ? "this field is required" : null,
+          email: data.Email === "" ? "this field is required" : null,
+          password: data.password === "" ? "this field is required" : null,
         });
         return 0;
       }
@@ -96,8 +126,8 @@ console.log(JSON.stringify(userData))
   };
   function update(e) {
     if (e.target.name === "email") {
-      setloginform({
-        ...loginform,
+      setData({
+        ...data,
         email: e.target.value,
       });
       seterrors({
@@ -108,7 +138,7 @@ console.log(JSON.stringify(userData))
             : null,
       });
     } else if (e.target.name === "password") {
-      setloginform({
+      setData({
         ...loginform,
         password: e.target.value,
       });
@@ -165,7 +195,7 @@ console.log(JSON.stringify(userData))
                 name="Email"
                 // onChange={(e) => update(e)}
                 value={data.Email}
-            onChange={handleChange}
+            onChange={(e)=>handleChange(e) }
               />
             </div>
             <div className="text-danger text-left ">{errors.email}</div>
@@ -183,7 +213,7 @@ console.log(JSON.stringify(userData))
                 // name="password"
                 // onChange={(e) => update(e)}
 
-                type="password"
+                type={"password"||{passtype}}
             name="password"
             value={data.password}
             onChange={handleChange}
@@ -196,7 +226,7 @@ console.log(JSON.stringify(userData))
 
             <p className="forget-pass">
               <a href="#" className="forget-pass">
-                forget password?
+              forget password?
               </a>
             </p>
           </div>
@@ -206,17 +236,19 @@ console.log(JSON.stringify(userData))
             disabled={errors.email && errors.password == null ? true : false}
             onClick={submitForm}
           >
-            {" "}
-            Login{" "}
+            
+            Login
           </button>
-          <button
+
+          <Link
             type="submit"
             className="btn CreatAcc-btn mb-2 "
             disabled={errors.email && errors.password == null ? true : false}
+            to="/Registration"
           >
             {" "}
             Create Account{" "}
-          </button>
+          </Link>
           <span className="mt-4  mx-3">or</span>
 
           <div>
