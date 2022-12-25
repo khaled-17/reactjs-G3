@@ -10,15 +10,18 @@ import axios from "axios";
 import axiosInstance from '../../axios config/axiosInstance';
 // import CartCard from './CartCard';
 import { useParams } from 'react-router';
-
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCounter } from '../../store/actions/counter';
 
 
 const Cart = ()=> {
     
     
+    const counter = useSelector((state) => state.counter.counter)
+
+    const dispatch = useDispatch()
+
+         
   const countStateArray = useState(1);
   const count = countStateArray[0];
   const setCount = countStateArray[1];
@@ -75,9 +78,12 @@ headers: {
 })
 // Handle the response from backend here
 .then((res) => {
+
     // console.log(res.data);
     setPosts(res.data);
-    
+    let lngth = res.data.length
+    dispatch(changeCounter((lngth)))
+
 })
 // Catch errors if any
 .catch((err) => { });
