@@ -12,8 +12,8 @@ import {
 import { HiMail } from "react-icons/hi";
  import { Link } from "react-router-dom";
 import useLocalStorage from './../../hooks/useLocalStorage'
+import { useHistory } from "react-router-dom";
 
-import './login.scss'
 
 // import elabdlogo from'../../images/Elabd-Logo.png'
  import React, { useEffect , useState } from 'react';
@@ -88,6 +88,7 @@ const Login = () => {
 
 
   const [AccessToken, setAccessToken] = useState('')
+  // const history = useHistory()
 
  
     useEffect(() => {
@@ -110,6 +111,7 @@ const Login = () => {
       .post("http://localhost:5200/api/elabdfoods/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
       .then((response) => {
         setAccessToken(response.data.AccessToken)
+        window.location.href = '/';
         console.log(response.data.AccessToken);
       })
       .catch((error) => {
@@ -206,14 +208,14 @@ const Login = () => {
                 {/* <label for="floatingInputGroup1">Email</label> */}
               </div>
             </div>
-            <div class="input-group mb-3">
+            {/* <div class="input-group mb-3">
               <span class="input-group-text iput-icon border border-0 "><HiMail /></span>
               <input type="email" className="form-control input border border-0"
                 id="email" placeholder="Email" value={loginform.email} name="email" onChange={(e) => update(e)}/>
             </div>
             <div className="text-danger text-left mt-1">
               {errors.email}
-            </div>
+            </div> */}
 
             <div class="input-group ">
               <span class="input-group-text iput-icon border border-0 ">
@@ -263,15 +265,16 @@ const Login = () => {
               </a>
             </p>
           </div>
-          <button
+          <Link
             type="submit"
             className="btn login-btn "
             disabled={errors.email && errors.password == null ? true : false}
             onClick={submitForm}
+            to="/Home"
           >
             
             Login
-          </button>
+          </Link>
 
           <Link
             type="submit"
