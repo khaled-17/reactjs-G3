@@ -103,15 +103,13 @@ console.log(posts);
     <Header/>
         <section>
   
+        <div class="container">
+  <div class="row">
+    <div class="col-8">
 
-
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-12 d-flex flex-wrap">
-
-
-                {posts.map((item) =>
-                    <div className="col-md-8 col-sm-12 mb-md-0 mb-3">
+      One of three columns
+      {posts.map((item) =>
+                    <div className=" mb-3">
                         <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-5 bg-body rounded ">
                             <div className="order-details-img  ">
                                 <div className="d-flex flex-wrap align-items-center  ">
@@ -160,12 +158,11 @@ console.log(posts);
                                    </div>
 )}
 
-               
-                    
+    </div>
+    <div class="col-4">
 
-
-
-                    <div className=" col-md-4 col-sm-12 order-info">
+      One of three columns
+      <div className="  order-info">
                         <div className="col-md-12">
                             <div className="order-summary shadow-sm  ">
                                 <h6>Order Summary</h6>
@@ -200,9 +197,21 @@ console.log(posts);
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
     </section>
     <Footer/>
     </>
