@@ -89,7 +89,7 @@ const Sidebar = () => {
     
      useEffect(() => {
         // Make a request for a user with a given ID               //`/${params.id}?`
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get('http://localhost:5200/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -102,7 +102,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get('http://localhost:5200/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data.CatEnSize);
@@ -115,7 +115,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get('http://localhost:5200/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
             .then(function (response) {
                 // handle success
                 console.log(response.data.SubCategorieID);
