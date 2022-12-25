@@ -31,26 +31,26 @@ axios({
 
     function sayHello(i) { 
       console.log( i);
-        axios({
-            url: `http://localhost:5200/api/elabdfoods/Fav/${i}`,
-            method: "DELETE",
-            headers: {
-               token:`token ${tokenFromLocal}`  
-            },
-           })
-            // Handle the response from backend here
-            .then((res) => {
-                console.log(res.data);
-                setPosts(res.data);        
-             })
+        // axios({
+        //     url: `http://localhost:5200/api/elabdfoods/Fav/${i}`,
+        //     method: "DELETE",
+        //     headers: {
+        //        token:`token ${tokenFromLocal}`  
+        //     },
+        //    })
+        //     // Handle the response from backend here
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         setPosts(res.data);        
+        //      })
 
-             setPosts(
-              posts.filter((post) => {
-                console.log(post.ProductID._id);
+        //      setPosts(
+        //       posts.filter((post) => {
+        //         console.log(post.ProductID._id);
 
-                 return post.ProductID._id !== i;
-              })
-           );
+        //          return post.ProductID._id !== i;
+        //       })
+        //    );
 
 
 

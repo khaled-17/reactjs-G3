@@ -21,7 +21,6 @@ const tokenFromLocal=localStorage.getItem("myAccessToken")
         const userData = {
             ProductID: _id,
             };
-
         console.log(_id);   
   // console.log(JSON.stringify(userData))
   axiosInstance
@@ -42,15 +41,6 @@ const tokenFromLocal=localStorage.getItem("myAccessToken")
             console.log(error);
           }
         });
-  
-  
-
-
-
-          
-
-
-
       }
       
     function addToCart(_id) {
