@@ -121,7 +121,7 @@ const Header = () => {
           <img style={{ width: "90px", height: "90px", top: "0" }} loading="lazy" src={img1} alt="logo" />
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="mx-auto flex-wrap" style={{ fontSize: "15px" }}>
+          <Nav className="mx-auto flex-wrap" style={{ fontSize: "14px" }}>
             {categories.map((categorie, index) => {
               
               return (
@@ -137,10 +137,10 @@ const Header = () => {
             })}
           </Nav>
         </Navbar.Collapse>
-        <ul className="list-unstyled header-actions d-flex mb-0" style={{ width: "100px" }}>
+        <ul className="list-unstyled header-actions d-flex mb-0" style={{ width: "90px" }}>
           <li style={{ marginRight: "0px", marginLeft: "15px" }}>
             <Nav.Link href={url} className="navbar-brand" onClick={handleShow}>
-              <i style={{ color: "#6f3c2e", fontSize: "20px", marginRight: "0" }}><FaSearch /></i>
+              <i style={{ color: "#6f3c2e", fontSize: "18px", marginRight: "0" }}><FaSearch /></i>
             </Nav.Link>
             <Modal show={show} onHide={handleClose} id="modal" style={{ marginRight: "0" }} >
               <Modal.Body id="modalbody">
@@ -156,12 +156,12 @@ const Header = () => {
           </li>
           <li>
             <Nav.Link href="/Profile" >
-              <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
+              <i style={{ color: "#6f3c2e", fontSize: "16px" }} ><FaUserAlt /></i>
             </Nav.Link>
           </li>
           <li style={{ marginRight: "0px" }}>
             <Nav.Link href="/Cart" >
-              <i style={{ color: "#6f3c2e", fontSize: "23px" }}>
+              <i style={{ color: "#6f3c2e", fontSize: "20px" }}>
                 <FaShoppingBasket />
               </i>
             </Nav.Link>
@@ -169,14 +169,14 @@ const Header = () => {
           <li>
             <Nav.Link href="/Cart" >
               <span className="badge rounded-pill" style={{
-                backgroundColor: "#f6b0ab", fontSize: "15px", padding: "1px 5px",
+                backgroundColor: "#f6b0ab", fontSize: "13px", padding: "1px 5px",
                 opacity: "1", fontWeight: "100"
               }}>{counter}</span>
             </Nav.Link>
           </li>
           <li className="d-flex">
             <Nav.Link href={url}>
-              <i style={{ color: "#6f3c2e", fontSize: "25px" }} ><MdLocationPin /></i>
+              <i style={{ color: "#6f3c2e", fontSize: "20px" }} ><MdLocationPin /></i>
             </Nav.Link>
           </li>
         </ul>
