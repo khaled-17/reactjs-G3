@@ -16,34 +16,34 @@ const Sidebar = () => {
     const [open3, setOpen3] = useState(false);
 
     const [checked, setChecked] = React.useState(false);
-    const [checked1, setChecked1] = React.useState([]);
-    const [checked4, setChecked4] = React.useState([]);
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked4, setChecked4] = React.useState(false);
 
     const handleChange = () => {
         setChecked(!checked);
         setChecked1(!checked1);
     };
     const handleChange1 = (i) => {
-        //setChecked1(!checked1);
+         setChecked1(!checked1);
     
-        let checkbox = checked1.map((ischecked, index) => {
-            return (ischecked = false);
-        }); 
-        let isDone = checkbox.slice();
-        isDone[i] = true;
-        setChecked1(isDone)
-        console.log(isDone);
+        // let checkbox = checked1.map((ischecked, index) => {
+        //     return (ischecked = false);
+        // }); 
+        // let isDone = checkbox.slice();
+        // isDone[i] = true;
+        // setChecked1(isDone)
+        // console.log(isDone);
     };
     const handleChange4 = (i) => {
-        // setChecked4(!checked4);
+         setChecked4(!checked4);
         
-         let checkbox = checked4.map((ischecked, index) => {
-            return (ischecked = false);
-        }); 
-        let isDone = checkbox.slice();
-        isDone[i] = true;
-        setChecked4(isDone)
-        console.log(isDone);
+        //  let checkbox = checked4.map((ischecked, index) => {
+        //     return (ischecked = false);
+        // }); 
+        // let isDone = checkbox.slice();
+        // isDone[i] = true;
+        // setChecked4(isDone)
+        // console.log(isDone); 
 
     };
     const [value, setValue] = React.useState([0, 100]);
