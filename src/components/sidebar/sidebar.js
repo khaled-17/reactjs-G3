@@ -6,8 +6,8 @@ import './sidebar.css';
 import axios from 'axios';
 // import { useNavigate } from "react-router-dom";
 import {useRef} from 'react';
-
  import CategoryID from './../../pages/CategoryID'; 
+import { useParams } from 'react-router-dom';
 
 const Sidebar = () => {
 
@@ -68,7 +68,6 @@ const Sidebar = () => {
         setValue([0, 100]);
     }
 
-    // const params= useParams()   /////للتسهيل 
     const [categorie, setcategorie] = useState([]);
     const [CatEnSizes, setCatEnSizes] = useState([]);
     const [subcategories, setsubcategories] = useState([]);
@@ -85,11 +84,14 @@ const Sidebar = () => {
 
          <CategoryID data={data}/>
         console.log(ref1.current.checked);//true
+        console.log(ref1.current);//true
+
         }
-    
+         const params= useParams()   /////للتسهيل 
+
      useEffect(() => {
         // Make a request for a user with a given ID               //`/${params.id}?`
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${params.id}`)
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -102,7 +104,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${params.id}`)
             .then(function (response) {
                 // handle success
                 console.log(response.data.CatEnSize);
@@ -115,7 +117,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${params.id}`)
             .then(function (response) {
                 // handle success
                 console.log(response.data.SubCategorieID);

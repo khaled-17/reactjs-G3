@@ -155,7 +155,7 @@ const Header = () => {
             </Modal>
           </li>
           <li>
-            <Nav.Link href="/Login" >
+            <Nav.Link href="/Profile" >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
           </li>
