@@ -69,7 +69,7 @@ const Footermain = () => {
                     <ul style={font}>
                         <h6> {t('Our Categories')}</h6>
 
-                        <Link style={font} to="/CategoryID"><li>{t('Oriental Sweets')}</li></Link>
+                        <Link style={font} to="/CategoryID/63a32d46b93b2dac09515f2f"><li>{t('Oriental Sweets')}</li></Link>
 
                         <li>{t('Western Sweets')}</li>
 
