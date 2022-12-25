@@ -19,7 +19,7 @@ const Header = () => {
 
 
   const [show, setShow] = useState(false);
-  const [drop1, setDrop1] = useState(false);
+  const [drop1, setDrop1] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,11 +27,11 @@ const Header = () => {
   const counter = useSelector((state) => state.counter.counter)
 
   const [value, setValue] = useState([]);
-  const [products, setproduct] = useState([]);
+  const [products, setproduct] = useState([]); /////////////////////////////
   const [categories, setcategorie] = useState([]);
   const [subCategories, setsubCategorie] = useState([]);
 
-  const showDropdown1 = (e, id,i) => {
+  const showDropdown1 = (e, id, i) => {
     axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${id}`)
       .then(function (response) {
         // handle success
@@ -56,20 +56,19 @@ const Header = () => {
       .finally(function () {
         // always executed
       });
-    if (subCategories.length > 0) {
-      setDrop1(!drop1);
-      //  e.style.display === "block"
-    }
+    // if (subCategories.length > 0) {
+    //   setDrop1(!drop1);
+    //   //  e.style.display === "block"
+    // }
   }
-   
-   const hideDropdown1 = (i) => {
+  const hideDropdown1 = (i) => {
     //   let showdrop = drop1.map((isdrop, index) => {
     //     return (isdrop = false);
     // }); 
     // let isDropOpen = showdrop.slice();
     // isDropOpen[i] = false;
     // setDrop1(isDropOpen)
-   }
+  }
 
   const searchData = (vlu) => {
     console.log(vlu);
@@ -96,7 +95,6 @@ const Header = () => {
     if (items) {
       setlocalvlu(localvlu);
     }
-
     axios.get('http://localhost:5200/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
@@ -119,12 +117,10 @@ const Header = () => {
     <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top " style={{ height: "100px", top: "0" }}>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
         <Navbar.Brand href={url}>
           <img style={{ width: "90px", height: "90px", top: "0" }} loading="lazy" src={img1} alt="logo" />
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
-
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "15px" }}>
             {categories.map((categorie, index) => {
               
@@ -133,7 +129,7 @@ const Header = () => {
                   onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
                   <div style={{ width: "500px" }} >
                     {subCategories.map((subCategorie, index) => {
-                      return <NavDropdown.Item id="item" href={`/${categorie._id}`} key={subCategorie._id} >{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
+                      return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
                     })}
                   </div>
                 </NavDropdown>
@@ -151,19 +147,17 @@ const Header = () => {
                 <Form.Control id="modalinput" type="search" aria-label="Example text with button addon"
                   aria-describedby="basic-addon1" value={value} onChange={(e) => setValue(e.target.value)} placeholder=" Search for....." autoFocus />
                 <Button variant="outline-secondary" id="button-addon1">
-                  <Nav.Link to="/pageofproduct">
+                  <Nav.Link to="/CategoryID">
                     <i style={{ color: "#6f3c2e", fontSize: "20px" }} onClick={() => { searchData(value) }} ><FaSearch /></i>
                   </Nav.Link>
                 </Button>
               </Modal.Body>
             </Modal>
-
           </li>
           <li>
             <Nav.Link href="/Login" >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
-
           </li>
           <li style={{ marginRight: "0px" }}>
             <Nav.Link href="/Cart" >
@@ -179,7 +173,6 @@ const Header = () => {
                 opacity: "1", fontWeight: "100"
               }}>{counter}</span>
             </Nav.Link>
-
           </li>
           <li className="d-flex">
             <Nav.Link href={url}>
