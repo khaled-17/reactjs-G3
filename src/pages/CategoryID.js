@@ -47,7 +47,7 @@ const CategoryID = () => {
             
             <div className="container-xl  text-center">
                 <div className="row">
-                    <div className='border border-primary col-3 d-none d-lg-block' style={{ height: '500px' }}>
+                    <div className='col-3 filtering-sidebar container' controller="List" style={{ height: '500px' }}>
 
 
                         <Sidebar />

@@ -12,8 +12,10 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation();
 
 
   const [show, setShow] = useState(false);
@@ -29,10 +31,21 @@ const Header = () => {
   const [categories, setcategorie] = useState([]);
   const [subCategories, setsubCategorie] = useState([]);
 
-  const showDropdown1 = (e, id) => {
+  const showDropdown1 = (e, id,i) => {
     axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${id}`)
       .then(function (response) {
         // handle success
+        let showdrop = drop1.map((isdrop, index) => {
+          return (isdrop = false);
+        });
+        let isDropOpen = showdrop.slice();
+        if (subCategories.length > 0) {
+          isDropOpen[i] = true;
+        } else {
+          isDropOpen[i] = false;
+        }
+        setDrop1(isDropOpen)
+        console.log(isDropOpen);
         console.log(response.data.SubCategorieID);
         setsubCategorie(response.data.SubCategorieID);
       })
@@ -48,9 +61,15 @@ const Header = () => {
       //  e.style.display === "block"
     }
   }
-  const hideDropdown1 = e => {
-    setDrop1(false);
-  }
+   
+   const hideDropdown1 = (i) => {
+    //   let showdrop = drop1.map((isdrop, index) => {
+    //     return (isdrop = false);
+    // }); 
+    // let isDropOpen = showdrop.slice();
+    // isDropOpen[i] = false;
+    // setDrop1(isDropOpen)
+   }
 
   const searchData = (vlu) => {
     console.log(vlu);
@@ -69,8 +88,15 @@ const Header = () => {
       });
   }
 
+   const [localvlu, setlocalvlu] = useState([]);
+
   useEffect(() => {
-    // Make a request for a user with a given ID             
+
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+      setlocalvlu(localvlu);
+    }
+
     axios.get('http://localhost:5200/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
@@ -101,10 +127,11 @@ const Header = () => {
 
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "15px" }}>
             {categories.map((categorie, index) => {
+              
               return (
-                <NavDropdown id="navbarScrollingDropdown" show={drop1}
-                  onMouseEnter={e => showDropdown1(e.target, categorie._id)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
-                  <div style={{ width: "500px" }}>
+                <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
+                  onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
+                  <div style={{ width: "500px" }} >
                     {subCategories.map((subCategorie, index) => {
                       return <NavDropdown.Item id="item" href={`/${categorie._id}`} key={subCategorie._id} >{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
                     })}
@@ -133,20 +160,20 @@ const Header = () => {
 
           </li>
           <li>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Login" >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
 
           </li>
           <li style={{ marginRight: "0px" }}>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Cart" >
               <i style={{ color: "#6f3c2e", fontSize: "23px" }}>
                 <FaShoppingBasket />
               </i>
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link href={url} >
+            <Nav.Link href="/Cart" >
               <span className="badge rounded-pill" style={{
                 backgroundColor: "#f6b0ab", fontSize: "15px", padding: "1px 5px",
                 opacity: "1", fontWeight: "100"
