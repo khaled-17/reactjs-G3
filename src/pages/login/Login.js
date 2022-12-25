@@ -1,6 +1,8 @@
 import "./login.scss";
 import elabdlogo from "../../images/Elabd-Logo.png";
 import axios from "axios";
+import { Trans, withTranslation,useTranslation } from 'react-i18next';
+
 import {
   FaUser,
   FaFacebookSquare,
@@ -22,6 +24,8 @@ import './login.scss'
 
  ////
 const Login = () => {
+  const { t } = useTranslation();
+
   const validEmail = new RegExp(
     "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
   );
@@ -41,8 +45,8 @@ const Login = () => {
 
   const [data, setData] = useState({
     
-      "Email":"unique@mail.com",
-      "Password":"123456 "
+      "Email":"",
+      "Password":""
       
   });
 
@@ -52,6 +56,32 @@ const Login = () => {
       ...data,
       [e.target.name]: value
     });
+
+    if (e.target.name === "Email") {
+      setData({
+        ...data,
+        Email: e.target.value,
+      });
+      seterrors({
+        ...errors,
+        email:
+          validEmail.test(e.target.value) === false
+            ? "please write a vaild email !"
+            : null,
+      });
+    } else if (e.target.name === "password") {
+      setData({
+        ...data,
+        password: e.target.value,
+      });
+      seterrors({
+        ...errors,
+        password:
+          e.target.value.length < 8
+            ? "password should have more than 8 charctricts"
+            : null,
+      });
+    }
   };
 
 
@@ -99,14 +129,14 @@ const Login = () => {
 
 
 
-    for (var item in loginform) {
+    for (var item in data) {
       console.log(item);
 
-      if (loginform[item] === "") {
+      if (data[item] === "") {
         seterrors({
           ...errors,
-          email: loginform.email === "" ? "this field is required" : null,
-          password: loginform.password === "" ? "this field is required" : null,
+          email: data.Email === "" ? "this field is required" : null,
+          password: data.password === "" ? "this field is required" : null,
         });
         return 0;
       }
@@ -127,18 +157,19 @@ const Login = () => {
 
   function update(e) {
     if (e.target.name === "email") {
-      setloginform({
-        ...loginform,
-        email: e.target.value
-      })
+      setData({
+        ...data,
+        email: e.target.value,
+      });
       seterrors({
         ...errors,
         email:
-          validEmail.test(e.target.value) === false ? "please write a vaild email !" : null
-      })
-    }
-    else if (e.target.name === "password") {
-      setloginform({
+          validEmail.test(e.target.value) === false
+            ? "please write a vaild email !"
+            : null,
+      });
+    } else if (e.target.name === "password") {
+      setData({
         ...loginform,
         password: e.target.value
       })
@@ -185,12 +216,20 @@ const Login = () => {
             </div>
 
             <div class="input-group ">
-              <span class="input-group-text iput-icon border border-0 "><FaUnlockAlt /></span>
-              <input type={passtype} className="form-control  input border border-0 " id="password"
-                placeholder="password" name="password"onChange={(e) => update(e)}/>
-              <div className="text-danger">
-                {errors.password}
-              </div>
+              <span class="input-group-text iput-icon border border-0 ">
+                <HiMail />
+              </span>
+              <input
+                type="Email"
+                className="form-control input border border-0"
+                id="Email"
+                placeholder="Email"
+                // value={loginform.email}
+                name="Email"
+                // onChange={(e) => update(e)}
+                value={data.Email}
+            onChange={(e)=>handleChange(e) }
+              />
             </div>
             <div className="text-danger text-left ">{errors.email}</div>
 
@@ -207,7 +246,7 @@ const Login = () => {
                 // name="password"
                 // onChange={(e) => update(e)}
 
-                type="password"
+                type={"password"||{passtype}}
             name="password"
             value={data.password}
             onChange={handleChange}
@@ -218,8 +257,11 @@ const Login = () => {
             {/* <input className='mt-2 m-2' type={'checkbox'}  onChange={ (e)=> showpass(e)} />   */}
             {/* <label htmlFor="password"> show password </label> */}
 
-            <p className="forget-pass"><a href="#" className="forget-pass">forget password?</a></p>
-
+            <p className="forget-pass">
+              <a href="#" className="forget-pass">
+              forget password?
+              </a>
+            </p>
           </div>
           <button
             type="submit"
@@ -227,17 +269,19 @@ const Login = () => {
             disabled={errors.email && errors.password == null ? true : false}
             onClick={submitForm}
           >
-            {" "}
-            Login{" "}
+            
+            Login
           </button>
-          <button
+
+          <Link
             type="submit"
             className="btn CreatAcc-btn mb-2 "
             disabled={errors.email && errors.password == null ? true : false}
+            to="/Registration"
           >
             {" "}
             Create Account{" "}
-          </button>
+          </Link>
           <span className="mt-4  mx-3">or</span>
 
           <div>

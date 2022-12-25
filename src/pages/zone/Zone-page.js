@@ -166,7 +166,7 @@ const Zone = () => {
                    to="/Registration"
                       className="btn dropdown-item icon-btn mx-2 "
                     >
-                      create Account
+                    {t('create Account')}
                     </Link>
               </li>
             </ul>
@@ -191,7 +191,7 @@ const Zone = () => {
 
       <div className="container search col-12">
         <h3 className="search-title ">
-          {t(' Select your Zone to start enjoying our Delivery service')}
+          {t('Select your Zone to start enjoying our Delivery service')}
         </h3>
 
         <form className="row  align-items-center ">
@@ -208,7 +208,7 @@ const Zone = () => {
               {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
               {/* <input type="search" class="selectpicker"  /> */}
               <option selected disabled>
-               {t(' search for Zone')}
+               {t('search for Zone')}
               </option>
               {branches.map((item, idx) => {
                 return (
