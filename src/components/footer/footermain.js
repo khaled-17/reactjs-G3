@@ -71,7 +71,7 @@ const Footermain = () => {
 
                         <Link style={font} to="/CategoryID/63a32d46b93b2dac09515f2f"><li>{t('Oriental Sweets')}</li></Link>
 
-                        <li>{t('Western Sweets')}</li>
+                      <li>  <Link style={font} to="/CategoryID/63a32ea9b93b2dac09515f31">{t('Western Sweets')}</Link></li>
 
                         <li>{t('Nuts and Yameesh')}</li>
                         <li>{t('Kahk and Biscuits')}</li>

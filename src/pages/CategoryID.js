@@ -20,7 +20,7 @@ const CategoryID = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axiosInstance.get("/Product?CatID=63a32d46b93b2dac09515f2f",{params:{CatID:5}})
+        axiosInstance.get("/Product",{params:{Categorie:id}})
         .then((res) => {
             console.log(res.data);
             // console.log("res.data");
