@@ -61,6 +61,21 @@ const Registration = () => {
     });
   }
 
+  const [data, setData] = useState({
+    
+    "Email":"",
+    "Password":""
+    
+});
+const userData = {
+  Email: data.Email,
+  Password: data.password
+};
+
+
+
+
+
   //  console.log(a);
 
   //  {branches.map((item)=>{return <option value="" role="listbox" >{item.branch}</option>})}
