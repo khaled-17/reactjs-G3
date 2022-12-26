@@ -16,21 +16,27 @@ export default function Carousels() {
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
 
-// Make a request for a user with a given ID
-axios.get('http://localhost:5200/api/elabdfoods/Product')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-                setPosts(response.data);
 
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
+    useEffect(() => {
+
+     // Make a request for a user with a given ID
+axios.get('http://localhost:5200/api/elabdfoods/Product')
+.then(function (response) {
+  // handle success
+  console.log(response.data);
+              setPosts(response.data);
+
+})
+.catch(function (error) {
+  // handle error
+  console.log(error);
+})
+.finally(function () {
+  // always executed
+});
+      }, []);
+
+
 
 
 

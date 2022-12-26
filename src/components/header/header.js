@@ -35,8 +35,8 @@ const Header = () => {
     axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${id}`)
       .then(function (response) {
         // handle success
-        let showdrop = drop1.map((isdrop, index) => {
-          return (isdrop = false);
+        let showdrop = drop1.map((isdrp, index) => {
+          return (isdrp = false);
         });
         let isDropOpen = showdrop.slice();
         if (subCategories.length > 0) {
@@ -87,14 +87,13 @@ const Header = () => {
       });
   }
 
-   const [localvlu, setlocalvlu] = useState([]);
+  const [localvlu, setlocalvlu] = useState(JSON.parse(localStorage.getItem('items')))
 
   useEffect(() => {
 
-    const items = JSON.parse(localStorage.getItem('items'));
-    if (items) {
+      const localvlu = JSON.parse(localStorage.getItem('items'))
       setlocalvlu(localvlu);
-    }
+      
     axios.get('http://localhost:5200/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
@@ -123,18 +122,32 @@ const Header = () => {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "14px" }}>
             {categories.map((categorie, index) => {
-              
-              return (
-                <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
-                  onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
-                  <div style={{ width: "500px" }} >
-                    {subCategories.map((subCategorie, index) => {
-                      return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
-                    })}
-                  </div>
-                </NavDropdown>
-              )
+              if (localvlu == "en") {
+                return (
+                  <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
+                    onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
+                    <div style={{ width: "500px" }} >
+                      {subCategories.map((subCategorie, index) => {
+                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
+                      })}
+                    </div>
+                  </NavDropdown>
+                )
+              } else if (localvlu == "ar") {
+                return (
+                  <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
+                    onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatArName} menuVariant="light">
+                    <div style={{ width: "500px" }} >
+                      {subCategories.map((subCategorie, index) => {
+                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
+                      })}
+                    </div>
+                  </NavDropdown>
+                )
+              }
+
             })}
+
           </Nav>
         </Navbar.Collapse>
         <ul className="list-unstyled header-actions d-flex mb-0" style={{ width: "90px" }}>
