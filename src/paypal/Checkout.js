@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Checkout.css';
+// import './Checkout.css';
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import Loader from './../components/loader/loader';
 
 const Checkout = () => {
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
@@ -46,7 +47,7 @@ const Checkout = () => {
     return (
         <div className="checkout">
             {/* kkk */}
-            {isPending ? <p>LOADING...</p> : (
+            {isPending ? <Loader/> : (
                 <>
                     <select value={currency} onChange={onCurrencyChange}>
                             <option value="USD">💵 USD</option>
