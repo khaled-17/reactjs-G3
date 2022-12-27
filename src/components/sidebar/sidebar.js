@@ -21,34 +21,62 @@ const Sidebar = () => {
     const [open3, setOpen3] = useState(false);
 
     const [checked, setChecked] = React.useState(false);
-    const [checked1, setChecked1] = React.useState(false);
-    const [checked4, setChecked4] = React.useState(false);
+    const [checked1, setChecked1] = React.useState([]);
+    const [checked4, setChecked4] = React.useState([]);
 
     const handleChange = () => {
         setChecked(!checked);
-        setChecked1(!checked1);
+        let checkbox = checked1.map((ischecked, index) => {
+                if(ischecked ==true){
+                    return  false
+                }else  {
+                    return  true
+                }
+        }); 
+        // let isDone = checkbox.slice();
+        // isDone[i] = true;
+        setChecked1(checkbox)
+        console.log(checkbox);
     };
     const handleChange1 = (i) => {
-        setChecked1(!checked1);
-
-        // let checkbox = checked1.map((ischecked, index) => {
-        //     return (ischecked = false);
-        // }); 
+        // setChecked1(!checked1);
+        console.log(i)
+        let checkbox = checked1.map((ischecked, index) => {
+            if(index == i){
+                if(ischecked ==true){
+                    return  false
+                }else  {
+                    return  true
+                }
+            }else{
+                return ischecked;
+            }
+            
+        }); 
         // let isDone = checkbox.slice();
         // isDone[i] = true;
-        // setChecked1(isDone)
-        // console.log(isDone);
+        setChecked1(checkbox)
+        console.log(checkbox);
     };
     const handleChange4 = (i) => {
-        setChecked4(!checked4);
-
-        //  let checkbox = checked4.map((ischecked, index) => {
-        //     return (ischecked = false);
-        // }); 
+       // setChecked4(!checked4);
+        console.log(i)
+        let checkbox = checked4.map((ischecked, index) => {
+            if(index == i){
+                if(ischecked ==true){
+                    return  false
+                }else  {
+                    return  true
+                }
+            }else{
+                return ischecked;
+            }
+            
+        }); 
         // let isDone = checkbox.slice();
         // isDone[i] = true;
-        // setChecked4(isDone)
-        // console.log(isDone); 
+        setChecked1(checkbox)
+        console.log(checkbox); 
 
     };
     const [value, setValue] = React.useState([0, 100]);
@@ -149,6 +177,11 @@ const Sidebar = () => {
                 // handle success
                 console.log(response.data.SubCategorieID);
                 setsubcategories(response.data.SubCategorieID);
+              let sub =  response.data.SubCategorieID.map((subcategorie, index) => {
+                return false
+                
+                  }  )
+                  setChecked1(sub);
             })
             .catch(function (err) {
                 // handle error
@@ -184,14 +217,14 @@ const Sidebar = () => {
                                         if (localvlu == "en") {
                                             return (
                                                 <div className="form-group custom-control custom-checkbox" onChange={(e) => handleChange1(index)} style={{ marginLeft: "10px" }}>
-                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1} className="custom-control-input" />
+                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1[index]} className="custom-control-input" />
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.EnsubCatName}</label>
                                                 </div>
                                             )
                                         } else if (localvlu == "ar") {
                                             return (
                                                 <div className="form-group custom-control custom-checkbox" onChange={(e) => handleChange1(index)} style={{ marginLeft: "10px" }}>
-                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1} className="custom-control-input" />
+                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1[index]} className="custom-control-input" />
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.ArsubCatName}</label>
                                                 </div>
                                             )
@@ -221,7 +254,7 @@ const Sidebar = () => {
 
                                 return (
                                     <div className="form-group custom-control custom-checkbox" key={index}>
-                                        <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4} onChange={(e) => handleChange4(index)} />
+                                        <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4[index]} onChange={(e) => handleChange4(index)} />
                                         <label htmlFor="chkSize130" className="custom-control-label">{CatSize}</label>
                                     </div>
                                 )

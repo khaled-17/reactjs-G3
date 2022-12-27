@@ -113,8 +113,6 @@ console.log(posts);
         <div class="container">
   <div class="row">
     <div class="col-8">
-
-      One of three columns
       {posts.map((item) =>
                     <div className=" mb-3">
                         <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-5 bg-body rounded ">
