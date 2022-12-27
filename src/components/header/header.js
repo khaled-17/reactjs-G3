@@ -117,7 +117,7 @@ const Header = () => {
     <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top " style={{ height: "100px", top: "0" }}>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Brand href={url}>
+        <Navbar.Brand href="/">
           <img style={{ width: "90px", height: "90px", top: "0" }} loading="lazy" src={img1} alt="logo" />
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">

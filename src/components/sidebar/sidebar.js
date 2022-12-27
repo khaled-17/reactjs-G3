@@ -33,13 +33,10 @@ const Sidebar = () => {
                     return  true
                 }
         }); 
-        // let isDone = checkbox.slice();
-        // isDone[i] = true;
         setChecked1(checkbox)
         console.log(checkbox);
     };
     const handleChange1 = (i) => {
-        // setChecked1(!checked1);
         console.log(i)
         let checkbox = checked1.map((ischecked, index) => {
             if(index == i){
@@ -53,13 +50,10 @@ const Sidebar = () => {
             }
             
         }); 
-        // let isDone = checkbox.slice();
-        // isDone[i] = true;
         setChecked1(checkbox)
         console.log(checkbox);
     };
     const handleChange4 = (i) => {
-       // setChecked4(!checked4);
         console.log(i)
         let checkbox = checked4.map((ischecked, index) => {
             if(index == i){
@@ -73,8 +67,6 @@ const Sidebar = () => {
             }
             
         }); 
-        // let isDone = checkbox.slice();
-        // isDone[i] = true;
         setChecked1(checkbox)
         console.log(checkbox); 
 
@@ -108,16 +100,15 @@ const Sidebar = () => {
     // const navigate = useNavigate();
 
     const ref1 = useRef(null);
-    const ref2 = useRef(null);
-    const ref3 = useRef(null);
+    const ref2 = useRef([]);
+    const ref3 = useRef([]);
 
-    const data = [inpValue1, inpValue2, value[0], value[1], ref1];
+    const data = [inpValue1, inpValue2, value[0], value[1], ref1,ref2,ref3];
 
     const handleSubmit = (e) => {
 
         <CategoryID data={data} />
         console.log(ref1.current.checked);//true
-        console.log(ref1.current);//true
     }
     const params = useParams()   /////للتسهيل 
 
@@ -217,14 +208,14 @@ const Sidebar = () => {
                                         if (localvlu == "en") {
                                             return (
                                                 <div className="form-group custom-control custom-checkbox" onChange={(e) => handleChange1(index)} style={{ marginLeft: "10px" }}>
-                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1[index]} className="custom-control-input" />
+                                                    <input type="checkbox" id="chkChildCat33" ref={ref2[index]} checked={checked1[index]} className="custom-control-input" />
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.EnsubCatName}</label>
                                                 </div>
                                             )
                                         } else if (localvlu == "ar") {
                                             return (
                                                 <div className="form-group custom-control custom-checkbox" onChange={(e) => handleChange1(index)} style={{ marginLeft: "10px" }}>
-                                                    <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1[index]} className="custom-control-input" />
+                                                    <input type="checkbox" id="chkChildCat33" ref={ref2[index]} checked={checked1[index]} className="custom-control-input" />
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.ArsubCatName}</label>
                                                 </div>
                                             )
