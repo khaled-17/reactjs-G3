@@ -89,11 +89,12 @@ const Header = () => {
 
   const [localvlu, setlocalvlu] = useState(JSON.parse(localStorage.getItem('items')))
 
+
   useEffect(() => {
 
       const localvlu = JSON.parse(localStorage.getItem('items'))
       setlocalvlu(localvlu);
-      
+
     axios.get('http://localhost:5200/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
