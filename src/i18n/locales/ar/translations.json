@@ -14,7 +14,7 @@
   "TermsandConditions":"الشروط والأحكام ",
   "Working hours":"مواعيد العمل من 9 صباحا حتى 12 منتصف الليل جميع ايام الاسبوع  ",
   "OurCategories":"أقسامنا",
-   "Wesrern Sweets":"حلويات شرقية",
+  "Wesrern Sweets":"حلويات شرقية",
   "Gateaux":"جاتوه",
   "Cakes":"تورت",
   "Ice Cream Cake":"تورتة ايس كريم",
@@ -49,7 +49,10 @@
 "create Account":"إنشاء حساب",
 "Select your Zone to start enjoying our Delivery service":"حدد منطقتك لبدء الاستمتاع بخدماتنا التى نقدمها",
 "search for Zone":"ابحث عن المنطقة",
-"Go":"سجل"
-
-  
+"Categories":"القسم",
+"Clear":"مسح الكل",
+"Reset":"مسح",
+"Price":"السعر",
+"Size":"الحجم",
+"Filter Now":"بحث"
 }

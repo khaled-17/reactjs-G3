@@ -16,6 +16,7 @@ import Zone from './pages/zone/Zone-page'
 import Login from './pages/login/Login'
 import Registration from './pages/Registration/Registration'
 import Cart from './pages/cart/Cart'
+ import Paypal from './Paypal/Paypal';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   document.body.dir = i18n.dir();
 
 
-  
+
   // console.log(isrtl);
   return (
     <>
@@ -34,13 +35,14 @@ function App() {
         <div >
 
           <Routes>
-          <Route path="/Zone" element={<Zone />} />
-          <Route path="/Login" element={<Login />} />
-            <Route path="/Registration" element={<Registration />} /> 
-            <Route path="/Cart" element={<Cart />} /> 
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Zone/>} />
+            <Route path="/Login" element={<Login/>} />
+            <Route path="/paypal" element={<Paypal/>} />
+            <Route path="/Registration" element={<Registration />} />
+            <Route path="/Cart" element={<Cart />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
-            <Route path="/CategoryID" element={<CategoryID />} />
+            <Route path="/CategoryID/:id" element={<CategoryID />} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Profile" element={<Profile />} />

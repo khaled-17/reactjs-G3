@@ -12,18 +12,16 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import axiosInstance from './../../axios config/axiosInstance';
 
 const Header = () => {
-  const { t } = useTranslation();
 
 
   const [show, setShow] = useState(false);
-  const [drop1, setDrop1] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [drop1, setDrop1] = useState(false);
+ 
   const counter = useSelector((state) => state.counter.counter)
 
   const [value, setValue] = useState([]);
@@ -31,21 +29,10 @@ const Header = () => {
   const [categories, setcategorie] = useState([]);
   const [subCategories, setsubCategorie] = useState([]);
 
-  const showDropdown1 = (e, id,i) => {
-    axios.get(`http://localhost:5200/api/elabdfoods/Categorie/${id}`)
+  const showDropdown1 = (e, id) => {
+    axiosInstance.get(`/Categorie/${id}`)
       .then(function (response) {
         // handle success
-        let showdrop = drop1.map((isdrop, index) => {
-          return (isdrop = false);
-        });
-        let isDropOpen = showdrop.slice();
-        if (subCategories.length > 0) {
-          isDropOpen[i] = true;
-        } else {
-          isDropOpen[i] = false;
-        }
-        setDrop1(isDropOpen)
-        console.log(isDropOpen);
         console.log(response.data.SubCategorieID);
         setsubCategorie(response.data.SubCategorieID);
       })
@@ -58,22 +45,17 @@ const Header = () => {
       });
     if (subCategories.length > 0) {
       setDrop1(!drop1);
-      //  e.style.display === "block"
+    //  e.style.display === "block"
     }
   }
-   
-   const hideDropdown1 = (i) => {
-    //   let showdrop = drop1.map((isdrop, index) => {
-    //     return (isdrop = false);
-    // }); 
-    // let isDropOpen = showdrop.slice();
-    // isDropOpen[i] = false;
-    // setDrop1(isDropOpen)
-   }
+  const hideDropdown1 = e => {
+    setDrop1(false);
+  }
 
   const searchData = (vlu) => {
-    console.log(vlu);
-    axios.get(`http://localhost:5200/api/elabdfoods/Product?EnName=${vlu}`)
+
+     console.log(vlu);
+     axiosInstance.get(`/Product?EnName=${vlu}`)
       .then(function (response) {
         // handle success
         console.log(response.data);
@@ -88,16 +70,9 @@ const Header = () => {
       });
   }
 
-   const [localvlu, setlocalvlu] = useState([]);
-
   useEffect(() => {
-
-    const items = JSON.parse(localStorage.getItem('items'));
-    if (items) {
-      setlocalvlu(localvlu);
-    }
-
-    axios.get('http://localhost:5200/api/elabdfoods/Categorie')
+    // Make a request for a user with a given ID             
+    axiosInstance.get('/Categorie')
       .then(function (response) {
         // handle success
         console.log(response.data);
@@ -110,6 +85,7 @@ const Header = () => {
       .finally(function () {
         // always executed
       });
+
   }, []);
 
   const url = "#"
@@ -127,13 +103,12 @@ const Header = () => {
 
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "15px" }}>
             {categories.map((categorie, index) => {
-              
               return (
-                <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
-                  onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
-                  <div style={{ width: "500px" }} >
+                <NavDropdown id="navbarScrollingDropdown" show={drop1}
+                  onMouseEnter={e => showDropdown1(e.target, categorie._id) } onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
+                  <div style={{ width: "500px" }}>
                     {subCategories.map((subCategorie, index) => {
-                      return <NavDropdown.Item id="item" href={`/${categorie._id}`} key={subCategorie._id} >{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
+                      return <NavDropdown.Item id="item"  href={`/${categorie._id}`} key={subCategorie._id} >{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
                     })}
                   </div>
                 </NavDropdown>
@@ -149,37 +124,34 @@ const Header = () => {
             <Modal show={show} onHide={handleClose} id="modal" style={{ marginRight: "0" }} >
               <Modal.Body id="modalbody">
                 <Form.Control id="modalinput" type="search" aria-label="Example text with button addon"
-                  aria-describedby="basic-addon1" value={value} onChange={(e) => setValue(e.target.value)} placeholder=" Search for....." autoFocus />
+                  aria-describedby="basic-addon1" value={value}  onChange={(e) => setValue(e.target.value)} placeholder=" Search for....." autoFocus />
                 <Button variant="outline-secondary" id="button-addon1">
                   <Nav.Link to="/pageofproduct">
-                    <i style={{ color: "#6f3c2e", fontSize: "20px" }} onClick={() => { searchData(value) }} ><FaSearch /></i>
+                    <i style={{ color: "#6f3c2e", fontSize: "20px" }} onClick={()=> {searchData(value)}} ><FaSearch /></i>
                   </Nav.Link>
                 </Button>
               </Modal.Body>
             </Modal>
-
           </li>
           <li>
-            <Nav.Link href="/Login" >
+            <Nav.Link href={url} >
               <i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>
             </Nav.Link>
-
           </li>
           <li style={{ marginRight: "0px" }}>
-            <Nav.Link href="/Cart" >
+            <Nav.Link href={url} >
               <i style={{ color: "#6f3c2e", fontSize: "23px" }}>
                 <FaShoppingBasket />
               </i>
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link href="/Cart" >
+            <Nav.Link href={url} >
               <span className="badge rounded-pill" style={{
                 backgroundColor: "#f6b0ab", fontSize: "15px", padding: "1px 5px",
                 opacity: "1", fontWeight: "100"
               }}>{counter}</span>
             </Nav.Link>
-
           </li>
           <li className="d-flex">
             <Nav.Link href={url}>
@@ -192,7 +164,5 @@ const Header = () => {
   </>
   )
 }
-
-
 
 export default Header;

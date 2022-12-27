@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 
 // import elabdlogo from'../../images/Elabd-Logo.png'
  import React, { useEffect , useState } from 'react';
+import axiosInstance from './../../axios config/axiosInstance';
 
 
 
@@ -108,8 +109,8 @@ const Login = () => {
       Password: data.password
     };
 // console.log(JSON.stringify(userData))
-    axios
-      .post("http://localhost:5200/api/elabdfoods/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
+axiosInstance
+      .post("/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
       .then((response) => {
         setAccessToken(response.data.AccessToken)
         window.location.href = '/';

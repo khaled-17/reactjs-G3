@@ -7,7 +7,9 @@ import axios from 'axios';
 // import { useNavigate } from "react-router-dom";
 import {useRef} from 'react';
 
- import CategoryID from './../../pages/CategoryID'; 
+///////// import Child from './Child'; 
+import axiosInstance from './../../axios config/axiosInstance';
+
 
 const Sidebar = () => {
 
@@ -15,36 +17,29 @@ const Sidebar = () => {
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
 
+
     const [checked, setChecked] = React.useState(false);
-    const [checked1, setChecked1] = React.useState([]);
-    const [checked4, setChecked4] = React.useState([]);
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(false);
+    const [checked4, setChecked4] = React.useState(false);
 
     const handleChange = () => {
         setChecked(!checked);
         setChecked1(!checked1);
+        setChecked2(!checked2);
     };
-    const handleChange1 = (i) => {
-        //setChecked1(!checked1);
-    
-        let checkbox = checked1.map((ischecked, index) => {
-            return (ischecked = false);
-        }); 
-        let isDone = checkbox.slice();
-        isDone[i] = true;
-        setChecked1(isDone)
-        console.log(isDone);
+    const handleChange1 = () => {
+        setChecked1(!checked1);
     };
-    const handleChange4 = (i) => {
-        // setChecked4(!checked4);
-        
-         let checkbox = checked4.map((ischecked, index) => {
-            return (ischecked = false);
-        }); 
-        let isDone = checkbox.slice();
-        isDone[i] = true;
-        setChecked4(isDone)
-        console.log(isDone);
-
+    const handleChange2 = () => {
+        setChecked2(!checked2);
+    };
+    const handleChange3 = () => {
+        setChecked3(!checked3);
+    };
+    const handleChange4 = () => {
+        setChecked4(!checked4);
     };
     const [value, setValue] = React.useState([0, 100]);
     const rangeSelector = (event, newValue) => {
@@ -59,6 +54,8 @@ const Sidebar = () => {
         setInpValue1("")
         setChecked(false);
         setChecked1(false);
+        setChecked2(false);
+        setChecked3(false);
     }
     const resetForm2 = () => {
         setInpValue2("")
@@ -79,17 +76,23 @@ const Sidebar = () => {
    const ref2 = useRef(null);
    const ref3 = useRef(null); 
 
-     const data = [inpValue1,inpValue2,value[0],value[1],ref1];
+    // const data = [inpValue1,inpValue2,value[0],value[1],ref1,ref2,ref3];
 
-     const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
 
-         <CategoryID data={data}/>
+        // <Child data={data}/>
+
         console.log(ref1.current.checked);//true
+        console.log(ref2.current.checked);//true
+        console.log(ref3.current.checked);//true
+
+       // navigate('/route', {state: {}})
         }
     
+
      useEffect(() => {
         // Make a request for a user with a given ID               //`/${params.id}?`
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axiosInstance.get('/Categorie/63a331d7b93b2dac09515f48')
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -102,7 +105,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+            axiosInstance.get('/Categorie/63a331d7b93b2dac09515f48')
             .then(function (response) {
                 // handle success
                 console.log(response.data.CatEnSize);
@@ -115,7 +118,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3002/api/elabdfoods/Categorie/63a330bdb93b2dac09515f3c')
+        axios.get('http://localhost:3001/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
             .then(function (response) {
                 // handle success
                 console.log(response.data.SubCategorieID);
@@ -132,7 +135,8 @@ const Sidebar = () => {
 
     return (<>
 
-            <aside className="filtering-sidebar container" controller="List" >
+         <form onSubmit={handleSubmit}> 
+            <aside className="filtering-sidebar container" controller="List" style={{ width: "300px" }}>
                 <div className="filtering__widget">
                     <div data-toggle="collapse" onClick={() => setOpen1(!open1)} aria-controls="example-collapse-text"
                         aria-expanded={open1} href="#catCollapse" role="button" className="filtering__widget-title mb-3 d-flex justify-content-between collapsed">
@@ -153,7 +157,7 @@ const Sidebar = () => {
                                         </div>
                                         {subcategories.map((subcategorie, index) => {
                                             return (
-                                                <div className="form-group custom-control custom-checkbox" onChange={(e)=>handleChange1(index)} style={{ marginLeft: "10px" }}>
+                                                <div className="form-group custom-control custom-checkbox" onChange={handleChange1} style={{ marginLeft: "10px" }}>
                                                     <input type="checkbox" id="chkChildCat33" ref={ref2} checked={checked1} className="custom-control-input"/>
                                                     <label htmlFor="chkChildCat33" className="custom-control-label " key={subcategorie._id}>{subcategorie.SubCat.EnsubCatName}</label>
                                                 </div>
@@ -181,7 +185,7 @@ const Sidebar = () => {
                                 {CatEnSizes.map((CatEnSize, index) => {
                                     return (
                                         <div className="form-group custom-control custom-checkbox" key={index}>
-                                            <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4} onChange={(e)=>handleChange4(index)} />
+                                            <input type="checkbox" id="chkSize130" ref={ref3} className="custom-control-input" checked={checked4} onChange={handleChange4} />
                                             <label htmlFor="chkSize130" className="custom-control-label">{CatEnSize}</label>
                                         </div>
                                     )
@@ -213,9 +217,10 @@ const Sidebar = () => {
                 </div>
                 <div className="d-flex justify-content-between pt-2">
                     <button type="button" className="btn btn-dark" value="Reset Form" onClick={() => resetForm3()}>Reset</button>
-                    <button type='submit' className="btn btn-dark" value="Submit" onClick={() => handleSubmit()}>Filter Now</button>
-                </div>                                       
+                    <button type='submit' className="btn btn-dark" value="Submit">Filter Now</button>
+                </div>
             </aside>
+        </form>
 
     </>
     )

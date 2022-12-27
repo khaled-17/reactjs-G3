@@ -11,16 +11,16 @@ import Loader from '../components/loader/loader';
 // import axios from 'axios';
 import Hederlang from './../components/hederlang';
 import axiosInstance from './../axios config/axiosInstance';
-
+import {
+    BrowserRouter as Router,useParams,} from "react-router-dom";
 const CategoryID = () => {
 
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
-  
-
+    const { id } = useParams();
 
     useEffect(() => {
-        axiosInstance.get("/Product",{params:{CatID:5}})
+        axiosInstance.get("/Product",{params:{Categorie:id}})
         .then((res) => {
             console.log(res.data);
             // console.log("res.data");
@@ -35,6 +35,8 @@ const CategoryID = () => {
     }, [])
 
 
+    const languge = JSON.parse(localStorage.getItem('items'));
+    console.log(languge);
 
 
 
@@ -44,7 +46,8 @@ const CategoryID = () => {
         <>
             <Hederlang/>
             <Header />
-            
+            <h3>ID: {id}</h3>
+
             <div className="container-xl  text-center">
                 <div className="row">
                     <div className='col-3 filtering-sidebar container' controller="List" style={{ height: '500px' }}>
@@ -63,7 +66,7 @@ const CategoryID = () => {
                         <div className="row">
 
                             <div className="col m-2 text-start">
-                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing 21 Of 68</h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing {posts.length} product</h6>
                             </div>
                             <div className="col text-center ">
 
@@ -96,7 +99,7 @@ const CategoryID = () => {
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards _id ={item._id} name={item.EnName} img={item.Image.url} prise={item.Price}  />
+                                            <Cards _id ={item._id} name={ languge==="en"?item.EnName:item.ArName} img={item.Image.url} prise={item.Price}  />
                                         </div>
                                     )
                                     )

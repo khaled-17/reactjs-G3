@@ -10,15 +10,18 @@ import axios, { Axios } from "axios";
 import axiosInstance from '../../axios config/axiosInstance';
 // import CartCard from './CartCard';
 import { useParams } from 'react-router';
-
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCounter } from '../../store/actions/counter';
 
 
 const Cart = ()=> {
     
     
+    const counter = useSelector((state) => state.counter.counter)
+
+    const dispatch = useDispatch()
+
+         
   const countStateArray = useState(1);
   const count = countStateArray[0];
   const setCount = countStateArray[1];
@@ -85,9 +88,9 @@ const [price, setPrice] = useState(0);
 // ${params.id}?
 const tokenFromLocal=localStorage.getItem("myAccessToken")
 useEffect(() => {
-axios({  
+    axiosInstance({  
 // Endpoint to send files
-url: "http://localhost:5200/api/elabdfoods/Cart",
+url: "/Cart",
 method: "GET",
 headers: {
   // Add any auth token here
@@ -98,13 +101,12 @@ headers: {
 })
 // Handle the response from backend here
 .then((res) => {
+
     // console.log(res.data);
     setPosts(res.data);
+    let lngth = res.data.length
+    dispatch(changeCounter((lngth)))
 
-    setPrice( res.data[0].ProductID.Price)
-    console.log( res.data[0].ProductID.Price)
-
-//  total= count * price;
 })
 // Catch errors if any
 .catch((err) => { });
