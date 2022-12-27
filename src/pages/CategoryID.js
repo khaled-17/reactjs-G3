@@ -35,6 +35,10 @@ const CategoryID = () => {
     }, [])
 
 
+    const languge = JSON.parse(localStorage.getItem('items'));
+
+
+    console.log(languge);
 
 
 
@@ -64,7 +68,7 @@ const CategoryID = () => {
                         <div className="row">
 
                             <div className="col m-2 text-start">
-                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing 21 Of 68</h6>
+                                <h6 style={{fontSize:"1rem",whiteSpace: 'nowrap'}}>Showing {posts.length} product</h6>
                             </div>
                             <div className="col text-center ">
 
@@ -97,7 +101,7 @@ const CategoryID = () => {
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
                                             {/* {item.Price} */}
-                                            <Cards _id ={item._id} name={item.EnName} img={item.Image.url} prise={item.Price}  />
+                                            <Cards _id ={item._id} name={ languge==="en"?item.EnName:item.ArName} img={item.Image.url} prise={item.Price}  />
                                         </div>
                                     )
                                     )
