@@ -4,9 +4,13 @@ import Hederlang from "../../components/hederlang";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footermain";
 import { Link } from "react-router-dom";
+import { Trans, withTranslation,useTranslation } from 'react-i18next';
+
 
 
 const Registration = () => {
+  const { t } = useTranslation();
+
   function generateArray(start, end) {
     let arr = [];
     for (start; start <= end; start++) {
@@ -209,14 +213,13 @@ const userData = {
               <div className=" mw-550 mx-2 shadow-sm p-3 mb-5 bg-body rounded ">
                 <div className="card-body mx-5 mw-550  ">
                   <h4 className="mb-4 text-center create-title">
-                    {" "}
-                    Create a New Account
+                    {t('Create a New Account')}
                   </h4>
                   <form className="mw-450 " onSubmit={(e) => send(e)}>
                     <div className="form-group mb-3 ">
                       <input
                         type="text"
-                        placeholder="First Name *"
+                        placeholder={t("First Name*")}
                         // className="form-control Registration-input"
                         value={registerForm.name}
                         className={
@@ -235,13 +238,14 @@ const userData = {
                     <div className="form-group mb-3 ">
                       <input
                         type="text"
-                        placeholder="Last Name *"
+                        placeholder={t("Last Name *")}
                         // className="form-control Registration-input"
                         className={
                           errregisterForm.username != null
                             ? "border border-danger form-control  Registration-input"
                             : "  Registration-input form-control"
                         }
+                        
                         onChange={(e) => update(e)}
                         name="username"
                       />
@@ -252,7 +256,7 @@ const userData = {
                     <div className="form-group mb-3 ">
                       <input
                         type="text"
-                        placeholder="Email*"
+                        placeholder={t("Email*")}
                         // className="form-control Registration-input"
                         className={
                           errregisterForm.email != null
@@ -269,14 +273,14 @@ const userData = {
                     <div className="form-group mb-3 ">
                       <input
                         type="text"
-                        placeholder="Mobile *"
+                        placeholder={t("Mobile *")}
                         className="form-control Registration-input"
                       />
                     </div>
                     <div className="form-group mb-3 ">
                       <input
                         type="password"
-                        placeholder="Password *"
+                        placeholder={t("Password *")}
                         // className="form-control Registration-input"
                         className={
                           errregisterForm.password != null
@@ -294,7 +298,7 @@ const userData = {
                     <div className="form-group mb-3 ">
                       <input
                         type="password"
-                        placeholder="Confirm Password *"
+                        placeholder={t("Confirm Password *")}
                         // className="form-control Registration-input"
                         className={
                           errregisterForm.confpassword != null
@@ -310,7 +314,7 @@ const userData = {
                         <div className="form-group">
                           <select id="" className="form-control">
                             <option selected disabled>
-                              Birth Day
+                              {t('Birth Day')}
                             </option>
                             {days.map((item) => {
                               return (
@@ -326,7 +330,7 @@ const userData = {
                         <div className="form-group">
                           <select id="" className="form-control">
                             <option selected disabled>
-                              Month
+                              {t('Month')}
                             </option>
                             {months.map((item) => {
                               return (
@@ -342,7 +346,7 @@ const userData = {
                         <div className="form-group">
                           <select id="" className="form-control">
                             <option selected disabled>
-                              Year
+                              {t('Year')}
                             </option>
                             {years.map((item) => {
                               return (
@@ -357,7 +361,7 @@ const userData = {
                     </div>
                     <div className="form-group d-flex align-items-center mx-3 pb-2">
                       <label htmlFor="genderSelect" className="mb-0 mr-4">
-                        Gender :
+                        {t('Gender')}
                       </label>
                       <div className="custom-control mx-3 custom-radio custom-control-inline  ">
                         <input
@@ -371,7 +375,7 @@ const userData = {
                           className="custom-control-label"
                           htmlFor="customRadioInline1"
                         >
-                          Male
+                          {t('Male')}
                         </label>
                       </div>
                       <div className="custom-control mx-3 custom-radio custom-control-inline ">
@@ -386,7 +390,7 @@ const userData = {
                           className="custom-control-label"
                           htmlFor="customRadioInline2"
                         >
-                          Female
+                          {t('Female')}
                         </label>
                       </div>
                     </div>
@@ -400,10 +404,10 @@ const userData = {
                         className="custom-control-label text-dark font-weight-bold text-sm "
                         htmlFor="terms"
                       >
-                        I Have Read and Agree On The
+                        {t('I Have Read and Agree On The')}
                       </label>
-                      <a href="#" className="Terms-link  ">
-                        Terms and Conditions of The Website*{" "}
+                      <a href="#" className="Terms-link  mx-1  ">
+                        {t('Terms and Conditions of The Website*')}
                       </a>
                     </div>
                     <div className="form-group custom-control custom-checkbox mb-2">
@@ -416,7 +420,7 @@ const userData = {
                         className="custom-control-label text-dark font-weight-bold text-sm"
                         htmlFor="newsletter"
                       >
-                        Subscribe to our Newsletters
+                        {t('Subscribe to our Newsletters')}
                       </label>
                     </div>
                     <button
@@ -425,13 +429,13 @@ const userData = {
                      disabled={errregisterForm.name || errregisterForm.confpassword || errregisterForm.password 
                         || errregisterForm.email|| errregisterForm.username }
                     >
-                      Create New Account
+                      {t('Create New Account')}
                     </button>
                     <p className="text-md ">
-                      If You have an Account
-                      <Link to="/Login" className="Login-link">
-                        {" "}
-                        Log in
+                      {t('If You have an Account')}
+                      <Link to="/Login" className="Login-link mx-1">
+                        
+                        {t(' Log in')}
                       </Link>
                     </p>
                   </form>
