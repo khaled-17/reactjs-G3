@@ -4,8 +4,9 @@ import Hederlang from "../../components/hederlang";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footermain";
 import { Link } from "react-router-dom";
-
-
+import axios from "axios";
+import useLocalStorage from './../../hooks/useLocalStorage'
+import { useNavigate } from "react-router-dom";
 const Registration = () => {
   function generateArray(start, end) {
     let arr = [];
@@ -14,7 +15,7 @@ const Registration = () => {
     }
     return arr;
   }
-
+  let navigate = useNavigate();
   const months = [
     "Jan",
     "Feb",
@@ -71,19 +72,26 @@ const Registration = () => {
   var validpassword = new RegExp(
     "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$.%^&*])"
   );
-
+  // const [AccessToken, setAccessToken] = useState('')
+  // localStorage.setItem('myAccessToken', AccessToken);
+  
   const [registerForm, setRegisterForm] = useState({
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Password: "",
+    // confpassword:"",
+    MobileNumber:"",
+    Gender:""
   });
   const [errregisterForm, seterrRegisterForm] = useState({
-    name: null,
-    email: null,
-    username: null,
-    password: null,
+    FirstName: null,
+    Email: null,
+    LastName: null,
+    Password: null,
+    MobileNumber:null,
     confpassword: null,
+    Gender:null,
   });
   useEffect(() => {
     console.log(errregisterForm);
@@ -91,24 +99,25 @@ const Registration = () => {
   }, [errregisterForm]);
 
   const update = (e) => {
-    if (e.target.name === "name") {
+    console.log(JSON.stringify(registerForm) )
+    if (e.target.name === "FirstName") {
       setRegisterForm({
         ...registerForm,
-        name: e.target.value,
+        FirstName: e.target.value,
       });
       seterrRegisterForm({
         ...errregisterForm,
-        name: e.target.value === "" ? "this field is required" : null,
+        FirstName: e.target.value === "" ? "this field is required" : null,
       });
     }
-    if (e.target.name === "email") {
+    if (e.target.name === "Email") {
       setRegisterForm({
         ...registerForm,
-        email: e.target.value,
+        Email: e.target.value,
       });
       seterrRegisterForm({
         ...errregisterForm,
-        email:
+        Email:
           e.target.value === ""
             ? "this field is required"
             : !validEmail.test(e.target.value)
@@ -116,29 +125,46 @@ const Registration = () => {
             : null,
       });
     }
-    if (e.target.name === "username") {
+    if (e.target.name === "LastName") {
       setRegisterForm({
         ...registerForm,
-        username: e.target.value,
+        LastName: e.target.value,
       });
       seterrRegisterForm({
         ...errregisterForm,
-        username:
+        LastName:
           e.target.value === ""
             ? "this field is required"
-            : registerForm.username.includes(" ")
+            : registerForm.LastName.includes(" ")
             ? "the user name should have no spaces"
             : null,
       });
     }
-    if (e.target.name === "password") {
+
+      if (e.target.name === "MobileNumber") {
       setRegisterForm({
         ...registerForm,
-        password: e.target.value,
+        MobileNumber: e.target.value,
       });
       seterrRegisterForm({
         ...errregisterForm,
-        password:
+        MobileNumber:
+          e.target.value === ""
+            ? "this field is required"
+            : registerForm.MobileNumber.includes(" ")
+            ? "the user name should have no spaces"
+            : null,
+      });
+    }
+
+    if (e.target.name === "Password") {
+      setRegisterForm({
+        ...registerForm,
+        Password: e.target.value,
+      });
+      seterrRegisterForm({
+        ...errregisterForm,
+        Password:
           e.target.value === ""
             ? "this field is required"
             : e.target.value.length < 8
@@ -154,14 +180,50 @@ const Registration = () => {
         confpassword:
           e.target.value === ""
             ? "this field is required"
-            : e.target.value !== registerForm.password
+            : e.target.value !== registerForm.Password
             ? "passwords dont match !"
+            : null,
+      });
+    }
+
+    if (e.target.name === "Gender") {
+      setRegisterForm({
+        ...registerForm,
+        Gender: e.target.value,
+      });
+      seterrRegisterForm({
+        ...errregisterForm,
+        Gender:
+          e.target.value === ""
+            ? "this field is required"
+            : registerForm.Gender.includes(" ")
+            ? "the user name should have no spaces"
             : null,
       });
     }
   };
   const send = (e) => {
     e.preventDefault();
+    axios
+    .post("http://localhost:5200/api/elabdfoods/User/Register", JSON.stringify(registerForm),{headers:{'Content-Type': 'application/json'}} )
+    .then((response) => {
+      // setAccessToken(response.data.AccessToken)
+      // localStorage.setItem('myAccessToken', AccessToken);
+      
+      console.log(response)
+      navigate('/Login')
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response);
+        console.log("server responded");
+      } else if (error.request) {
+        console.log("network error");
+      } else {
+        console.log(error);
+      }
+    });
+
     for (var item in registerForm) {
       console.log(item);
       console.log(registerForm[item]);
@@ -169,11 +231,11 @@ const Registration = () => {
       if (registerForm[item] === "") {
         seterrRegisterForm({
           ...errregisterForm,
-          name: registerForm.name === "" ? "this field is required" : null,
-          email: registerForm.email === "" ? "this field is required" : null,
-          username:
-            registerForm.username === "" ? "this field is required" : null,
-          password:
+          FirstName: registerForm.FirstName === "" ? "this field is required" : null,
+          Email: registerForm.Email === "" ? "this field is required" : null,
+          LastName:
+            registerForm.LastName === "" ? "this field is required" : null,
+          Password:
             registerForm.password === "" ? "this field is required" : null,
         });
         return 0;
@@ -203,17 +265,17 @@ const Registration = () => {
                         type="text"
                         placeholder="First Name *"
                         // className="form-control Registration-input"
-                        value={registerForm.name}
+                        value={registerForm.FirstName}
                         className={
-                          errregisterForm.name != null
+                          errregisterForm.FirstName != null
                             ? "border border-danger form-control  Registration-input"
                             : "  Registration-input form-control"
                         }
                         onChange={(e) => update(e)}
-                        name="name"
+                        name="FirstName"
                       />
                       <div class="form-text text-danger">
-                        {errregisterForm.name}
+                        {errregisterForm.FirstName}
                       </div>
                     </div>
 
@@ -223,15 +285,15 @@ const Registration = () => {
                         placeholder="Last Name *"
                         // className="form-control Registration-input"
                         className={
-                          errregisterForm.username != null
+                          errregisterForm.LastName != null
                             ? "border border-danger form-control  Registration-input"
                             : "  Registration-input form-control"
                         }
                         onChange={(e) => update(e)}
-                        name="username"
+                        name="LastName"
                       />
                       <div id="emailHelp" class="form-text text-danger">
-                        {errregisterForm.username}
+                        {errregisterForm.LastName}
                       </div>
                     </div>
                     <div className="form-group mb-3 ">
@@ -240,15 +302,15 @@ const Registration = () => {
                         placeholder="Email*"
                         // className="form-control Registration-input"
                         className={
-                          errregisterForm.email != null
+                          errregisterForm.Email != null
                             ? "border border-danger form-control Registration-input"
                             : " Registration-input form-control"
                         }
                         onChange={(e) => update(e)}
-                        name="email"
+                        name="Email"
                       />
                       <div id="emailHelp" class="form-text text-danger">
-                        {errregisterForm.email}{" "}
+                        {errregisterForm.Email}{" "}
                       </div>
                     </div>
                     <div className="form-group mb-3 ">
@@ -256,6 +318,8 @@ const Registration = () => {
                         type="text"
                         placeholder="Mobile *"
                         className="form-control Registration-input"
+                         onChange={(e) => update(e)}
+                        name="MobileNumber"
                       />
                     </div>
                     <div className="form-group mb-3 ">
@@ -264,16 +328,16 @@ const Registration = () => {
                         placeholder="Password *"
                         // className="form-control Registration-input"
                         className={
-                          errregisterForm.password != null
+                          errregisterForm.Password != null
                             ? "border border-danger form-control Registration-input"
                             : " Registration-input form-control"
                         }
                         onChange={(e) => update(e)}
-                        name="password"
+                        name="Password"
                         id="exampleInputPassword1"
                       />
                       <div id="emailHelp" class="form-text text-danger">
-                        {errregisterForm.password}
+                        {errregisterForm.Password}
                       </div>
                     </div>
                     <div className="form-group mb-3 ">
@@ -348,9 +412,10 @@ const Registration = () => {
                         <input
                           type="radio"
                           className="custom-control-input mx-2"
-                          value="1"
+                          value="male"
                           id="customRadioInline1"
-                          name="customRadioInline1"
+                          onChange={(e) => update(e)}
+                          name="Gender"
                         />
                         <label
                           className="custom-control-label"
@@ -363,9 +428,10 @@ const Registration = () => {
                         <input
                           type="radio"
                           className="custom-control-input mx-2"
-                          value="2"
+                          value="female"
                           id="customRadioInline2"
-                          name="customRadioInline1"
+                          onChange={(e) => update(e)}
+                          name="Gender"
                         />
                         <label
                           className="custom-control-label"
@@ -406,9 +472,9 @@ const Registration = () => {
                     </div>
                     <button
                        type="submit" 
-                      className="btn  btn-block mb-3 w-100 creat-btn text-light"
-                     disabled={errregisterForm.name || errregisterForm.confpassword || errregisterForm.password 
-                        || errregisterForm.email|| errregisterForm.username }
+                      className="btn  btn-block mb-3 w-100 creat-btn text-light btn-dark"
+                     disabled={errregisterForm.name || errregisterForm.confpassword || errregisterForm.Password 
+                        || errregisterForm.email|| errregisterForm.LastName }
                     >
                       Create New Account
                     </button>

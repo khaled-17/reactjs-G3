@@ -11,8 +11,9 @@ import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { changeCounter } from "../../store/actions/counter";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -88,9 +89,11 @@ const Header = () => {
   }
 
    const [localvlu, setlocalvlu] = useState([]);
-
+   const [posts, setPosts] = useState([]);
+   const dispatch = useDispatch()
+   const tokenFromLocal=localStorage.getItem("myAccessToken")
   useEffect(() => {
-
+ console.log(counter)
     const items = JSON.parse(localStorage.getItem('items'));
     if (items) {
       setlocalvlu(localvlu);
@@ -108,6 +111,28 @@ const Header = () => {
       .finally(function () {
         // always executed
       });
+      axios({  
+        // Endpoint to send files
+        url: "http://localhost:5200/api/elabdfoods/Cart",
+        method: "GET",
+        headers: {
+          // Add any auth token here
+          token:`token ${tokenFromLocal}`  
+          },
+        // Attaching the form data
+        // data: formData,
+        })
+        // Handle the response from backend here
+        .then((res) => {
+        
+            // console.log(res.data);
+            setPosts(res.data);
+            let lngth = res.data.length
+            dispatch(changeCounter((lngth)))
+        
+        })
+        // Catch errors if any
+        .catch((err) => { });
   }, []);
 
   const url = "#"
