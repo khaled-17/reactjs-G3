@@ -8,6 +8,7 @@ import axios from 'axios';
 import {useRef} from 'react';
 
 ///////// import Child from './Child'; 
+import axiosInstance from './../../axios config/axiosInstance';
 
 
 const Sidebar = () => {
@@ -91,7 +92,7 @@ const Sidebar = () => {
 
      useEffect(() => {
         // Make a request for a user with a given ID               //`/${params.id}?`
-        axios.get('http://localhost:3001/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
+        axiosInstance.get('/Categorie/63a331d7b93b2dac09515f48')
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -104,7 +105,7 @@ const Sidebar = () => {
             .finally(function () {
                 // always executed
             });
-        axios.get('http://localhost:3001/api/elabdfoods/Categorie/63a331d7b93b2dac09515f48')
+            axiosInstance.get('/Categorie/63a331d7b93b2dac09515f48')
             .then(function (response) {
                 // handle success
                 console.log(response.data.CatEnSize);

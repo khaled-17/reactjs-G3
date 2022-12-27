@@ -35,12 +35,12 @@ function App() {
         <div >
 
           <Routes>
-            <Route path="/Zone" element={<Zone/>} />
+            <Route path="/" element={<Zone/>} />
             <Route path="/Login" element={<Login/>} />
             <Route path="/paypal" element={<Paypal/>} />
             <Route path="/Registration" element={<Registration />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/CategoryID/:id" element={<CategoryID />} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />

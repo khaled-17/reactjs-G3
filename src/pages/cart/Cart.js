@@ -65,9 +65,9 @@ const [posts, setPosts] = useState([]);
 // ${params.id}?
 const tokenFromLocal=localStorage.getItem("myAccessToken")
 useEffect(() => {
-axios({  
+    axiosInstance({  
 // Endpoint to send files
-url: "http://localhost:5200/api/elabdfoods/Cart",
+url: "/Cart",
 method: "GET",
 headers: {
   // Add any auth token here

@@ -36,8 +36,6 @@ const CategoryID = () => {
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
-
-
     console.log(languge);
 
 

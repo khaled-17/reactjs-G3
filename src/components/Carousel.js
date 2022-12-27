@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Carousel, Stack } from "react-bootstrap";
 import Cards from './cards';
+import axiosInstance from './../axios config/axiosInstance';
 
 export default function Carousels() {
     // const { data: reviews, isLoading, refetch } = useQuery("reviews", () =>
@@ -18,9 +19,8 @@ export default function Carousels() {
 
 
     useEffect(() => {
-
         // Make a request for a user with a given ID
-        axios.get('http://localhost:5200/api/elabdfoods/Product')
+        axiosInstance.get('/Product')
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -53,6 +53,13 @@ export default function Carousels() {
         { _id: 9, text: "yza" }
     ];
 
+
+
+
+
+    const languge = JSON.parse(localStorage.getItem('items'));
+    console.log(languge);
+
     return (
         <div className='w-100  ' >
 
@@ -75,7 +82,7 @@ export default function Carousels() {
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
-                                            <Cards img={item.Image.url} />
+                                            <Cards name={ languge==="en"?item.EnName:item.ArName} img={item.Image.url} />
 
                                             {/* </div> */}
 

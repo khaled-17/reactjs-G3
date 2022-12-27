@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import axiosInstance from './../../axios config/axiosInstance';
 
 const Wishlistpart = () => {
     const [loading, setLoading] = useState(false);
@@ -7,9 +8,9 @@ const Wishlistpart = () => {
     const [posts, setPosts] = useState([]);
     const tokenFromLocal=localStorage.getItem("myAccessToken")
     useEffect(() => {
-axios({  
+      axiosInstance({  
     // Endpoint to send files
-    url: "http://localhost:5200/api/elabdfoods/Fav",
+    url: "/Fav",
     method: "GET",
     headers: {
       // Add any auth token here
@@ -31,8 +32,8 @@ axios({
 
     function sayHello(i) { 
       console.log( i);
-        // axios({
-        //     url: `http://localhost:5200/api/elabdfoods/Fav/${i}`,
+        // axiosInstance({
+        //     url: `/Fav/${i}`,
         //     method: "DELETE",
         //     headers: {
         //        token:`token ${tokenFromLocal}`  
