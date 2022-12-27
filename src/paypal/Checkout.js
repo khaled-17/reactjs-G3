@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import './Checkout.css';
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import Loader from './../components/loader/loader';
+import Loader from '../components/loader/loader';
 
 const Checkout = () => {
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
@@ -18,7 +18,7 @@ const Checkout = () => {
         });
     }
 
-    const onCreateOrder = (data,actions) => {
+    const onCreateOrder = (data, actions) => {
         return actions.order.create({
             purchase_units: [
                 {
@@ -33,7 +33,7 @@ const Checkout = () => {
 
 
 
-    const onApproveOrder = (data,actions) => {
+    const onApproveOrder = (data, actions) => {
         return actions.order.capture().then((details) => {
             const name = details.payer.name.given_name;
             alert(`Transaction completed by ${name}`);
@@ -47,13 +47,13 @@ const Checkout = () => {
     return (
         <div className="checkout">
             {/* kkk */}
-            {isPending ? <Loader/> : (
+            {isPending ? <Loader /> : (
                 <>
                     <select value={currency} onChange={onCurrencyChange}>
-                            <option value="USD">💵 USD</option>
-                            <option value="EUR">💶 Euro</option>
+                        <option value="USD">💵 USD</option>
+                        <option value="EUR">💶 Euro</option>
                     </select>
-                    <PayPalButtons 
+                    <PayPalButtons
                         style={{ layout: "vertical" }}
                         createOrder={(data, actions) => onCreateOrder(data, actions)}
                         onApprove={(data, actions) => onApproveOrder(data, actions)}

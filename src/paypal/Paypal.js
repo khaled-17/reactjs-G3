@@ -11,9 +11,6 @@ const initialOptions = {
 function Paypal() {
   return (
     <div>
-      {/* jjj */}
-      
-
     <PayPalScriptProvider options={initialOptions}>
         <Checkout/>
     </PayPalScriptProvider>
