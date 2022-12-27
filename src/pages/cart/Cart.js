@@ -58,7 +58,7 @@ const Cart = ()=> {
 
 
   const deleteHandler = ()=>{
-    axios({method:"delete",url: "http://localhost:5200/api/elabdfoods/Cart/"+posts[0].ProductID._id},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
+    axios({method:"delete",url: "http://localhost:5200/api/elabdfoods/Cart/"+posts[0]._id},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
     .then((res) => {
        
     console.log(res)
