@@ -1,5 +1,5 @@
 import React from 'react';
-// import './loader.scss'
+import './loader.scss'
 
 import img1 from "../img/favicon.png";
 
