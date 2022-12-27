@@ -16,7 +16,8 @@ import Zone from './pages/zone/Zone-page'
 import Login from './pages/login/Login'
 import Registration from './pages/Registration/Registration'
 import Cart from './pages/cart/Cart'
-// import Paypal from './paypal/paypal';
+import DonateButton from './paypal/paypal';
+import  Paypal  from './paypal/paypal';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
           <Routes>
           <Route path="/Zone" element={<Zone />} />
           <Route path="/Login" element={<Login />} />
-          {/* <Route path="/Paypal" element={<Paypal />} /> */}
+          <Route path="/paypal" element={<Paypal />} />
             <Route path="/Registration" element={<Registration />} /> 
             <Route path="/Cart" element={<Cart />} /> 
             <Route path="/" element={<Home />} />
