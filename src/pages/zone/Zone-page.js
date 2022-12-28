@@ -12,6 +12,8 @@ import Hederlang from '../../components/hederlang'
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {
   const { t } = useTranslation();
+  const menu=['login','create Account']
+  const [open, setOpen]=useState('false')
   const branches = [
     {
       id: 1,
@@ -140,36 +142,37 @@ const Zone = () => {
           aria-expanded="false"
           //  data-bs-toggle="dropdown"
           aria-controls="multiCollapseExample1"
-          onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
+          // onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
 
 >
-            <button
-              class="btn dropdown  dropdown-center border border-0 nav-icon "
-           
+            <button class="btn dropdown  dropdown-center border border-0 nav-icon "
+            onClick={()=>setOpen(!open)}
             >
+
             <FaUser />
             </button>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75" style={{display:toggle}}>
+
+            {open && ( <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75" style={{display:toggle}}>
             
-              <li>
-              <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
-                       {t('login')}
-                    </Link>
-              </li>
-              <li>
-              <span>
-                      <p className="or-span">or</p>
-                    </span>
-              </li>
-              <li>
-              <Link
-                   to="/Registration"
-                      className="btn dropdown-item icon-btn mx-2 "
-                    >
-                    {t('create Account')}
-                    </Link>
-              </li>
-            </ul>
+            <li>
+            <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
+                     {t('login')}
+                  </Link>
+            </li>
+            <li>
+            <span>
+                    <p className="or-span">or</p>
+                  </span>
+            </li>
+            <li>
+            <Link
+                 to="/Registration"
+                    className="btn dropdown-item icon-btn mx-2 "
+                  >
+                  {t('create Account')}
+                  </Link>
+            </li>
+          </ul>)}
           </div>
         </div>
       </nav>
