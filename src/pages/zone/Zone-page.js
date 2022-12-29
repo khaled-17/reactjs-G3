@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState, useEffect } from "react";
 
 import elabdlogo from "./Elabd-Logo.png";
 import { FaUser } from "react-icons/fa";
 import "./zone.scss";
 import { Link } from "react-router-dom";
-import { Trans, withTranslation,useTranslation } from 'react-i18next';
-import Hederlang from '../../components/hederlang'
-
+import { Trans, withTranslation, useTranslation } from "react-i18next";
+import Hederlang from "../../components/hederlang";
 
 // let arr =["6th of October City","El Shikh Zayed ","Nasr Ciry",]
 const Zone = () => {
   const { t } = useTranslation();
-  const menu=['login','create Account']
-  const [open, setOpen]=useState('false')
+  const menu = ["login", "create Account"];
+  const [open, setOpen] = useState("false");
   const branches = [
     {
       id: 1,
@@ -80,12 +78,11 @@ const Zone = () => {
   //     <option>{branch.branch}</option>
   // ))
   console.log(branches);
-  const [toggle, settoggel]=useState('none !important')
-  
+  const [toggle, settoggel] = useState("none !important");
 
   return (
     <>
-          <Hederlang/>
+      <Hederlang />
 
       <div></div>
 
@@ -99,7 +96,7 @@ const Zone = () => {
       <FaUser/> */}
           {/* <a className="navbar-brand nav-icon"  data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
       <FaUser/> */}
-{/* 
+          {/* 
           <div
             className=" btn  nav-icon border border-0"
             // type="button"
@@ -134,40 +131,38 @@ const Zone = () => {
             </div>
           </div> */}
 
-
-
-          <div class="dropdown drop  dropdown-center  "
-           type="button"
-          role="button"
-          aria-expanded="false"
-          //  data-bs-toggle="dropdown"
-          aria-controls="multiCollapseExample1"
-          // onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
-
->
-            <button class="btn dropdown  dropdown-center border border-0 nav-icon "
-            onClick={()=>setOpen(!open)}
+          <div
+            class=" drop  dropdown-center  "
+            type="button"
+            role="button"
+            aria-expanded="false"
+            //  data-bs-toggle="dropdown"
+            aria-controls="multiCollapseExample1"
+            // onClick={()=>{settoggel(!toggle=='none '?'block !important':'none !important');console.log(toggle)}}
+          >
+            <button
+              className="btn  border border-0 nav-icon  "
+              onClick={() => setOpen(!open)}
             >
-
-            <FaUser />
+              <FaUser />
             </button>
-
-            {open && ( <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end  d-flex  flex-column  w-75" style={{display:toggle}}>
             
-            <li>
-            <Link to="/Login" className="btn dropdown-item icon-btn mx-2  ">
+            {!open && ( <ul className="dropdown-menu ul-drop  p-2  d-flex  flex-column   " >
+            
+            <li className="m-auto w-100">
+            <Link to="/Login" className="btn dropdown-item icon-btn    ">
                      {t('login')}
                   </Link>
             </li>
             <li>
             <span>
-                    <p className="or-span">or</p>
+                    <p className="or-span m-auto mb-3">or</p>
                   </span>
             </li>
-            <li>
+            <li className="m-auto w-100">
             <Link
                  to="/Registration"
-                    className="btn dropdown-item icon-btn mx-2 "
+                    className="btn dropdown-item icon-btn   "
                   >
                   {t('create Account')}
                   </Link>
@@ -192,12 +187,13 @@ const Zone = () => {
 
       {/* Search part */}
 
-      <div className="container search col-12">
+      <div className="container search col-12  ">
         <h3 className="search-title ">
-          {t('Select your Zone to start enjoying our Delivery service')}
+          {t("Select your Zone to start enjoying our Delivery service")}
         </h3>
 
         <form className="row  align-items-center ">
+
           <div className="col-10  search-bar">
             <label className="visually-hidden" htmlFor="inlineFormSelectPref">
               Preference
@@ -211,7 +207,7 @@ const Zone = () => {
               {/* <input type="search" tabIndex="0" autoCorrect="off" autoCapitalize="none" spellCheck="false"  role="searchbox" aria-autocomplete='list' autoComplete="off"  /> */}
               {/* <input type="search" class="selectpicker"  /> */}
               <option selected disabled>
-               {t('search for Zone')}
+                {t("search for Zone")}
               </option>
               {branches.map((item, idx) => {
                 return (
@@ -220,23 +216,14 @@ const Zone = () => {
                   </option>
                 );
               })}
-              {/* <option value="2" role="listbox">Two</option>
-      <option value="3">Three</option> */}
+         
             </select>
           </div>
 
-          {/*   
-  <div class="container mt-5">
-  <select class="selectpicker" multiple aria-label="Default select example" data-live-search="true">
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">Four</option>
-  </select>
-</div> */}
-          <div className="col-2 ">
+ 
+          <div className="col-2  ">
             <Link to="/Home" type="submit" className="btn Gobtn ">
-            {t('Go')}
+              {t("Go")}
             </Link>
           </div>
         </form>
@@ -250,10 +237,10 @@ const Zone = () => {
           <div className="row">
             <div className="col-12 footer__copyrights-content ">
               <p className="my-2">
-               {t('© 2022 ELAbd Patisserie- All Rights Reserved')}
+                {t("© 2022 ELAbd Patisserie- All Rights Reserved")}
               </p>
               <p className="my-2">
-                {t('Powered By') }
+                {t("Powered By")}
                 <a href="https://linktsp.com/" className="color-heading">
                   Link TSP
                 </a>

@@ -85,7 +85,7 @@ body{
     .or-span{
         width:15%;
         height:3vh;
-        padding-left:43%;
+        // padding-left:43%;
         padding-top: 0.6vh;
     }
     .span-left{
@@ -123,7 +123,8 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
 .Gobtn{
     align-items: center;
     text-align: center;
-    margin-left: 280% !important;
+    // margin-left: 280% !important;
+    display: block;
 }
 .footer__copyrights-content{
     width: 100%;
@@ -138,6 +139,12 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
         max-height: 10vh;
         padding-top: 80% ;
 
+    }
+    .Gobtn{
+        align-items: center;
+        text-align: center;
+        // margin-left: 280% !important;
+        display: block;
     }
    
 
@@ -155,4 +162,10 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
     }}
     .drop{
         color:$main-color;
+        position: relative;
     }
+    .ul-drop{
+        position: absolute;
+        left: -100%;
+        
+    } 
