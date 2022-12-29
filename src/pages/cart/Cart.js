@@ -56,14 +56,15 @@ const Cart = ()=> {
     }
 
     
-  })
+  });
   
 
 
-  const deleteHandler = ()=>{
-    axios({method:"delete",url: "http://localhost:5200/api/elabdfoods/Cart/"+posts[0]._id},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
+   function deleteHandler(id){
+    console.log(id)
+    axios({method:"delete",url: `http://localhost:5200/api/elabdfoods/Cart/${id}`},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
     .then((res) => {
-       
+       console.log(posts)
     console.log(res)
     })
     // Catch errors if any
@@ -178,7 +179,7 @@ console.log(posts);
                                 </div>
                             </div>
                             <div className="delete-cart d-flex justify-content-end col ">
-                                <a onClick={deleteHandler}>
+                                <a onClick={()=>deleteHandler(item._id)}>
                                     
                                     <i  ><RiDeleteBin6Line/></i>
                                 </a>
