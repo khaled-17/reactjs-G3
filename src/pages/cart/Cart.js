@@ -6,7 +6,7 @@ import React, { useState ,useEffect} from 'react';
 import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
-import axios from "axios";
+import axios, { Axios } from "axios";
 import axiosInstance from '../../axios config/axiosInstance';
 // import CartCard from './CartCard';
 import { useParams } from 'react-router';
@@ -33,6 +33,8 @@ const Cart = ()=> {
   
   const increase = () => {
     setCount(count + 1);
+    setTotal(count * price)
+
   }; 
   
   // broken decrease
@@ -43,16 +45,41 @@ const Cart = ()=> {
   
   // working decrease
   const decrease = () => setCount(prevCount => {
-    if (prevCount <= 1) return 1;
-    return prevCount - 1;
-  })
- let price= 0;
 
-  let total = 0
- 
+    if (prevCount <= 1){    setTotal(count * price) 
+        return 1   } 
 
+    else{
+        setTotal(count * price)
+        return prevCount - 1;
+
+    }
+
+    
+  });
+  
+
+
+   function deleteHandler(id){
+    console.log(id)
+    axios({method:"delete",url: `http://localhost:5200/api/elabdfoods/Cart/${id}`},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
+    .then((res) => {
+       console.log(posts)
+    console.log(res)
+    })
+    // Catch errors if any
+    .catch((err) => {     console.log(err)
+    });     
+}
 
 const [posts, setPosts] = useState([]);
+// var total=0;
+// var price=0;
+const [total, setTotal] = useState(0);
+const [price, setPrice] = useState(0);
+
+
+
   
 
 // const params= useParams() 
@@ -128,10 +155,11 @@ function deleteHandler(id){
   
         <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-8 mt-5">
+
       {posts.map((item) =>
                     <div className=" mb-3">
-                        <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-5 bg-body rounded ">
+                        <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-4 bg-body rounded ">
                             <div className="order-details-img  ">
                                 <div className="d-flex flex-wrap align-items-center  ">
                                     <div className=" mx-4 col-4 ">
@@ -180,9 +208,8 @@ function deleteHandler(id){
 )}
 
     </div>
-    <div class="col-4">
+    <div class="col-4 mt-5">
 
-      One of three columns
       <div className="  order-info">
                         <div className="col-md-12">
                             <div className="order-summary shadow-sm  ">
@@ -211,7 +238,7 @@ function deleteHandler(id){
 
                         </div>
                         <div className="col-12">
-                            <button className="btn  d-block mt-3 proceed-btn  "> proceed To purchase</button>
+                            <button className="btn  d-block mt-3 proceed-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal"> Complete Order</button>
                             <button className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</button>
                             <button className="btn btn- Remove-btn">Remove All</button>
 
@@ -235,6 +262,27 @@ function deleteHandler(id){
     
     </section>
     <Footer/>
+ 
+
+<div class="modal" tabindex="-1" id="exampleModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <p>Order Created successfully Delivered Within 60 - 90 Minutes </p>
+<p>total price= {total}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"   data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onClick={deleteHandler}>Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </>
   )
 }
