@@ -192,7 +192,7 @@ const Zone = () => {
           {t("Select your Zone to start enjoying our Delivery service")}
         </h3>
 
-        <form className="row  align-items-center ">
+        <form className="row   ">
 
           <div className="col-10  search-bar">
             <label className="visually-hidden" htmlFor="inlineFormSelectPref">
