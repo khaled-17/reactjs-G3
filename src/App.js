@@ -16,7 +16,8 @@ import Zone from './pages/zone/Zone-page'
 import Login from './pages/login/Login'
 import Registration from './pages/Registration/Registration'
 import Cart from './pages/cart/Cart'
- import Paypal from './Paypal/Paypal';
+import DonateButton from './Paypal/Paypal';
+import  Paypal  from './Paypal/Paypal';
 
 
 function App() {

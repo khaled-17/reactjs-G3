@@ -2,7 +2,7 @@ import "./login.scss";
 import elabdlogo from "../../images/Elabd-Logo.png";
 import axios from "axios";
 import { Trans, withTranslation,useTranslation } from 'react-i18next';
-
+import { useNavigate } from "react-router-dom";
 import {
   FaUser,
   FaFacebookSquare,
@@ -26,7 +26,7 @@ import axiosInstance from './../../axios config/axiosInstance';
  ////
 const Login = () => {
   const { t } = useTranslation();
-
+  let navigate = useNavigate();
   const validEmail = new RegExp(
     "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
   );
@@ -95,7 +95,7 @@ const Login = () => {
       
     }, []);
     
-    localStorage.setItem('myAccessToken', AccessToken);
+   
   
 
   const submitForm = (e) => {
@@ -106,12 +106,15 @@ const Login = () => {
       Email: data.Email,
       Password: data.password
     };
+    console.log(JSON.stringify(userData))
 // console.log(JSON.stringify(userData))
 axiosInstance
       .post("/User/Login", JSON.stringify(userData),{headers:{'Content-Type': 'application/json'}} )
       .then((response) => {
         setAccessToken(response.data.AccessToken)
         console.log(response.data.AccessToken);
+        localStorage.setItem('myAccessToken', response.data.AccessToken);
+        navigate('/')
       })
       .catch((error) => {
         if (error.response) {
@@ -123,12 +126,6 @@ axiosInstance
           console.log(error);
         }
       });
-
-
-
-
-
-
 
     for (var item in data) {
       console.log(item);

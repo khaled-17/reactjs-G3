@@ -46,14 +46,11 @@ const Cart = ()=> {
     if (prevCount <= 1) return 1;
     return prevCount - 1;
   })
- const price= 17;
+ let price= 0;
 
-  const total= count * price;
+  let total = 0
+ 
 
-  const deleteHandler = (e,clickedIdx)=>{
-    const deleteOberation =posts.filter((el,idx)=>idx!==clickedIdx)
-      console.log(deleteOberation)
-}
 
 const [posts, setPosts] = useState([]);
   
@@ -70,39 +67,58 @@ useEffect(() => {
 url: "/Cart",
 method: "GET",
 headers: {
-  // Add any auth token here
   token:`token ${tokenFromLocal}`  
   },
-// Attaching the form data
-// data: formData,
 })
-// Handle the response from backend here
 .then((res) => {
-
-    // console.log(res.data);
     setPosts(res.data);
+    console.log(res.data)
+
     let lngth = res.data.length
     dispatch(changeCounter((lngth)))
 
 })
-// Catch errors if any
 .catch((err) => { });
 },[ ])
 
 console.log(posts);
 
-
-// const [posts, setPosts] = useState([]);
-// //   useEffect(() => {
-// //     axios
-// //       .get("https://jsonplaceholder.typicode.com/posts")
-// //       .then((res) => {
-// //         setPosts(res.data);
-// //       })
-// //       .catch((err) => {
-// //         console.log(err);
-// //       });
-// //   }, []);
+function deleteHandler(id){
+    console.log( id);
+    const tokenFromLocal=localStorage.getItem("myAccessToken") 
+    axiosInstance
+    .delete(`/Cart/${id}`,{
+        headers:{token:`token ${tokenFromLocal}`,
+        'Content-Type': 'application/json'}
+    } )
+    .then((response) => {
+        axios({  
+            // Endpoint to send files
+            url: "http://localhost:5200/api/elabdfoods/Cart",
+            method: "GET",
+            headers: {
+              token:`token ${tokenFromLocal}`  
+              },
+            })
+            .then((res) => {
+                setPosts(res.data);
+                let lngth = res.data.length
+                dispatch(changeCounter((lngth)))
+            })
+            .catch((err) => { });
+    
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response);
+        console.log("server responded");
+      } else if (error.request) {
+        console.log("network error");
+      } else {
+        console.log(error);
+      }
+    });
+}
   
   return (
     <>
@@ -154,7 +170,7 @@ console.log(posts);
                                 </div>
                             </div>
                             <div className="delete-cart d-flex justify-content-end col ">
-                                <a onClick={deleteHandler}>
+                                <a onClick={()=>deleteHandler(item._id)}>
                                     
                                     <i  ><RiDeleteBin6Line/></i>
                                 </a>
@@ -174,7 +190,7 @@ console.log(posts);
                                 <ul>
                                     <li className="d-flex justify-content-between mb-2">
                                         <span>sub Total</span>
-                                        <span className="sub-price">{total}</span>
+                                        <span className="sub-price">{price}</span>
 
                                     </li>
                                     <li className="d-flex flex-wrap justify-content-between mb-2 ">
