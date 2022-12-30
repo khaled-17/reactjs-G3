@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Zone/>} />
             <Route path="/Login" element={<Login/>} />
-            <Route path="/paypal" element={<Paypal/>} />
+            <Route path="/Paypal" element={<Paypal/>} />
             <Route path="/Registration" element={<Registration />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Home" element={<Home />} />
