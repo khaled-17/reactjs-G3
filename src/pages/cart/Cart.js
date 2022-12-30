@@ -45,32 +45,14 @@ const Cart = ()=> {
   
   // working decrease
   const decrease = () => setCount(prevCount => {
+    if (prevCount <= 1) return 1;
+    return prevCount - 1;
+  })
+//  let price= 0;
 
-    if (prevCount <= 1){    setTotal(count * price) 
-        return 1   } 
+//   let total = 0
+ 
 
-    else{
-        setTotal(count * price)
-        return prevCount - 1;
-
-    }
-
-    
-  });
-  
-
-
-   function deleteHandler(id){
-    console.log(id)
-    axios({method:"delete",url: `http://localhost:5200/api/elabdfoods/Cart/${id}`},{headers:{'Content-Type': 'application/json',token:"token "+localStorage.getItem('myAccessToken')}})
-    .then((res) => {
-       console.log(posts)
-    console.log(res)
-    })
-    // Catch errors if any
-    .catch((err) => {     console.log(err)
-    });     
-}
 
 const [posts, setPosts] = useState([]);
 // var total=0;
@@ -94,39 +76,58 @@ useEffect(() => {
 url: "/Cart",
 method: "GET",
 headers: {
-  // Add any auth token here
   token:`token ${tokenFromLocal}`  
   },
-// Attaching the form data
-// data: formData,
 })
-// Handle the response from backend here
 .then((res) => {
-
-    // console.log(res.data);
     setPosts(res.data);
+    console.log(res.data)
+
     let lngth = res.data.length
     dispatch(changeCounter((lngth)))
 
 })
-// Catch errors if any
 .catch((err) => { });
 },[ ])
 
 console.log(posts);
 
-
-// const [posts, setPosts] = useState([]);
-// //   useEffect(() => {
-// //     axios
-// //       .get("https://jsonplaceholder.typicode.com/posts")
-// //       .then((res) => {
-// //         setPosts(res.data);
-// //       })
-// //       .catch((err) => {
-// //         console.log(err);
-// //       });
-// //   }, []);
+function deleteHandler(id){
+    console.log( id);
+    const tokenFromLocal=localStorage.getItem("myAccessToken") 
+    axiosInstance
+    .delete(`/Cart/${id}`,{
+        headers:{token:`token ${tokenFromLocal}`,
+        'Content-Type': 'application/json'}
+    } )
+    .then((response) => {
+        axios({  
+            // Endpoint to send files
+            url: "http://localhost:5200/api/elabdfoods/Cart",
+            method: "GET",
+            headers: {
+              token:`token ${tokenFromLocal}`  
+              },
+            })
+            .then((res) => {
+                setPosts(res.data);
+                let lngth = res.data.length
+                dispatch(changeCounter((lngth)))
+            })
+            .catch((err) => { });
+    
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response);
+        console.log("server responded");
+      } else if (error.request) {
+        console.log("network error");
+      } else {
+        console.log(error);
+      }
+    });
+}
   
   return (
     <>
@@ -198,7 +199,7 @@ console.log(posts);
                                 <ul>
                                     <li className="d-flex justify-content-between mb-2">
                                         <span>sub Total</span>
-                                        <span className="sub-price">{total}</span>
+                                        <span className="sub-price">{price}</span>
 
                                     </li>
                                     <li className="d-flex flex-wrap justify-content-between mb-2 ">
