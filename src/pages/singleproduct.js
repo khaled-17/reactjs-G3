@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Rating from './../components/Rating';
 import Footermain from './../components/footer/footermain';
 import Carousels from './../components/Carousel';
@@ -17,6 +17,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FaShuttleVan } from 'react-icons/fa';
 import Header from './../components/header/header';
 import "../App.css";
+import axiosInstance from './../axios config/axiosInstance';
+import { useParams } from 'react-router';
 
 const Singleproduct = () => {
 
@@ -37,10 +39,34 @@ const Singleproduct = () => {
     }
     // console.log(window.location.href);
     const curntURL = window.location.href
+    const [posts, setPosts] = useState([]);
+    const { id } = useParams();
+
+useEffect(() => {
+axiosInstance.get(`/Product/${id}`,{})
+.then((res) => {
+console.log(res.data);
+console.log( res.data.Image);
+setPosts(res.data)
+
+}).catch((err) => {
+console.log(err);
+})
+// axios.post("url","data",{params:{},headers:{}})
+
+}, [id])
+
+
+
+
+
+
+
+
     return (
         <>
             <Header />
-
+                                 
             <div className='container'>
 
 
@@ -48,15 +74,16 @@ const Singleproduct = () => {
 
                     <div className="col-5 ">
 
-                        <img className='w-75' src="https://elabd.blob.core.windows.net/elabdcontainer/9282b052-8e08-48b1-9968-58f53ff03ac4-637854438059048202.jpg" alt="" />
-
+                        {/* <img className='w-75'src={posts.Image.url}  alt="" /> */}
+   {/* <h1>{posts.Image.url}</h1> */}
+                                       
 
                     </div>
 
 
                     <div className="col-7  border-start">
 
-                        <h5>Cookies Elabd vanilla 2pcs</h5>
+                        <h5>{posts.EnName}</h5>
 
 
                         <div className="d-flex flex-row">
@@ -91,11 +118,9 @@ const Singleproduct = () => {
 
 
 
-
-
                         </div>
                         <div className="d-flex flex-row">
-                            <h3>45 EGP</h3>
+                            <h3>{posts.Price} eg</h3>
                             <Quantity />
 
                         </div>
@@ -107,11 +132,11 @@ const Singleproduct = () => {
                         </div>
                         <button class="btn btn-primary w-75 my-2 border-0 button-prod" > add to cart</button>
                         {/* <button class="btn btn-primary w-75  border-0 button-prod2"> One click order</button> */}
-                        <div class="alert alert-secondary w-75" >
+                        {/* <div class="alert alert-secondary w-75" >
                             <p class="m-0"> <span class="fw-semibold">Shipment Fees :</span>  15 EGP</p>
                             <p class="m-0"><span class="fw-semibold">Address :</span>  ,,,,,,llllk-جرين ٤-Egypt</p>
 
-                        </div>
+                        </div> */}
 
                         <div class="alert m-0 alert-secondary d-flex justify-content-around p-0" style={alerth} role="alert">
 

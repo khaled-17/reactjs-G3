@@ -23,7 +23,7 @@ export default function Carousels() {
         axiosInstance.get('/Product')
             .then(function (response) {
                 // handle success
-                console.log(response.data);
+                // console.log(response.data);
                 setPosts(response.data);
             })
             .catch(function (error) {
@@ -82,7 +82,7 @@ export default function Carousels() {
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' style={{ maxWidth: "15rem", height: 'auto' }} >
                                             {/* {item.title} */}
                                             {/* <div className='border border-success' style={{  wifdth: "2rem" }}> */}
-                                            <Cards name={ languge==="en"?item.EnName:item.ArName} img={item.Image.url} />
+                                            <Cards _id ={item._id} name={ languge==="en"?item.EnName:item.ArName} img={item.Image.url} />
 
                                             {/* </div> */}
 

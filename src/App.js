@@ -33,7 +33,6 @@ function App() {
 
         {/* <Singleproduct />  dir={(items=="en")?'ltr':'rtl'}*/}
         <div >
-
           <Routes>
             <Route path="/" element={<Zone/>} />
             <Route path="/Login" element={<Login/>} />
@@ -46,7 +45,7 @@ function App() {
             <Route path="/TermsandConditions" element={<TermsandConditions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Profile" element={<Profile />} />
-            <Route path="/Singleproduct" element={<Singleproduct />} />
+            <Route path="/Singleproduct/:id" element={<Singleproduct />} />
           </Routes>
         </div>
 

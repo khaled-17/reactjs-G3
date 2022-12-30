@@ -5,6 +5,8 @@ import ProfilePart from './../components/Profile/ProfilePart';
 import Addresspart from './../components/Profile/Addresspart';
 import Wishlistpart from './../components/Profile/Wishlistpart';
 import { FaUserAlt } from "@react-icons/all-files/fa/FaUserAlt";
+  import { BsFillHeartFill,BsFillGeoAltFill } from "react-icons/bs";
+
 
 
 class Profile extends Component {
@@ -33,7 +35,7 @@ class Profile extends Component {
                                 </div> 
                                 
                                 <div class="col border-left p-0 m-0text-center">
-                                    <p  style={{fontSize:".9rem"}}>2 Orders This Month</p> 
+                                    {/* <p  style={{fontSize:".9rem"}}>2 Orders This Month</p>  */}
                                 </div>
                             </div>
 
@@ -43,16 +45,15 @@ class Profile extends Component {
 
                         </div>
                         <div class="col-7 shadow-lg  mb-0 bg-white rounded m-1 ">
-                             
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="m-1 btn btn-outline-light active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>Profile</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Address</button>
+                            <button class="m-1 btn btn-outline-light " id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><BsFillGeoAltFill /></i>ProfileAddress</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Wishlistpart</button>
+                            <button class="m-1 btn btn-outline-light " id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><BsFillHeartFill /></i>Wishlistpart</button>
                         </li>
 
 

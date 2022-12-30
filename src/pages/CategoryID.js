@@ -32,7 +32,7 @@ const CategoryID = () => {
         })
         // axios.post("url","data",{params:{},headers:{}})
 
-    }, [])
+    }, [id])
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
