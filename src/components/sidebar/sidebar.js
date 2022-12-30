@@ -15,7 +15,6 @@ const Sidebar = () => {
 
     const { t } = useTranslation();
 
-
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
@@ -48,7 +47,6 @@ const Sidebar = () => {
             }else{
                 return ischecked;
             }
-            
         }); 
         setChecked1(checkbox)
         console.log(checkbox);
@@ -149,10 +147,8 @@ const Sidebar = () => {
                 console.log(response.data.CatEnSize);
 
             } else if (localvlu == "ar") {
-
                 setCatSizes(response.data.CatArSize);
                 console.log(response.data.CatArSize);
-
             }
             })
             .catch(function (err) {
