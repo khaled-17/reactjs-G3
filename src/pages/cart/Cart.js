@@ -13,10 +13,12 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCounter } from '../../store/actions/counter';
 import { Link } from "react-router-dom";
+import  Paypal  from '../../Paypal/Paypal';
+
 
 
 const Cart = ()=> {
-    
+    // const paypal=Paypal
      const inputRef = useRef();
     const counter = useSelector((state) => state.counter.counter)
 
@@ -317,20 +319,21 @@ function deleteHandler(id){
     <Footer/>
  
 
-<div class="modal" tabindex="-1" id="exampleModal">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+<div className="modal " tabindex="-1" id="exampleModal" >
+  <div className="modal-dialog modal-dialog-centered ">
+    <div className="modal-content paybg ">
+      <div className="modal-header ">
+        <h5 className="modal-title ">payment Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-      <p>Order Created successfully Delivered Within 60 - 90 Minutes </p>
-<p>total price= {total}</p>
+      <div className="modal-body ">
+        <p><Paypal/></p>
+      <p className='fs-5 '>Order Created successfully Delivered Within 60 - 90 Minutes </p>
+<p className='fs-5'>Total price= {total}</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"   data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onClick={deleteHandler}>Done</button>
+      <div className="modal-footer">
+        <button type="button" className="btn close-btn "   data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn done-btn" onClick={deleteHandler}>Done</button>
       </div>
     </div>
   </div>

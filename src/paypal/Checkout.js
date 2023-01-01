@@ -45,11 +45,11 @@ const Checkout = () => {
 
 
     return (
-        <div className="checkout">
+        <div className="checkout ">
             {/* kkk */}
             {isPending ? <Loader /> : (
                 <>
-                    <select value={currency} onChange={onCurrencyChange}>
+                    <select value={currency}  className='mb-2' onChange={onCurrencyChange}>
                         <option value="USD">💵 USD</option>
                         <option value="EUR">💶 Euro</option>
                     </select>

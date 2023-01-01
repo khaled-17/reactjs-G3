@@ -111,3 +111,23 @@ $main-color:#f6b0ab;
     font-size:120%;
     cursor: pointer;
 }
+.close-btn{
+background-color:$main-color;
+
+}
+.close-btn:hover{
+    background-color:$secondary-color;
+    color: aliceblue;
+
+}
+.done-btn{
+    background-color:$secondary-color;
+    color: aliceblue;
+}
+.done-btn:hover{
+    background-color:$main-color;
+
+}
+.paybg{
+    background-color:#f6ede8;
+}
