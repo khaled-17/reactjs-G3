@@ -51,6 +51,8 @@ const Cart = ()=> {
 //  let price= 0;
 
 //   let total = 0
+
+
  
 
 
@@ -139,14 +141,14 @@ function deleteHandler(id){
   <div class="row">
     <div class="col-8 mt-5">
 
-      {posts.map((item) =>
+      {posts.map((item,idx) =>
                     <div className=" mb-3">
                         <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-4 bg-body rounded ">
                             <div className="order-details-img  ">
                                 <div className="d-flex flex-wrap align-items-center  ">
-                                    <div className=" mx-4 col-4 ">
+                                    <div className=" mx-4 col-7 ">
                                         <a>
-                                            <img src={item.ProductID.Image.url} alt="img" className="img-fluid "/> 
+                                            <img src={item.ProductID.Image.url} alt="img" className=" "/> 
                                         </a>
                                     </div>
                                 </div>
