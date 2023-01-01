@@ -55,6 +55,10 @@ body{
 
     }
 }
+.Gobtn:hover{
+    background-color:$main-color;
+
+}
 
 .footer__copyrights-content{
         display:flex;
@@ -105,7 +109,7 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
 
 @media #{$media-desktop} {
     body{
-        background-color: red;
+        // background-color: red;
 
     }
 }
@@ -127,9 +131,10 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
     display: block;
     align-items: center;
     text-align: center;
-    // margin-left: 280% !important;
+    margin-left: 280% !important;
     margin-bottom:4% ;
     width: 100%;
+    margin: auto;
 
     
     
@@ -151,8 +156,9 @@ $media-mobile-sm: "only screen and (max-width : 480px)";
     .Gobtn{
         align-items: center;
         text-align: center;
-        // margin-left: 280% !important;
+        margin-left: 280% !important;
         display: block;
+        // margin: auto;
     }
     .search-bar{
         display: block;

@@ -12,6 +12,7 @@ import axiosInstance from '../../axios config/axiosInstance';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCounter } from '../../store/actions/counter';
+import { Link } from "react-router-dom";
 
 
 const Cart = ()=> {
@@ -28,14 +29,15 @@ const Cart = ()=> {
 
 //   const setcount = countStateArray[1];
   
-  const [count ,setcount]=useState([])
+  let [count ,setcount]=useState(0)
   // const increase = () => {
   //   setcount(prevCount => prevCount + 1)
   //   setcount(prevCount => prevCount + 1)    
   // };
   
-   const increase = () => {
-    setcount(count + 1);
+   function increase  (price)  {
+    setcount(++count );
+    console.log(count)
     setTotal(count * price)
 
   }; 
@@ -51,14 +53,27 @@ const Cart = ()=> {
  
 // // setcount(count + 1);
 //   }; 
-function handleIncrement(cart_id){
-    setcount(cart =>
-         cart.map( (item ,index) => 
-             cart_id === item.ProductID._id ? {...item, Amount: item.ProductID.Amount + (item.ProductID.Amount < 10 ? 1:0)} : item
-        )
-    );
+function handleIncrement(cart_id,idx){
+  console.log(idx)
     
-  
+  let checkbox = count.map((counter, index) => {
+
+    if(index == idx){
+
+    return ++counter
+     
+
+    }else{
+
+        return counter ;
+
+    }
+
+});
+
+// setChecked1(checkbox)
+setcount(checkbox)
+console.log(checkbox);
 }
    
   // broken decrease
@@ -68,19 +83,32 @@ function handleIncrement(cart_id){
   // })
   
   // working decrease
-  const decrease = () => setcount(prevCount => {
+  // const decrease = () => setcount(prevCount => {
 
-    if (prevCount <= 1){    setTotal(count * price) 
-        return 1   } 
+  //   if (prevCount <= 1){  
+  //       setTotal(count * price) 
 
-    else{
-        setTotal(count * price)
-        return prevCount - 1;
+  //       return 1  
+  //      } 
 
-    }
+  //   else{
+  //       setTotal(count * price)
+  //       return prevCount - 1;
+
+  //   }
 
     
-  });
+  // });
+  function decrease (price){
+    if(count<=1){
+      return count=1;
+    }
+    else{
+      setcount(--count)
+    }
+    setTotal(count*price)
+
+  }
   
 
 
@@ -100,6 +128,7 @@ const [posts, setPosts] = useState([]);
 // var total=0;
 // var price=0;
 const [total, setTotal] = useState(0);
+
 const [price, setPrice] = useState(0);
 
 
@@ -181,7 +210,7 @@ function deleteHandler(id){
   <div class="row">
     <div class="col-8 mt-5">
 
-      {posts.map((item) =>
+      {posts.map((item,idx) =>
                     <div className=" mb-3">
                         <div className="order-details d-flex align-items-center col-11 cart shadow-lg p-3 mb-4 bg-body rounded ">
                             <div className="order-details-img  ">
@@ -209,13 +238,13 @@ function deleteHandler(id){
                                 <p className="order-details-Quantity">Quantity:</p>
                                 <div className="product-single-price">
                                     <div className="quantity-input ">
-                                        <button className="decrease-quan border border-0 " onClick={decrease}>
+                                        <button className="decrease-quan border border-0 " onClick={()=>{decrease(item.ProductID.Price)}}>
                                             <BsFileMinusFill/>
                                         </button >
                                         <p className="d-inline ">
                                         <span  ref={inputRef} className="span-count">{count}</span>
                                         </p> 
-                                         <button className="increase-quan border border-0" onClick={()=> handleIncrement(item._id)}>
+                                         <button className="increase-quan border border-0" onClick={()=>{increase(item.ProductID.Price)}}>
                                             <BsFilePlusFill/>
                                         </button>
                                     </div>
@@ -241,7 +270,7 @@ function deleteHandler(id){
                                 <ul>
                                     <li className="d-flex justify-content-between mb-2">
                                         <span>sub Total</span>
-                                        <span className="sub-price">{price}</span>
+                                        <span className="sub-price">{total}</span>
 
                                     </li>
                                     <li className="d-flex flex-wrap justify-content-between mb-2 ">
@@ -263,7 +292,7 @@ function deleteHandler(id){
                         </div>
                         <div className="col-12">
                             <button className="btn  d-block mt-3 proceed-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal"> Complete Order</button>
-                            <button className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</button>
+                            <Link to="/" className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</Link>
                             <button className="btn btn- Remove-btn">Remove All</button>
 
                         </div>
