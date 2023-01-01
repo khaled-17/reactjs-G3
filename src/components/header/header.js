@@ -113,7 +113,27 @@ const Header = () => {
         // always executed
 
       });
-  }, []);
+
+      axios({  
+      
+        url: "http://localhost:5200/api/elabdfoods/Cart",
+        method: "GET",
+        headers: {
+          token:`token ${tokenFromLocal}`  
+          },
+       
+        })
+       
+        .then((res) => {
+        
+            setPosts(res.data);
+            let lngth = res.data.length
+            dispatch(changeCounter((lngth)))
+        
+        })
+        // Catch errors if any
+        .catch((err) => { });
+   }, []);
 
   const url = "#"
 

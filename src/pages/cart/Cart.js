@@ -2,7 +2,7 @@ import './cart.scss'
 
 import {  RiDeleteBin6Line } from 'react-icons/ri';
 import {  BsFilePlusFill ,BsFileMinusFill} from 'react-icons/bs';
-import React, { useState ,useEffect} from 'react';
+import React, { useState ,useEffect, useRef} from 'react';
 import Hederlang from '../../components/hederlang'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footermain'
@@ -16,27 +16,51 @@ import { changeCounter } from '../../store/actions/counter';
 
 const Cart = ()=> {
     
-    
+     const inputRef = useRef();
     const counter = useSelector((state) => state.counter.counter)
 
     const dispatch = useDispatch()
 
          
-  const countStateArray = useState(1);
-  const count = countStateArray[0];
-  const setCount = countStateArray[1];
+//   const countStateArray = useState(1);
+// //   const count = countStateArray[0];
+// let count=1
+
+//   const setCount = countStateArray[1];
   
+  const [count ,setcount]=useState([])
   // const increase = () => {
   //   setCount(prevCount => prevCount + 1)
   //   setCount(prevCount => prevCount + 1)    
   // };
   
-  const increase = () => {
+   const increase = () => {
     setCount(count + 1);
     setTotal(count * price)
 
   }; 
+ //   const increase = (id) => {;
+//  if(id){
+//     // setCount(count+1)
+//     console.log(id)
+//     ++count
+//  }
   
+//   inputRef.current.innerText=count
+//   console.log(inputRef.current.innerText || 'not set')
+ 
+// // setCount(count + 1);
+//   }; 
+function handleIncrement(cart_id){
+    setcount(cart =>
+         cart.map( (item ,index) => 
+             cart_id === item.ProductID._id ? {...item, Amount: item.ProductID.Amount + (item.ProductID.Amount < 10 ? 1:0)} : item
+        )
+    );
+    
+  
+}
+   
   // broken decrease
   // const decrease = () => setCount(prevCount => {
   //   if (prevCount <= 0) return;
@@ -108,7 +132,7 @@ headers: {
 .catch((err) => { });
 },[ ])
 
-console.log(posts);
+
 
 function deleteHandler(id){
     console.log( id);
@@ -189,9 +213,9 @@ function deleteHandler(id){
                                             <BsFileMinusFill/>
                                         </button >
                                         <p className="d-inline ">
-                                        <span className="span-count">{count}</span>
+                                        <span  ref={inputRef} className="span-count">{count}</span>
                                         </p> 
-                                         <button className="increase-quan border border-0" onClick={increase}>
+                                         <button className="increase-quan border border-0" onClick={()=> handleIncrement(item._id)}>
                                             <BsFilePlusFill/>
                                         </button>
                                     </div>
@@ -200,7 +224,7 @@ function deleteHandler(id){
                             <div className="delete-cart d-flex justify-content-end col ">
                                 <a onClick={()=>deleteHandler(item._id)}>
                                     
-                                    <i  ><RiDeleteBin6Line/></i>
+                                    <i><RiDeleteBin6Line/></i>
                                 </a>
                             </div>
                         </div>
