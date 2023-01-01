@@ -109,14 +109,18 @@ const Header = () => {
         console.log(err);
       })
       .finally(function () {
+
         // always executed
+
       });
   }, []);
 
   const url = "#"
 
-  return (<>
-
+  return (
+  
+  
+  <>
     <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top " style={{ height: "100px", top: "0" }}>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
