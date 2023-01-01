@@ -70,6 +70,7 @@ const Sidebar = () => {
 
     };
     const [value, setValue] = React.useState([0, 100]);
+    
     const rangeSelector = (event, newValue) => {
         setValue(newValue);
         console.log(newValue)
@@ -106,7 +107,9 @@ const Sidebar = () => {
     const handleSubmit = (e) => {
 
         <CategoryID data={data} />
+
         console.log(ref1.current.checked);//true
+
     }
     const params = useParams()   /////للتسهيل 
 

@@ -16,28 +16,45 @@ import {
 } from "react-router-dom";
 const CategoryID = (props) => {
 
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const [posts, setPosts] = useState([]);
+ 
     const { id } = useParams();
 
     useEffect(() => {
+
         axiosInstance.get("/Product", { params: { Categorie: id } })
-            .then((res) => {
+     
+        .then((res) => {
                 console.log(res.data);
                 // console.log("res.data");
-
+                if(posts.length){
+                    setIsLoading(false)
+                
+                }  
                 setPosts(res.data)
-
+                        
+                      
             }).catch((err) => {
                 console.log(err);
+                setIsLoading(true)
+ 
             })
         // axios.post("url","data",{params:{},headers:{}})
+if(posts.length){
+    setIsLoading(true)
+
+}
 
     }, [id])
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
-    console.log(languge);
+    
+    console.log(props.data);
+
+ 
 
    
 
@@ -47,7 +64,10 @@ const CategoryID = (props) => {
         <>
             <Hederlang />
             <Header />
-            <h3>ID: {id}</h3>
+
+
+            
+            {/* <h3>ID: {id}</h3> */}
 
             <div className="container-xl  text-center">
                 <div className="row">
@@ -96,10 +116,9 @@ const CategoryID = (props) => {
 
                             <div className=" d-flex flex-wrap justify-content-center" >
 
-                                {loading ? (
-                                    <h1>hhhhh</h1>):
-                                    // .sort((a, b) => (a.qty > b.qty) ? 1 : -1)
-                                    (posts.filter((c) => c.Price < 70  ).map((item) =>
+                                {isLoading ? (
+                                    <Loader/>):
+                                     (posts.filter((c) => c.Price < 70  ).map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >
