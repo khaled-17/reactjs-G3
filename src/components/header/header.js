@@ -117,20 +117,17 @@ const Header = () => {
         // always executed
       });
       axios({  
-        // Endpoint to send files
+      
         url: "http://localhost:5200/api/elabdfoods/Cart",
         method: "GET",
         headers: {
-          // Add any auth token here
           token:`token ${tokenFromLocal}`  
           },
-        // Attaching the form data
-        // data: formData,
+       
         })
-        // Handle the response from backend here
+       
         .then((res) => {
         
-            // console.log(res.data);
             setPosts(res.data);
             let lngth = res.data.length
             dispatch(changeCounter((lngth)))
