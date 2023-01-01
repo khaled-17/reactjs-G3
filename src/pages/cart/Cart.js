@@ -26,22 +26,22 @@ const Cart = ()=> {
 // //   const count = countStateArray[0];
 // let count=1
 
-//   const setCount = countStateArray[1];
+//   const setcount = countStateArray[1];
   
   const [count ,setcount]=useState([])
   // const increase = () => {
-  //   setCount(prevCount => prevCount + 1)
-  //   setCount(prevCount => prevCount + 1)    
+  //   setcount(prevCount => prevCount + 1)
+  //   setcount(prevCount => prevCount + 1)    
   // };
   
    const increase = () => {
-    setCount(count + 1);
+    setcount(count + 1);
     setTotal(count * price)
 
   }; 
  //   const increase = (id) => {;
 //  if(id){
-//     // setCount(count+1)
+//     // setcount(count+1)
 //     console.log(id)
 //     ++count
 //  }
@@ -49,7 +49,7 @@ const Cart = ()=> {
 //   inputRef.current.innerText=count
 //   console.log(inputRef.current.innerText || 'not set')
  
-// // setCount(count + 1);
+// // setcount(count + 1);
 //   }; 
 function handleIncrement(cart_id){
     setcount(cart =>
@@ -62,13 +62,13 @@ function handleIncrement(cart_id){
 }
    
   // broken decrease
-  // const decrease = () => setCount(prevCount => {
+  // const decrease = () => setcount(prevCount => {
   //   if (prevCount <= 0) return;
   //   return prevCount - 1;
   // })
   
   // working decrease
-  const decrease = () => setCount(prevCount => {
+  const decrease = () => setcount(prevCount => {
 
     if (prevCount <= 1){    setTotal(count * price) 
         return 1   } 

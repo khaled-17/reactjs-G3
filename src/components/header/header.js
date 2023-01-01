@@ -11,8 +11,9 @@ import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { changeCounter } from "../../store/actions/counter";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -87,17 +88,21 @@ const Header = () => {
       });
   }
 
-  // const [localvlu, setlocalvlu] = useState(JSON.parse(localStorage.getItem('items')))
- 
-  const localvlu = JSON.parse(localStorage.getItem('items'));
-  console.log(localvlu);
-
+   const [localvlu, setlocalvlu] = useState([]);
+   const [posts, setPosts] = useState([]);
+   const dispatch = useDispatch()
+   const tokenFromLocal=localStorage.getItem("myAccessToken")
+//   useEffect(() => {
+//  console.log(counter)
+//     const items = JSON.parse(localStorage.getItem('items'));
+//     if (items) {
+//   const [localvlu, setlocalvlu] = useState(JSON.parse(localStorage.getItem('items')))
 
   useEffect(() => {
 
-      // const localvlu = JSON.parse(localStorage.getItem('items'))
-      // setlocalvlu(localvlu);
-
+      const localvlu = JSON.parse(localStorage.getItem('items'))
+      setlocalvlu(localvlu);
+      
     axios.get('http://localhost:5200/api/elabdfoods/Categorie')
       .then(function (response) {
         // handle success
@@ -109,11 +114,8 @@ const Header = () => {
         console.log(err);
       })
       .finally(function () {
-
         // always executed
-
       });
-
       axios({  
       
         url: "http://localhost:5200/api/elabdfoods/Cart",
@@ -133,46 +135,44 @@ const Header = () => {
         })
         // Catch errors if any
         .catch((err) => { });
-   }, []);
+  }, []);
 
   const url = "#"
 
-  return (
-  
-  
-  <>
+  return (<>
+
     <Navbar bg="light" expand="lg" className="sticky-top transparent-navbar navbar-fixed-top " style={{ height: "100px", top: "0" }}>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Brand href="/">
+        <Navbar.Brand href={url}>
           <img style={{ width: "90px", height: "90px", top: "0" }} loading="lazy" src={img1} alt="logo" />
         </Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
           <Nav className="mx-auto flex-wrap" style={{ fontSize: "14px" }}>
             {categories.map((categorie, index) => {
-              // if (localvlu == "en") {
+              if (localvlu == "en") {
                 return (
-                  <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}                           //{ localvlu==="en"?subCategorie.SubCat.EnsubCatName:subCategorie.SubCat.ArsubCatName}
-                    onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={ localvlu==="en"?categorie.CatEnName:categorie.CatArName} menuVariant="light">
+                  <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
+                    onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
                     <div style={{ width: "500px" }} >
                       {subCategories.map((subCategorie, index) => {
-                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{ localvlu==="en"?subCategorie.SubCat.EnsubCatName:subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
+                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
                       })}
                     </div>
                   </NavDropdown>
                 )
-              // } else if (localvlu == "ar") {
-              //   return (
-              //     <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
-              //       onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatArName} menuVariant="light">
-              //       <div style={{ width: "500px" }} >
-              //         {subCategories.map((subCategorie, index) => {
-              //             return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
-              //         })}
-              //       </div>
-              //     </NavDropdown>
-              //   )
-              // }
+              } else if (localvlu == "ar") {
+                return (
+                  <NavDropdown id="navbarScrollingDropdown" show={drop1[index]}
+                    onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatArName} menuVariant="light">
+                    <div style={{ width: "500px" }} >
+                      {subCategories.map((subCategorie, index) => {
+                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
+                      })}
+                    </div>
+                  </NavDropdown>
+                )
+              }
 
             })}
 
@@ -226,8 +226,6 @@ const Header = () => {
   </>
   )
 }
-
-
 
 
 
