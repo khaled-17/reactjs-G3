@@ -20,7 +20,7 @@ const Cart = ()=> {
     const counter = useSelector((state) => state.counter.counter)
 
     const dispatch = useDispatch()
-
+ 
          
 //   const countStateArray = useState(1);
 // //   const count = countStateArray[0];

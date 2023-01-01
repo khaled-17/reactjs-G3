@@ -121,7 +121,7 @@ const Header = () => {
         url: "http://localhost:5200/api/elabdfoods/Cart",
         method: "GET",
         headers: {
-          token:`token ${tokenFromLocal}`  
+          token:`token ${tokenFromLocal}`
           },
        
         })
