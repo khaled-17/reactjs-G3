@@ -155,7 +155,7 @@ const Cards = (props) => {
         </li>
 
         <li class="list-group-item p-0">
-          <p ><Link to="/Singleproduct" class="propsName text-decoration-none"> {props.name || defult.name}</Link></p>
+          <p ><Link to={`/Singleproduct/${props._id}`} class="propsName text-decoration-none"> {props.name || defult.name}</Link></p>
           <h5 class="card-prise card-title"><strong class="card-prise">{props.prise || defult.prise} {t('EGP')} </strong></h5>
         </li>
 

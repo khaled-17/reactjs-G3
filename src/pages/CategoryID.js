@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 const CategoryID = (props) => {
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const [posts, setPosts] = useState([]);
  
@@ -29,8 +29,8 @@ const CategoryID = (props) => {
         .then((res) => {
                 console.log(res.data);
                 // console.log("res.data");
+                setIsLoading(false)
                 if(posts.length){
-                    setIsLoading(false)
                 
                 }  
                 setPosts(res.data)
