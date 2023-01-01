@@ -41,6 +41,7 @@ const Singleproduct = () => {
     const curntURL = window.location.href
     const [posts, setPosts] = useState([]);
     const { id } = useParams();
+    const [img, setImg] = useState();
 
 useEffect(() => {
 axiosInstance.get(`/Product/${id}`,{})
@@ -48,6 +49,8 @@ axiosInstance.get(`/Product/${id}`,{})
 console.log(res.data);
 console.log( res.data.Image);
 setPosts(res.data)
+setImg(posts.Image.url);
+
 
 }).catch((err) => {
 console.log(err);
@@ -74,7 +77,7 @@ console.log(err);
 
                     <div className="col-5 ">
 
-                        {/* <img className='w-75'src={posts.Image.url}  alt="" /> */}
+                        <img className='w-75'src={img}  alt="" />
    {/* <h1>{posts.Image.url}</h1> */}
                                        
 
