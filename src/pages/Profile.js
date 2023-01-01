@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component ,useEffect} from 'react';
 import Header from './../components/header/header';
 import Hederlang from './../components/hederlang';
 import ProfilePart from './../components/Profile/ProfilePart';
@@ -10,6 +10,17 @@ import { FaUserAlt } from "@react-icons/all-files/fa/FaUserAlt";
 
 
 class Profile extends Component {
+
+
+
+
+
+    
+  
+
+
+
+
     render() {
 
         return (
@@ -47,7 +58,7 @@ class Profile extends Component {
                         <div class="col-7 shadow-lg  mb-0 bg-white rounded m-1 ">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="m-1 btn btn-outline-light active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>Profile</button>
+                            {/* <button class="m-1 btn btn-outline-light active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><FaUserAlt /></i>Profile</button> */}
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="m-1 btn btn-outline-light " id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i style={{ color: "#6f3c2e", fontSize: "18px" }} ><BsFillGeoAltFill /></i>ProfileAddress</button>
@@ -78,7 +89,7 @@ class Profile extends Component {
                 </div>
 
                 <div class="tab-content container mt-5" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0"><ProfilePart/></div>
+                    {/* <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0"><ProfilePart/></div> */}
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"><Addresspart/></div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0"><Wishlistpart/></div>
                     <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">...</div>

@@ -4,7 +4,7 @@ const ProfilePart = () => {
 
 
 
-    
+
     return (
         <>
 
@@ -35,72 +35,37 @@ const ProfilePart = () => {
                     <input type="number" class="form-control" id="floatingMobile" placeholder="Mobile" />
                 </div>
 
-
-
-
-                <div class=" col-md-6">
-                    <label for="validationDefault04" class="form-label">Zone</label>
-                    <select class="form-select" id="validationDefault04" required>
-                        <option selected disabled value="">Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-
-
-
-
-                <div class=" col-md-6 d-flex">
-
-                    <div class=" col m-1">
-                        <label for="validationDefault05" class="form-label">Day</label>
-                        <input type="number" class="form-control" id="validationDefault05" required />
-                    </div>
-                    <div class=" col m-1">
-                        <label for="validationDefault05" class="form-label">month</label>
-                        <input type="number" class="form-control" id="validationDefault05" required />
-                    </div>
-                    <div class=" col m-1">
-                        <label for="validationDefault05" class="form-label">year</label>
-                        <input type="number" class="form-control" id="validationDefault05" required />
-                    </div>
-
-
-
-                </div>
+             
 
                 <div class=" col-md-6 d-flex">
                 </div>
 
                 <div class=" col-md-6 d-flex">
 
-                         <p className='mx-2'>Gender</p>
- 
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mail" value="option1" />
-                            <label class="form-check-label" for="mail">mail</label>
-                        </div>
+                    <p className='mx-2'>Gender</p>
 
 
-
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="fmail" value="option2" />
-                            <label class="form-check-label" for="fmail">fmail</label>
-                        </div>
-
-
-
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mail" value="option1" />
+                        <label class="form-check-label" for="mail">mail</label>
                     </div>
-                    <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">subScribe to Out Newsletter</label>
-  </div>
-
-
-                    <div class=" col-12">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="fmail" value="option2" />
+                        <label class="form-check-label" for="fmail">fmail</label>
                     </div>
+
+
+
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">subScribe to Out Newsletter</label>
+                </div>
+
+
+                <div class=" col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
             </form>
 
 
