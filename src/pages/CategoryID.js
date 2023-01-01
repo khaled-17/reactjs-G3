@@ -51,7 +51,7 @@ const CategoryID = (props) => {
 
             <div className="container-xl  text-center">
                 <div className="row">
-                    <div className='col-3 filtering-sidebar container' controller="List" style={{ height: '500px' }}>
+                    <div className='col-3 filtering-sidebar container d-none d-lg-block d-xl-' controller="List" style={{ height: '500px' }}>
 
 
                         <Sidebar />
@@ -97,7 +97,7 @@ const CategoryID = (props) => {
                             <div className=" d-flex flex-wrap justify-content-center" >
 
                                 {loading ? (
-                                    <h1>hhhhh</h1>) :
+                                    <h1>hhhhh</h1>):
                                     // .sort((a, b) => (a.qty > b.qty) ? 1 : -1)
                                     (posts.filter((c) => c.Price < 70  ).map((item) =>
                                         // Presently we only fetch 
