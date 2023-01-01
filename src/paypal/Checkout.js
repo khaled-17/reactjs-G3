@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import Loader from '../components/loader/loader';
 
-const Checkout = () => {
+const Checkout = (props) => {
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
     const [currency, setCurrency] = useState(options.currency);
 
@@ -23,7 +23,7 @@ const Checkout = () => {
             purchase_units: [
                 {
                     amount: {
-                        value: "5",
+                        value: "75",
                     },
                 },
             ],
@@ -46,7 +46,7 @@ const Checkout = () => {
 
     return (
         <div className="checkout ">
-            {/* kkk */}
+            {/* {props.totalx} */}
             {isPending ? <Loader /> : (
                 <>
                     <select value={currency}  className='mb-2' onChange={onCurrencyChange}>

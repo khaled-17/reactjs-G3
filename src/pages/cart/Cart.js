@@ -327,7 +327,7 @@ function deleteHandler(id){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body ">
-        <p><Paypal/></p>
+        <p><Paypal total={total}/></p>
       <p className='fs-5 '>Order Created successfully Delivered Within 60 - 90 Minutes </p>
 <p className='fs-5'>Total price= {total}</p>
       </div>
