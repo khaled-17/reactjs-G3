@@ -130,7 +130,7 @@ console.log(err);
                                 <option value="saab">400 gm</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary w-75 my-2 border-0 button-prod" > add to cart</button>
+                        <button  class="btn d-block  w-75 my-2  button-prod"  style={{backgroundColor:'rgb(111, 60, 46)' ,color:"white"}} > add to cart</button>
                         {/* <button class="btn btn-primary w-75  border-0 button-prod2"> One click order</button> */}
                         {/* <div class="alert alert-secondary w-75" >
                             <p class="m-0"> <span class="fw-semibold">Shipment Fees :</span>  15 EGP</p>

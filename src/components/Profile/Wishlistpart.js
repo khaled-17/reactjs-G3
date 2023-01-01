@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import axiosInstance from './../../axios config/axiosInstance';
+import './../btn.css'
+
+
 
 const Wishlistpart = () => {
     const [loading, setLoading] = useState(false);
 
     const [posts, setPosts] = useState([]);
     const tokenFromLocal=localStorage.getItem("myAccessToken")
+ 
     useEffect(() => {
       axiosInstance({  
     // Endpoint to send files
@@ -56,7 +60,37 @@ const Wishlistpart = () => {
              });
 
       }
-        
+
+    
+      function addToCart(_id) {
+        const userData = {
+            ProductID: _id,
+            };
+
+        console.log(_id);   
+  // console.log(JSON.stringify(userData))
+  axiosInstance
+        .post("/Cart", JSON.stringify(userData),{
+            headers:{token:`token ${tokenFromLocal}`,
+            'Content-Type': 'application/json'}
+        } )
+        .then((response) => {
+           console.log(response.data);
+           console.log(_id);
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response);
+            console.log("server responded");
+          } else if (error.request) {
+            console.log("network error");
+          } else {
+            console.log(error);
+          }
+        });
+      }
+
+  
     return (
         <>
              
@@ -74,7 +108,8 @@ const Wishlistpart = () => {
                                     <div  className=' w-25' style={{ width: '9rem' }}> <img src={item.ProductID.Image.url} class="card-img-top" alt="..." /></div>
                                     <div className=' w-25 mx-5'> <p  >{item.ProductID.EnName}</p> </div>
                                     <div  className=' w-25'><p>{item.ProductID.Price}</p> </div>
-                                    <div  className=' w-25'><p><button onClick={() =>sayHello(item._id)}>حذف</button></p> </div>
+                                    <div  className=' w-25'><p><button className="btn  m-1" style={{backgroundColor:'white' , color:'rgb(111, 60, 46)' ,  border: '2px solid rgb(111, 60, 46)'}} onClick={() =>sayHello(item._id)}>حذف</button></p> </div>
+                                    <div  className=' w-25'><p> <button className="btn  m-1" style={{backgroundColor:'rgb(111, 60, 46)' , color:'white' }}   onClick={()=>addToCart(item._id)}  >اضف الى الكرد</button></p> </div>
                                     </div >
 
                                        

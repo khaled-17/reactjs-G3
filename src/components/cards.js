@@ -17,7 +17,8 @@ const Cards = (props) => {
 
 
 const tokenFromLocal=localStorage.getItem("myAccessToken")
-    function addToFav(_id) {
+   
+function addToFav(_id) {
         const userData = {
             ProductID: _id,
             };
@@ -43,6 +44,10 @@ const tokenFromLocal=localStorage.getItem("myAccessToken")
         });
       }
       
+
+
+
+      
     function addToCart(_id) {
         const userData = {
             ProductID: _id,
@@ -57,6 +62,7 @@ const tokenFromLocal=localStorage.getItem("myAccessToken")
         } )
         .then((response) => {
            console.log(response.data);
+           console.log(_id);
         })
         .catch((error) => {
           if (error.response) {
@@ -68,15 +74,6 @@ const tokenFromLocal=localStorage.getItem("myAccessToken")
             console.log(error);
           }
         });
-  
-  
-
-
-
-          
-
-
-
       }
 
 
