@@ -14,6 +14,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { changeCounter } from "../../store/actions/counter";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -189,7 +190,7 @@ const Header = () => {
                   aria-describedby="basic-addon1" value={value} onChange={(e) => setValue(e.target.value)} placeholder=" Search for....." autoFocus />
                 <Button variant="outline-secondary" id="button-addon1">
                   <Nav.Link to="/CategoryID">
-                    <i style={{ color: "#6f3c2e", fontSize: "20px" }} onClick={() => { searchData(value) }} ><FaSearch /></i>
+                    <i style={{ color: "#6f3c2e", fontSize: "20px" }} onClick={() => { searchData(value) }} >  <Link to={`/CategoryID?name=${value}`}><FaSearch /></Link></i>
                   </Nav.Link>
                 </Button>
               </Modal.Body>

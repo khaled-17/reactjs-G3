@@ -42,6 +42,7 @@ function App() {
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="/CategoryID" element={<CategoryID />} />
             <Route path="/CategoryID/:id" element={<CategoryID />} />
             <Route path="/TermsandConditions" element={<TermsandConditions />} />
             <Route path="/AboutUs" element={<AboutUs />} />

@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom"
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 
@@ -22,32 +23,78 @@ const CategoryID = (props) => {
  
     const { id } = useParams();
 
+    let [searchParams, setSearchParams] = useSearchParams()
+
+    const theCategorie = searchParams.get("Categorie")
+    const theName = searchParams.get("name")
+
+    console.log(theCategorie,theName)
+
+   if(theCategorie){
+    console.log('theCategorie')
+    
+}else if(theName){
+       console.log('theName')
+   }
+
+
+
+
+
+
     useEffect(() => {
+        if(theCategorie){
+            console.log('theCategorie')
 
-        axiosInstance.get("/Product", { params: { Categorie: id } })
-     
-        .then((res) => {
-                console.log(res.data);
-                // console.log("res.data");
-                setIsLoading(false)
-                if(posts.length){
-                
-                }  
-                setPosts(res.data)
-                        
-                      
-            }).catch((err) => {
-                console.log(err);
-                setIsLoading(true)
- 
-            })
-        // axios.post("url","data",{params:{},headers:{}})
-if(posts.length){
-    setIsLoading(true)
+            axiosInstance.get("/Product", { params: { Categorie: `${theCategorie}` ,EnName:``} })
+            .then((res) => {
+                    console.log(res.data);
+                    // console.log("res.data");
+                    setIsLoading(false)
+                    if(posts.length){
+                    }  
+                    setPosts(res.data)                      
+                }).catch((err) => {
+                    console.log(err);
+                    setIsLoading(true)
+                })
+     if(posts.length){
+        setIsLoading(true)
+    
+    }
 
-}
 
-    }, [id])
+
+            
+        }else if(theName){
+               console.log('theName')
+               axiosInstance.get("/Product", { params: { EnName:'hum'} })
+               .then((res) => {
+                       console.log(res.data);
+                       // console.log("res.data");
+                       setIsLoading(false)
+                       if(posts.length){
+                       }  
+                       setPosts(res.data)                      
+                   }).catch((err) => {
+                       console.log(err);
+                       setIsLoading(true)
+                   })
+        if(posts.length){
+           setIsLoading(true)
+       
+       }
+
+
+
+
+           }
+
+
+
+      
+
+    }, [id,theCategorie])
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
