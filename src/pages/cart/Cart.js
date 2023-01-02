@@ -11,26 +11,26 @@ import axiosInstance from '../../axios config/axiosInstance';
 // import CartCard from './CartCard';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCounter } from '../../store/actions/counter';
+import { changeCounter,changTotal } from '../../store/actions/counter';
 import { Link } from "react-router-dom";
 import  Paypal  from '../../Paypal/Paypal';
 
-
+ 
 
 const Cart = ()=> {
+  const dispatch = useDispatch()
+
     // const paypal=Paypal
      const inputRef = useRef();
     const counter = useSelector((state) => state.counter.counter)
+    const Total = useSelector((state) => state.counter.Total)
 
-    const dispatch = useDispatch()
- 
-         
-//   const countStateArray = useState(1);
-// //   const count = countStateArray[0];
-// let count=1
-
-//   const setcount = countStateArray[1];
   
+    
+ 
+  
+         
+
   let [count ,setcount]=useState(0)
   // const increase = () => {
   //   setcount(prevCount => prevCount + 1)
@@ -43,18 +43,7 @@ const Cart = ()=> {
     setTotal(count * price)
 
   }; 
- //   const increase = (id) => {;
-//  if(id){
-//     // setcount(count+1)
-//     console.log(id)
-//     ++count
-//  }
-  
-//   inputRef.current.innerText=count
-//   console.log(inputRef.current.innerText || 'not set')
- 
-// // setcount(count + 1);
-//   }; 
+
 function handleIncrement(cart_id,idx){
   console.log(idx)
     
@@ -201,11 +190,22 @@ function deleteHandler(id){
       }
     });
 }
+
+ 
+
+function order(){
+
+  dispatch(changTotal(total))
+
+
+}
   
   return (
     <>
     <Hederlang/>
     <Header/>
+
+    {/* <h1>ddd{Total}</h1> */}
         <section>
   
         <div class="container">
@@ -293,7 +293,7 @@ function deleteHandler(id){
 
                         </div>
                         <div className="col-12">
-                            <button className="btn  d-block mt-3 proceed-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal"> Complete Order</button>
+                            <button onClick={order} className="btn  d-block mt-3 proceed-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal"> Complete Order</button>
                             <Link to="/" className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</Link>
                             <button className="btn btn- Remove-btn">Remove All</button>
 

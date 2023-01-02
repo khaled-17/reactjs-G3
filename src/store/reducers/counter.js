@@ -3,7 +3,8 @@ const INITIAL_STATE = {
 
     counter: 0,
     lowcost:0,
-    hightcost:0
+    hightcost:0,
+    Total:0
   
   }
   
@@ -19,6 +20,9 @@ const INITIAL_STATE = {
      
         case "SET-hightcost":
         return { ...state, hightcost: action.payload }
+  
+        case "SET-Total":
+        return { ...state, Total: action.payload }
   
 
 

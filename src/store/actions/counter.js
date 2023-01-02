@@ -24,3 +24,11 @@ export function changehightcost(data){
 
     }
 }
+export function changTotal(data){
+
+    return {
+        type:"SET-Total",
+        payload: data
+
+    }
+}
