@@ -68,7 +68,7 @@ const CategoryID = (props) => {
             
         }else if(theName){
                console.log('theName')
-               axiosInstance.get("/Product", { params: { Categorie:'',EnName:'Hum'} })
+               axiosInstance.get("/Product", { params: { Categorie:'',EnName:`${theName}`} })
                .then((res) => {
                        console.log(res.data);
                        // console.log("res.data");
