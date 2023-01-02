@@ -68,7 +68,7 @@ const CategoryID = (props) => {
             
         }else if(theName){
                console.log('theName')
-               axiosInstance.get("/Product", { params: { EnName:'hum'} })
+               axiosInstance.get("/Product", { params: { Categorie:'',EnName:'Hum'} })
                .then((res) => {
                        console.log(res.data);
                        // console.log("res.data");
@@ -94,7 +94,7 @@ const CategoryID = (props) => {
 
       
 
-    }, [id,theCategorie])
+    }, [id,theCategorie,theName])
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
