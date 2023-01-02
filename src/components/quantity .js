@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import './btn.css'
-const Quantity = () => {
+const Quantity = ({changeConter}) => {
 
 
   const btn = {
@@ -38,20 +38,24 @@ const Quantity = () => {
   const [count, setcount] = useState(0);
   function increment() { 
     setcount(count + 1)
+ 
    }
   function decrement() {
     // setcount(count - 1) 
     setcount(function (prevCount) {
       if (prevCount > 0) {
         return (prevCount -= 1);
+ 
       } else {
         return (prevCount = 0);
       }
+
     });
 
 
 
   }
+  changeConter(count);
 
 
 

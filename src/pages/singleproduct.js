@@ -3,14 +3,8 @@ import Rating from './../components/Rating';
 import Footermain from './../components/footer/footermain';
 import Carousels from './../components/Carousel';
 import ProductSlider from './../components/productSlider/productSlider';
-
-
 import AddReview from './../components/addReview';
-
-
-
 import Footerc from './../components/footer/footerc';
-
 import { Button } from 'react-bootstrap';
 import Quantity from './../components/quantity ';
 import { AiOutlineHeart } from "react-icons/ai";
@@ -19,6 +13,11 @@ import Header from './../components/header/header';
 import "../App.css";
 import axiosInstance from './../axios config/axiosInstance';
 import { useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { changeCounter } from '../store/actions/counter';
+import Cards from './../components/cards';
+
 
 const Singleproduct = () => {
 
@@ -37,11 +36,15 @@ const Singleproduct = () => {
 
 
     }
+
+
     // console.log(window.location.href);
     const curntURL = window.location.href
     const [posts, setPosts] = useState([]);
     const { id } = useParams();
     const [img, setImg] = useState();
+  const tokenFromLocal = localStorage.getItem("myAccessToken")
+  const dispatch = useDispatch()
 
 useEffect(() => {
 axiosInstance.get(`/Product/${id}`,{})
@@ -63,6 +66,97 @@ console.log(err);
 
 
 
+const [message, setMessage] = useState(0);
+const changeMessage = (newMessage) => {
+    setMessage(newMessage);
+  }
+
+
+
+  function addToFav(_id) {
+    const userData = {
+      ProductID: _id,
+    };
+    console.log(_id);
+    // console.log(JSON.stringify(userData))
+
+    axiosInstance
+      .post("/Fav", JSON.stringify(userData), {
+        headers: {
+          token: `token ${tokenFromLocal}`,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+  }
+
+  function addToCart(_id) {
+   
+    const userData = {
+      ProductID: _id,
+    };
+
+    console.log(_id);
+    // console.log(JSON.stringify(userData))
+    axiosInstance
+      .post("/Cart", JSON.stringify(userData), {
+        headers: {
+          token: `token ${tokenFromLocal}`,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        console.log(response.data);
+        axios({  
+          // Endpoint to send files
+          url: "http://localhost:5200/api/elabdfoods/Cart",
+          method: "GET",
+          headers: {
+            // Add any auth token here
+            token:`token ${tokenFromLocal}`  
+            },
+          // Attaching the form data
+          // data: formData,
+          })
+          // Handle the response from backend here
+          .then((res) => {
+      
+              // console.log(res.data);
+              setPosts(res.data);
+              let lngth = res.data.length
+              // dispatch(changeCounter((lngth)))
+              dispatch(changeCounter((lngth)))
+          })
+          // Catch errors if any
+          .catch((err) => { });
+
+      
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+
+
+  }
 
 
 
@@ -71,6 +165,8 @@ console.log(err);
             <Header />
                                  
             <div className='container'>
+{/* <h1>{message}</h1> */}
+{/* <Cards   img={posts.Image.url} prise={posts.Price} /> */}
 
 
                 <div className="row">
@@ -93,38 +189,10 @@ console.log(err);
                             <Rating />
                             <span className=" mx-2">|</span>
                             <AddReview/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <div className="d-flex flex-row">
                             <h3>{posts.Price} eg</h3>
-                            <Quantity />
+                            <Quantity changeConter={changeMessage} />
 
                         </div>
                         <div>
@@ -133,13 +201,9 @@ console.log(err);
                                 <option value="saab">400 gm</option>
                             </select>
                         </div>
-                        <button  class="btn d-block  w-75 my-2  button-prod"  style={{backgroundColor:'rgb(111, 60, 46)' ,color:"white"}} > add to cart</button>
-                        {/* <button class="btn btn-primary w-75  border-0 button-prod2"> One click order</button> */}
-                        {/* <div class="alert alert-secondary w-75" >
-                            <p class="m-0"> <span class="fw-semibold">Shipment Fees :</span>  15 EGP</p>
-                            <p class="m-0"><span class="fw-semibold">Address :</span>  ,,,,,,llllk-جرين ٤-Egypt</p>
 
-                        </div> */}
+                        <button onClick={()=>addToCart(posts._id)}   disabled={message==0 ? true : false} class="btn d-block  w-75 my-2  button-prod"  style={{backgroundColor:'rgb(111, 60, 46)' ,color:"white"}} > add to cart</button>
+                      
 
                         <div class="alert m-0 alert-secondary d-flex justify-content-around p-0" style={alerth} role="alert">
 
@@ -165,7 +229,7 @@ console.log(err);
 
 
                             <div>
-                                <p class="ms-auto"><AiOutlineHeart />Add To Wish list</p>
+                                <p onClick={()=>addToFav(posts._id)} class="ms-auto"><AiOutlineHeart />Add To Wish list</p>
                             </div>
 
 

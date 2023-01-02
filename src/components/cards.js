@@ -16,36 +16,11 @@ const Cards = (props) => {
   const dispatch = useDispatch()
   const defult = {
     name: "Coodkies Elabd chocolate 6pcs",
-    // // img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
-    img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
+     img: "https://elabd.blob.core.windows.net/elabdcontainer/243efe18-09a4-4590-9c5e-1e163e8e0082-638016172405728241.jpeg",
     prise: "45"
   }
   const tokenFromLocal = localStorage.getItem("myAccessToken")
-  // useEffect(() => {
-  //   axios({  
-  //   // Endpoint to send files
-  //   url: "http://localhost:5200/api/elabdfoods/Cart",
-  //   method: "GET",
-  //   headers: {
-  //     // Add any auth token here
-  //     token:`token ${tokenFromLocal}`  
-  //     },
-  //   // Attaching the form data
-  //   // data: formData,
-  //   })
-  //   // Handle the response from backend here
-  //   .then((res) => {
-
-  //       // console.log(res.data);
-  //       setPosts(res.data);
-  //       let lngth = res.data.length
-  //       dispatch(changeCounter((lngth)))
-
-  //   })
-  //   // Catch errors if any
-  //   .catch((err) => { });
-  //   },[])
-
+ 
   function addToFav(_id) {
     const userData = {
       ProductID: _id,
