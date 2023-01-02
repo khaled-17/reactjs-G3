@@ -165,7 +165,9 @@ const CategoryID = (props) => {
 
                                 {isLoading ? (
                                     <Loader/>):
-                                     (posts.filter((c) => c.Price < 70  ).map((item) =>
+                                     (posts
+                                    //  .filter((c) => c.Price < 70  )
+                                     .map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 
                                         <div className='p-1 col-6 col-sm-6 col-md-4 col-lg-4' >

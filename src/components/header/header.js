@@ -157,7 +157,7 @@ const Header = () => {
                     onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatEnName} menuVariant="light">
                     <div style={{ width: "500px" }} >
                       {subCategories.map((subCategorie, index) => {
-                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
+                          return <NavDropdown.Item id="item" href={`/CategoryID?Categorie=${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.EnsubCatName}</NavDropdown.Item>
                       })}
                     </div>
                   </NavDropdown>
@@ -168,7 +168,7 @@ const Header = () => {
                     onMouseEnter={e => showDropdown1(e.target, categorie._id, index)} onMouseLeave={hideDropdown1} key={categorie._id} title={categorie.CatArName} menuVariant="light">
                     <div style={{ width: "500px" }} >
                       {subCategories.map((subCategorie, index) => {
-                          return <NavDropdown.Item id="item" href={`/CategoryID/${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
+                          return <NavDropdown.Item id="item" href={`/CategoryID?Categorie=${categorie._id}`} key={subCategorie._id}>{subCategorie.SubCat.ArsubCatName}</NavDropdown.Item>
                       })}
                     </div>
                   </NavDropdown>
