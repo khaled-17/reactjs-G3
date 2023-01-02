@@ -1,7 +1,9 @@
 
 const INITIAL_STATE = {
 
-    counter: 0
+    counter: 0,
+    lowcost:0,
+    hightcost:0
   
   }
   
@@ -11,7 +13,17 @@ const INITIAL_STATE = {
         
       case "SET-COUNTER":
         return { ...state, counter: action.payload }
+     
+        case "SET-lowcost":
+        return { ...state, lowcost: action.payload }
+     
+        case "SET-hightcost":
+        return { ...state, hightcost: action.payload }
   
+
+
+
+
       default:
         return { ...state }
     }

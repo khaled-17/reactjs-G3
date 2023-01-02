@@ -6,3 +6,21 @@ export function changeCounter(data){
 
     }
 }
+
+export function changelowcost(data){
+
+    return {
+        type:"SET-lowcost",
+        payload: data
+
+    }
+}
+
+export function changehightcost(data){
+
+    return {
+        type:"SET-hightcost",
+        payload: data
+
+    }
+}

@@ -9,9 +9,16 @@ import { useRef } from 'react';
 import CategoryID from './../../pages/CategoryID';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { changelowcost ,changehightcost} from './../../store/actions/counter';
 
 
 const Sidebar = () => {
+
+    const dispatch = useDispatch()
+    const Filter = useSelector((state) => state.counter.Filter)
+
+
 
     const { t } = useTranslation();
 
@@ -51,6 +58,8 @@ const Sidebar = () => {
         setChecked1(checkbox)
         console.log(checkbox);
     };
+
+
     const handleChange4 = (i) => {
         console.log(i)
         let checkbox = checked4.map((ischecked, index) => {
@@ -102,13 +111,18 @@ const Sidebar = () => {
     const ref2 = useRef([]);
     const ref3 = useRef([]);
 
-    const data = [inpValue1, inpValue2, value[0], value[1], ref1,ref2,ref3];
+    const data = [{inpValue1, inpValue2, value, ref1,ref2,ref3}];
 
     const handleSubmit = (e) => {
+        dispatch(changelowcost(value[0]))
+        dispatch(changehightcost(value[1]))
 
-        <CategoryID data={data} />
+        // <CategoryID data={data} />
+        console.log('data');//true
 
-        console.log(ref1.current.checked);//true
+        // console.log(ref1.current.checked);//true
+        // console.log(data);//true
+        // console.log(Filter[0]);//true
 
     }
     const params = useParams()   /////للتسهيل 
@@ -188,7 +202,9 @@ const Sidebar = () => {
             <div className="filtering__widget">
                 <div data-toggle="collapse" onClick={() => setOpen1(!open1)} aria-controls="example-collapse-text"
                     aria-expanded={open1} href="#catCollapse" role="button" className="filtering__widget-title mb-3 d-flex justify-content-between collapsed">
-                    <h5>{t('Categories')}</h5>
+                    {/* <h1>{Filter}</h1> */}
+                    <h5>{t('Categories')} </h5>
+
                     <i >{AiOutlineDown}</i>
                 </div>
                 <Collapse in={open1}>

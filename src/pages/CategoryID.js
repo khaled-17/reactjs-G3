@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom"
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-
 import Cards from './../components/cards';
 import Sidebar from './../components/sidebar/sidebar';
 import Header from './../components/header/header';
@@ -15,10 +14,23 @@ import axiosInstance from './../axios config/axiosInstance';
 import {
     BrowserRouter as Router, useParams,
 } from "react-router-dom";
+
+
+import { useDispatch, useSelector } from 'react-redux';
+
+
+
 const CategoryID = (props) => {
 
-    const [isLoading, setIsLoading] = useState(true);
 
+
+    const hightcost = useSelector((state) => state.counter.hightcost)
+    const store = useSelector((state) => state.counter)
+    const lowcost = useSelector((state) => state.counter.lowcost)
+     console.log(hightcost);
+     console.log(lowcost);  
+
+    const [isLoading, setIsLoading] = useState(true);
     const [posts, setPosts] = useState([]);
  
     const { id } = useParams();
@@ -28,14 +40,14 @@ const CategoryID = (props) => {
     const theCategorie = searchParams.get("Categorie")
     const theName = searchParams.get("name")
 
-    console.log(theCategorie,theName)
+//     console.log(theCategorie,theName)
 
-   if(theCategorie){
-    console.log('theCategorie')
+//    if(theCategorie){
+//     console.log('theCategorie')
     
-}else if(theName){
-       console.log('theName')
-   }
+// }else if(theName){
+//        console.log('theName')
+//    }
 
 
 
@@ -43,9 +55,10 @@ const CategoryID = (props) => {
 
 
     useEffect(() => {
-        if(theCategorie){
-            console.log('theCategorie')
+        // console.log(Filter[0].value);
 
+        if(theCategorie){
+            // console.log('theCategorie')
             axiosInstance.get("/Product", { params: { Categorie: `${theCategorie}` ,EnName:``} })
             .then((res) => {
                     console.log(res.data);
@@ -67,7 +80,7 @@ const CategoryID = (props) => {
 
             
         }else if(theName){
-               console.log('theName')
+            //    console.log('theName')
                axiosInstance.get("/Product", { params: { Categorie:'',EnName:`${theName}`} })
                .then((res) => {
                        console.log(res.data);
@@ -90,16 +103,16 @@ const CategoryID = (props) => {
 
            }
 
+        //    console.log(Filter[0].value);
 
 
       
 
-    }, [id,theCategorie,theName])
+    }, [id,theCategorie,theName,store])
 
 
     const languge = JSON.parse(localStorage.getItem('items'));
     
-    console.log(props.data);
 
  
 
@@ -166,7 +179,8 @@ const CategoryID = (props) => {
                                 {isLoading ? (
                                     <Loader/>):
                                      (posts
-                                    //  .filter((c) => c.Price < 70  )
+                                     .filter((c) => c.Price < hightcost  )
+                                     .filter((c) => c.Price > lowcost  )
                                      .map((item) =>
                                         // Presently we only fetch 
                                         // title from the API 

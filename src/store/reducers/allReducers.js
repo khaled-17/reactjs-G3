@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 import counterReducer from './counter';
+import changelowcost from './counter';
 // import favMoviesReducer from './favmovies';
 // import  moviesReducer  from './movies';
+import { changehightcost } from './../actions/counter';
 
 
 export default combineReducers({
     counter: counterReducer,
-    // favMovies:favMoviesReducer,
-    // Movies:moviesReducer
+    changelowcost:changelowcost,
+    changehightcost:changehightcost,
+     
 })
