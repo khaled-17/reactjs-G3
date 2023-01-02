@@ -294,7 +294,7 @@ function deleteHandler(id){
                         </div>
                         <div className="col-12">
                             <button className="btn  d-block mt-3 proceed-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal"> Complete Order</button>
-                            <Link to="/" className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</Link>
+                            <Link to="/Home" className="btn btn-primary-transparent d-block CONTINUE-btn rounded-0 mt-2">CONTINUE SHOPPING</Link>
                             <button className="btn btn- Remove-btn">Remove All</button>
 
                         </div>
